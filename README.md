@@ -1,11 +1,13 @@
 # Angular2.Samples
 *Sample Code for Angular 2.0*
+
 **To run the samples, first install all dependencies.**
-Simply go to samples root directory and type:
+
+Simply go to samples root directory, open a command line window and type:
 `npm install`
 
-Then type:
-`npm start` to open in browser
+To open in browser type:
+`npm start`
 
 Code was written with Visual Studio Code.
 
