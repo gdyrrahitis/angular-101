@@ -9,8 +9,6 @@ Simply go to samples root directory, open a command line window and type:
 To open in browser type:
 `npm start`
 
-Code was written with Visual Studio Code.
-
 # Contents
 
 ## Section 1
