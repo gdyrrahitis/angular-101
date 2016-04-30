@@ -6,7 +6,7 @@
 Simply go to samples root directory, open a command line window and type:
 `npm install`
 
-To open in browser type:
+After all dependencies are installed in node_modules folder, in cmd, type the following to open in browser:
 `npm start`
 
 # Contents
