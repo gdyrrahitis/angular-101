@@ -22,7 +22,7 @@ After all dependencies are installed in node_modules folder, in cmd, type the fo
 ## Section 2
 * 2.1 Directives
 * 2.2 Services
-* 2.3 Injecting Service into service
+* 2.3 Dependency Injection
 
 ## Section 3
 * 3.1 Metadata
