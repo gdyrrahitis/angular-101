@@ -1,6 +1,11 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #fff;
+}
+
+body.flash {
+    animation: flash 0.5s steps(3, start) infinite;
 }
 
 .header-section{
@@ -21,4 +26,10 @@ body {
 .list > .list-item {
     margin-top:5px;
     padding: 5px auto;
+}
+
+@keyframes flash {
+    to {
+        background-color: #000; 
+    }
 }
