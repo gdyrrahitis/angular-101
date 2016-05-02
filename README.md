@@ -3,6 +3,8 @@
 
 **To run the samples, first install all dependencies.**
 
+[Install nodejs](https://nodejs.org/en/download/)
+
 Simply go to samples root directory, open a command line window and type:
 `npm install`
 
