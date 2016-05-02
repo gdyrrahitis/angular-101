@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-12">
+        <hgroup>
+            <h3>Directives</h3>
+            <h4>Attribute and Structural</h4>
+        </hgroup>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Attribute Directives</h4>
+                <h5>Click pokemon 5 times in a row go to next level!  <span *ngIf="clicks">Clicked {{clicks}} {{clicks == 1 ? 'time': 'times'}}</span></h5>
+                <img pokeRender [initial]="pokemonName" [evolutions]="[pokemonNextEvolutionName]" width="300" height="300" class="img-thumbnail" (myOnClick)="myOnClickHandler($event)" />
+            </div>
+        </div>
+    </div>
+</div>
