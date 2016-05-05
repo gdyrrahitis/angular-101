@@ -10,7 +10,7 @@ import {EventBindingComponent} from "./../../Sections/Section1/101_1.5_Event_Bin
 import {TwoWayBindingComponent} from "./../../Sections/Section1/101_1.6_Two_Way_Binding/app/twowaybinding.component";
 import {DirectivesComponent} from "./../../Sections/Section2/101_2.1_Directives/app/directives.component";
 import {ServicesComponent} from "./../../Sections/Section2/101_2.2_Services/app/services.component";
-import {InjectingComponent} from "./../../Sections/Section2/101_2.3_Injecting_Service_into_Service/app/injecting.component";
+import {InjectingComponent} from "./../../Sections/Section2/101_2.3_Dependency_Injection/app/injecting.component";
 import {MetadataComponent} from "./../../Sections/Section3/101_3.1_Metadata/app/metadata.component";
 import {ChildsComponent} from "./../../Sections/Section3/101_3.2_Child_Components/app/childs.component";
 import {ViewChildComponent} from "./../../Sections/Section3/101_3.3_View_Child/app/viewchild.component";
