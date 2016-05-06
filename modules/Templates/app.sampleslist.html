@@ -1,57 +1,94 @@
 <div class="jumbotron">
     <div class="container">
-        <h1>101 Angular 2.0</h1>
-        <p>Samples</p>
+        <h1>Angular 2.0 101</h1>
+        <h4>Samples</h4>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-6">
-                <h2 class="header-section">Section 1</h2>
-                <hr />
-                <ul class="list-section">
-                    <li>1.1 <a [routerLink]="['Interpolation']">Interpolation</a></li>
-                    <li>1.2 <a [routerLink]="['NgIf']">NgIf</a></li>
-                    <li>1.3 <a [routerLink]="['NgFor']">NgFor</a></li>
-                    <li>1.4 <a [routerLink]="['PropertyBinding']">Property binding</a></li>
-                    <li>1.5 <a [routerLink]="['EventBinding']">Event Binding</a></li>
-                    <li>1.6 <a [routerLink]="['TwoWayBinding']">Two way binding</a></li>
-                </ul>
+            <div class="col-md-6 list-category text-primary">
+                <h2 class="title header-section">Section 1</h2>
+
+                <div class="list-group">
+                    <a [routerLink]="['Interpolation']" class="list-group-item">
+                        <div class="truncate pull-left">Interpolation</div>
+                    </a>
+                    <a [routerLink]="['NgIf']" class="list-group-item">
+                        <div class="truncate pull-left">NgIf</div>
+                    </a>
+                    <a [routerLink]="['NgFor']" class="list-group-item">
+                        <div class="truncate pull-left">NgFor</div>
+                    </a>
+                    <a [routerLink]="['PropertyBinding']" class="list-group-item">
+                        <div class="truncate pull-left">Property binding</div>
+                    </a>
+                    <a [routerLink]="['EventBinding']" class="list-group-item">
+                        <div class="truncate pull-left">Event Binding</div>
+                    </a>
+                    <a [routerLink]="['TwoWayBinding']" class="list-group-item">
+                        <div class="truncate pull-left">Two way binding</div>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h2 class="header-section">Section 2</h2>
-                <hr />
-                <ul class="list-section">
-                    <li>2.1 <a [routerLink]="['Directives']">Directives</a></li>
-                    <li>2.2 <a [routerLink]="['Services']">Services</a></li>
-                    <li>2.3 <a [routerLink]="['Injecting']">Dependency injection</a></li>
-                </ul>
+            <div class="col-md-6 list-category text-primary">
+                <h2 class="title header-section">Section 2</h2>
+                <div class="list-group">
+                    <a [routerLink]="['Metadata']" class="list-group-item">
+                        <div class="truncate pull-left">Metadata</div>
+                    </a>
+                    <a [routerLink]="['Directives']" class="list-group-item">
+                        <div class="truncate pull-left">Directives</div>
+                    </a>
+                    <a [routerLink]="['Pipes']" class="list-group-item">
+                        <div class="truncate pull-left">Pipes</div>
+                    </a>
+                    <a [routerLink]="['LifecycleHooks']" class="list-group-item">
+                        <div class="truncate pull-left">Lifecycle hooks</div>
+                    </a>
+                    <a [routerLink]="['Services']" class="list-group-item">
+                        <div class="truncate pull-left">Services</div>
+                    </a>
+                    <a [routerLink]="['Injecting']" class="list-group-item">
+                        <div class="truncate pull-left">Dependency injection</div>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <h2 class="header-section">Section 3</h2>
-                <hr />
-                <ul class="list-section">
-                    <li>3.1 <a [routerLink]="['Metadata']">Metadata</a></li>
-                    <li>3.2 <a [routerLink]="['Childs']">Child components</a></li>
-                    <li>3.3 <a [routerLink]="['ViewChild']">View child</a></li>
-                    <li>3.4 <a [routerLink]="['LifecycleHooks']">Lifecycle hooks</a></li>
-                    <li>3.5 <a [routerLink]="['Interaction']">Component interaction</a></li>
-                </ul>
+            <div class="col-md-6 list-category text-primary">
+                <h2 class="title header-section">Section 3</h2>
+                <div class="list-group">
+                    <a [routerLink]="['Childs']" class="list-group-item">
+                        <div class="truncate pull-left">Child components</div>
+                    </a>
+                    <a [routerLink]="['ViewChild']" class="list-group-item">
+                        <div class="truncate pull-left">View child</div>
+                    </a>
+                    <a [routerLink]="['Interaction']" class="list-group-item">
+                        <div class="truncate pull-left">Component interaction</div>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h2 class="header-section">Section 4</h2>
-                <hr />
-                <ul class="list-section">
-                    <li>4.1 <a [routerLink]="['Pipes']">Pipes</a></li>
-                    <li>4.2 <a [routerLink]="['Http']">Http</a></li>
-                    <li>4.3 <a [routerLink]="['Promises']">Promises</a></li>
-                    <li>4.4 <a [routerLink]="['AsyncPipe']">Async pipe</a></li>
-                    <li>4.5 <a [routerLink]="['Routing']">Routing</a></li>
-                    <li>4.6 <a [routerLink]="['HierarchicalRoutes']">Hierachical routes</a></li>
-                </ul>
+            <div class="col-md-6 list-category text-primary">
+                <h2 class="title header-section">Section 4</h2>
+                <div class="list-group">
+                    <a [routerLink]="['Http']" class="list-group-item">
+                        <div class="truncate pull-left">Http</div>
+                    </a>
+                    <a [routerLink]="['Promises']" class="list-group-item">
+                        <div class="truncate pull-left">Promises</div>
+                    </a>
+                    <a [routerLink]="['AsyncPipe']" class="list-group-item">
+                        <div class="truncate pull-left">Async pipe</div>
+                    </a>
+                    <a [routerLink]="['Routing']" class="list-group-item">
+                        <div class="truncate pull-left">Routing</div>
+                    </a>
+                    <a [routerLink]="['HierarchicalRoutes']" class="list-group-item">
+                        <div class="truncate pull-left">Hierachical routes</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
