@@ -3,9 +3,10 @@ import {Technique} from "../models/technique.model";
 import {Type} from "../enums/type.enum";
 
 @Injectable()
-export class TechniquesService implements OnInit {
+export class TechniquesService {
     private techniques: Technique[];
-    ngOnInit() {
+    
+    constructor() { 
         this.techniques = [
             new Technique(1, "Thunderbolt", Type.Electric, 20),
             new Technique(2, "Tackle", Type.Normal, 8),
@@ -16,7 +17,7 @@ export class TechniquesService implements OnInit {
             new Technique(7, "Mega Punch", Type.Fighting, 52)
         ];
     }
-
+    
     getTechniques(): Technique[] {
         return this.techniques;
     }

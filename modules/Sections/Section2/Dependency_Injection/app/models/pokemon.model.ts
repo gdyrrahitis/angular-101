@@ -9,16 +9,19 @@ export class Pokemon {
     type: Type[];
     name: string;
     nickname: string;
+    imageName; string;
     
     constructor (name:string, 
                 level: number, 
                 healthPoints: number, 
                 techniques: Technique[], 
-                type: Type[]) {
+                type: Type[],
+                imageName: string) {
         this.name = name;
         this.level = level;
         this.healthPoints = healthPoints;
         this.techniques = techniques;
         this.type = type;
+        this.imageName = imageName;
     }
 }
