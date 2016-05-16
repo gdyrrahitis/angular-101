@@ -16,12 +16,27 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="{{pokemon.name}}ModalLabel">{{pokemon.name}} techniques</h4>
+                                        <h4 class="modal-title" id="{{pokemon.name}}ModalLabel"><strong><em>{{pokemon.name}}&apos;s</em></strong> techniques</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="col-md-12" *ngFor="#technique of pokemon.techniques">
-                                                {{technique.name}}
+                                            <div class="col-md-12">
+                                                <table class="table table-hover table-condensend">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Type</th>
+                                                            <th>Damage</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="#technique of pokemon.techniques">
+                                                            <td>{{technique.name}}</td>
+                                                            <td><span [class]="'label label-'+getContextualColorByType(technique.type)">{{getEnumText(technique.type)}}</span></td>
+                                                            <td><span class="badge">{{technique.hitPoints}}</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -33,9 +48,9 @@
                             <a class="anchor">
                                 <img [src]="pokemon.imageName" [alt]="pokemon.name" class="img-rounded img-thumbnail">
                             </a>
-                            <figcaption>{{pokemon.name}}
+                            <figcaption [class]="'border-'+getContextualColorByType(pokemon.type[0])">{{pokemon.name}}
                                 <div class="clearfix">
-                                    <a class="anchor" (click)="openModal(pokemon)"><img src="https://maxcdn.icons8.com/Color/PNG/24/Gaming/pokeball-24.png" title="Pokeball"
+                                    <a class="anchor" (click)="openModal(pokemon)"><img src="https://maxcdn.icons8.com/Color/PNG/24/Gaming/pokeball-24.png" title="{{pokemon.name}}'s techniques"
                                             width="24"></a>
                                 </div>
                             </figcaption>
