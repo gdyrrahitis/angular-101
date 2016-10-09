@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-12">
+        <hgroup>
+            <h3>Metadata</h3>
+            <h4>Component metadata</h4>
+        </hgroup>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead">Metadata describes the objects we build. A great example is a component, which has numerous metadata information,
+                    like the templateUrl, styleUrls, directives, providers, etc.
+                    <code>
+                        <pre>
+@Component({
+    selector: "directives",
+    styleUrls: ["./metadata.component"],
+    directives: [PokemonDirective],
+    providers: [PokemonService],
+    templateUrl: "./metadata.component.html"
+})
+export class MetadataComponent {
+    // Code here...
+}
+                        </pre>
+                    </code>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" *ngFor="#pokemon of _pokemons">
+                <figure class="figure-pokemon">
+                    <a class="anchor">
+                        <img legendary />
+                    </a>
+                    <figcaption>{{pokemon.name}}
+                        <div class="clearfix">
+                            <img src="https://maxcdn.icons8.com/Color/PNG/24/Gaming/pokeball-24.png" title="{{pokemon.name}}'" width="24">
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
