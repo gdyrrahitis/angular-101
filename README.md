@@ -1,6 +1,8 @@
 # Angular2.Samples
 *Sample Code for Angular 2.0*
 
+Code is in-line with Angular2 final version.
+
 **To run the samples, first install all dependencies.**
 
 [Install nodejs](https://nodejs.org/en/download/)
@@ -40,3 +42,6 @@ After all dependencies are installed in node_modules folder, in cmd, type the fo
 * 4.4 Async pipe
 * 4.5 Routing
 * 4.6 Hierachical routes
+
+# Tests
+*documentation pending*
