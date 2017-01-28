@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser"; 
 
-import { AppComponent, AppHeaderComponent, SamplesListComponent }   from './Components/index';
+import { AppComponent, HeaderComponent, SamplesListComponent }   from './components/index';
+
+let router = RouterModule.forRoot([
+    {
+        path: 'home',
+        component: SamplesListComponent
+    }
+]);
 
 @NgModule({
-    imports: [BrowserModule],
-    declarations: [AppComponent, AppHeaderComponent, SamplesListComponent],
+    imports: [BrowserModule, router],
+    declarations: [AppComponent, HeaderComponent, SamplesListComponent],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class NameModule { }
+export class AppModule { }
