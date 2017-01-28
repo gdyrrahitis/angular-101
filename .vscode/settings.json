@@ -1,11 +1,14 @@
 {
     "files.exclude": {
         "node_modules": true,
-        "modules/**/.js": true,
-        "modules/**/.js.map": true,
+        "**/*/.map": true,
         "**/.git": true,
+        "*/**/.map": true,
+        "*/samples/**/*.js": true,
+        "*/app/**/*.js": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true
-    }
+    },
+    "typescript.check.workspaceVersion": false
 }
