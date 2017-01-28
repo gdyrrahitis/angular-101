@@ -1,0 +1,24 @@
+<hr />
+<footer>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                    <img [src]="gravatarUrl" alt="George Dyrrachitis" class="media-object img-rounded" height="50" />
+                </div>
+                <div class="media-body">
+                    <h4>George Dyrrachitis</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <ul class="list list-unstyled">
+                <li class="list-item"><a class="twitter-follow-button" [href]="twitterHandle">Follow @giorgosdyrra</a></li>
+                <li class="list-item">
+                    <!--TODO: Add sanitizer through pipes-->
+                    <iframe [src]="githubUrl | safe" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
