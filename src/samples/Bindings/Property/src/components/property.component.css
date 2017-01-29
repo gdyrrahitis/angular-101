@@ -1,14 +1,3 @@
-.showPokemon {
-    display: block!important;
-    visibility: visible;
-}
-
-.hidePokemon {
-    display: none!important;
-    visibility: hidden;
-}
-
-.bg-pokemon{
-    background-size: 150px;
+.bg-flag{
     background-repeat: no-repeat;
 }
