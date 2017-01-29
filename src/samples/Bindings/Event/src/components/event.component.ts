@@ -1,109 +1,81 @@
-import {Component} from "angular2/core";
-type pokemon = { type: string, name: string };
+import { Component } from "@angular/core";
+import { ICountry, IContinent } from "../../../../../app/models/index";
 
 @Component({
+    moduleId: module.id,
     selector: "event-binding",
-    templateUrl: "modules/Sections/Section1/Event_Binding/templates/eventbinding.component.html",
-    styleUrls: ["modules/Sections/Section1/Event_Binding/styles/eventbinding.style.css"]
+    templateUrl: "./event.component.html",
+    styleUrls: ["./event.component.css"]
 })
-export class EventBindingComponent {
+export class EventComponent {
 
     changedElement: any;
     clickedElement: any;
-    pokemons: pokemon[];
-    imagesPath; string;
-    selectedType: string;
-    pokeball: string;
-    pcStoredPokemons: pokemon[];
+    countries: ICountry[];
+    imagesPath: string;
+    continent: IContinent;
+    continents: IContinent[] = [];
 
-    selectedFromAvailable: pokemon;
-    selectedFromStored: pokemon;
+    selectedContinent: IContinent;
+    continentToSwap: IContinent;
 
     constructor() {
-        this.pokeball = "pokeball";
-        this.imagesPath = "modules/Content/images";
-        this.pokemons = [{ type: "electric", name: "pikachu" }, { type: "fire", name: "charmander" }, { type: "water", name: "squirtle" }];
-        this.pcStoredPokemons = [{ type: "air", name: "pidgey" }, { type: "normal", name: "jigglypuff" }];
+        this.imagesPath = "http://flagpedia.net/data/flags/normal/$P0.png";
+        this.countries = [
+            { code: "gb", name: "United Kingdom", continent: { name: "Europe" } },
+            { code: "ie", name: "Ireland", continent: { name: "Europe" } },
+            { code: "ch", name: "Switzerland", continent: { name: "Europe" } },
+            { code: "us", name: "USA", continent: { name: "America" } },
+            { code: "ca", name: "Canada", continent: { name: "America" } },
+            { code: "cn", name: "China", continent: { name: "Asia" } },
+            { code: "in", name: "India", continent: { name: "Asia" } }
+        ];
+
+        var names = new Set(this.countries.map(c => c.continent.name));
+        names.forEach(c => this.continents.push({ name: c }));
+
+        this.selectedContinent = this.continents[0];
     }
 
-    getSrcForSelected(pokemon: pokemon): string {
-        if (!this.selectedType) return this.imagesPath + '/' + this.pokeball + '.png';
-        if (pokemon.type !== this.selectedType) return this.imagesPath + '/' + this.pokeball + '.png';
-
-        let selectedPokemon = this.pokemons.find((value: pokemon) => {
-            return value.type === this.selectedType;
-        });
-
-        return this.imagesPath + '/' + selectedPokemon.name + '.png'
-    }
-
-    select($event) {
-        this.selectedType = $event.target.id;
+    setSelectedContinent($event, continent: IContinent) {
         this.clickedElement = $event.target;
+        this.continent = continent;
+    }
+
+    getCountriesBySelectedContinent(): ICountry[] {
+        return this.getCountriesByContinent(this.continent);
+    }
+
+    getCountriesByContinent(continent: IContinent): ICountry[] {
+        return this.countries.filter(c => c.continent.name === continent.name);
+    }
+
+    getSrcForCountry(country: ICountry): string {
+        return this.imagesPath.replace("$P0", country.code);
     }
 
     clear($event) {
-        this.selectedType = null;
+        this.continent = null;
         this.clickedElement = $event.target;
-    }
-
-    capitalizeFirstLetter(input: string) {
-        return input.replace(input.charAt(0), input.charAt(0).toUpperCase());
     }
 
     getCurrentTime() {
         return (new Date()).toLocaleString();
     }
 
-    getSelectedFromAvailablePokemon() {
-        return this.selectedFromAvailable ? this.selectedFromAvailable.name : "";
+    changeShowingList($event) {
+        this.continentToSwap = this.continents.filter(c => c.name == $event.target.value)[0];
+        this.changedElement = $event.target;
     }
 
-    getSelectedFromStoredPokemon() {
-        return this.selectedFromStored ? this.selectedFromStored.name : "";
-    }
-
-    changeAvailablePokemon($event) {
-        this.changedElement = $event;
-        if ($event.target.selectedOptions[0].value === "-1") return;
-        let pokemon = this.pokemons.find((value: pokemon) => {
-            return value.name == $event.target.selectedOptions[0].value;
-        });
-        this.selectedFromAvailable = pokemon;
-    }
-
-    changeStoredPokemon($event) {
-        this.changedElement = $event;
-        if ($event.target.selectedOptions[0].value === "-1") return;
-        let pokemon = this.pcStoredPokemons.find((value: pokemon) => {
-            return value.name == $event.target.selectedOptions[0].value;
-        });
-        this.selectedFromStored = pokemon;
+    getContinentsExceptFromSelected() {
+        if (typeof this.selectedContinent !== "undefined") {
+            return this.continents.filter(c => c.name !== this.selectedContinent.name);
+        }
     }
 
     swap() {
-        if (!this.selectedFromAvailable || !this.selectedFromStored) return;
-        console.log("Available pokemon: " + JSON.stringify(this.selectedFromAvailable));
-        console.log("Stored pokemon: " + JSON.stringify(this.selectedFromStored));
-
-        let indexOfAvailable = this.pokemons.indexOf(this.selectedFromAvailable);
-        let indexOfStored = this.pcStoredPokemons.indexOf(this.selectedFromStored);
-
-        this.pokemons.splice(indexOfAvailable, 1, this.selectedFromStored);
-        this.pcStoredPokemons.splice(indexOfStored, 1, this.selectedFromAvailable);
-
-        this.selectedFromStored = null;
-        this.selectedFromAvailable = null;
-    }
-
-    getColorFromType(type: string) {
-        switch (type) {
-            case "electric": return "btn-warning";
-            case "fire": return "btn-danger";
-            case "water": return "btn-info";
-            case "air": return "btn-success";
-            case "normal": return "btn-default";
-            default: return "";
-        }
+        this.selectedContinent = this.continentToSwap;
+        this.continentToSwap = null;
     }
 }

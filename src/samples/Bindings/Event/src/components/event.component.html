@@ -1,9 +1,7 @@
 <div class="row">
     <div class="col-md-12">
-        <hgroup>
-            <h3>Event binding</h3>
-            <h4>Binding from view to component</h4>
-        </hgroup>
+        <h3>Event binding</h3>
+        <h4>Binding from view to component</h4>
         <hr />
         <div class="row">
             <div class="col-md-12">
@@ -12,25 +10,25 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="panel-title">Choose a pokemon from its type</h3>
+                                <h3 class="panel-title">Choose countries by continent</h3>
                             </div>
                             <div class="col-md-6">
-                                <div class="btn-group" role="group" aria-label="Pokemon types">
-                                    <button *ngFor="#pokemon of pokemons" [id]="pokemon.type" type="button" class="btn" [ngClass]="getColorFromType(pokemon.type)" (click)="select($event)">{{capitalizeFirstLetter(pokemon.type)}}</button>
-                                    <button type="button" class="btn btn-primary" (click)="clear($event)">Clear</button>
+                                <div class="btn-group" role="group" aria-label="Continents">
+                                    <button *ngFor="let continent of continents" [id]="continent.name" type="button" class="btn" (click)="setSelectedContinent($event, continent)">{{continent.name}}</button>
+                                    <button id="Clear" type="button" class="btn btn-primary" (click)="clear($event)">Clear</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" *ngIf="continent">
                         <div class="row">
-                            <div class="col-md-4" *ngFor="#pokemon of pokemons">
+                            <div class="col-md-4" *ngFor="let country of getCountriesBySelectedContinent()">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">{{capitalizeFirstLetter(pokemon.name)}}::{{capitalizeFirstLetter(pokemon.type)}}</h3>
+                                        <h3 class="panel-title">{{country.name}}</h3>
                                     </div>
                                     <div class="panel-body text-center">
-                                        <img [src]="getSrcForSelected(pokemon)" alt="{{pokemon}}" [width]="100" [height]="100">
+                                        <img [src]="getSrcForCountry(country)" alt="{{country.name}}" class="flag">
                                     </div>
                                 </div>
                             </div>
@@ -41,36 +39,27 @@
                     </div>
                 </div>
 
-                <!--replace pokemon-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-5">
-                                <h3 class="panel-title">Replace pokemon from inventory with other available</h3>
+                            <div class="col-md-4">
+                                <h3 class="panel-title">Show countries by continent</h3>
+                                <h5 *ngIf="selectedContinent">Showing {{selectedContinent.name}}'s countries</h5>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-8">
                                 <div class="row">
                                     <form class="form-inline">
-                                        <div class="col-sm-4">
-                                            <label for="AvailableList">Available</label>
-                                            <select id="AvailableList" (change)="changeAvailablePokemon($event)">
-                                                <option value="-1">Select from below..</option>
-                                                <option *ngFor="#pokemon of pokemons" [value]="pokemon.name">
-                                                    <a class="point">{{capitalizeFirstLetter(pokemon.name)}}</a>
+                                        <div class="col-sm-5">
+                                            <label for="ShowingList" *ngIf="continentToSwap">Swapping to {{continentToSwap.name}}'s countries</label>
+                                            <select id="ShowingList" (change)="changeShowingList($event)">
+                                                <option value="-1">Select from below...</option>
+                                                <option *ngFor="let continent of getContinentsExceptFromSelected()" [value]="continent.name">
+                                                    <a class="point">{{continent.name}}</a>
                                                 </option>
                                             </select>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <label for="StoredList">Stored</label>
-                                            <select id="StoredList" (change)="changeStoredPokemon($event)">
-                                                <option value="-1">Select from below..</option>
-                                                <option *ngFor="#pokemon of pcStoredPokemons" [value]="pokemon.name">
-                                                    <a class="point">{{capitalizeFirstLetter(pokemon.name)}}</a>
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <button class="btn btn-primary" (click)="swap()">Swap</button>
+                                        <div class="col-sm-3">
+                                            <button class="btn btn-primary" (click)="swap()" [disabled]="!continentToSwap">Swap</button>
                                         </div>
                                     </form>
                                 </div>
@@ -79,20 +68,20 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4" *ngFor="#pokemon of pcStoredPokemons">
+                            <div class="col-md-4" *ngFor="let country of getCountriesByContinent(selectedContinent)">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">{{capitalizeFirstLetter(pokemon.name)}}::{{capitalizeFirstLetter(pokemon.type)}}</h3>
+                                        <h3 class="panel-title">{{country.name}}</h3>
                                     </div>
                                     <div class="panel-body text-center">
-                                        <img [src]="imagesPath+'/'+pokemon.name+'.png'" alt="{{pokemon}}" [width]="100" [height]="100">
+                                        <img [src]="getSrcForCountry(country)" alt="{{country.name}}" class="flag">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="panel-footer" *ngIf="changedElement">
-                        Changed element in select list value={{changedElement.target.selectedOptions[0].value}} at {{getCurrentTime()}}
+                        Changed element in select list value={{changedElement.selectedOptions[0].value}} at {{getCurrentTime()}}
                     </div>
                 </div>
             </div>

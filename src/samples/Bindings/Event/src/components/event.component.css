@@ -1,3 +1,8 @@
 .point {
     cursor: pointer;
 }
+
+.flag{
+    width: 250;
+    height: 150;
+}

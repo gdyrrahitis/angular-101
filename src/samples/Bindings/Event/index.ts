@@ -1,1 +1,1 @@
-export * from "./app/eventbinding.component";
+export * from "./src/components/event.component";
