@@ -1,1 +1,1 @@
-export * from "./app/twowaybinding.component";
+export * from "./src/components/twoWay.component";

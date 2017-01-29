@@ -1,39 +1,41 @@
 <div class="row">
     <div class="col-md-12">
-        <hgroup>
-            <h3>Two way binding</h3>
-            <h4>Binding from view to component and vice versa</h4>
-        </hgroup>
+        <h3>Two way binding</h3>
+        <h4>Binding from view to component and vice versa</h4>
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <h4>Add a nickname to pokemon</h4>
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Enter nickname</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="#pokemon of pokemons">
-                            <td class="text-center">
-                                <img [src]="imagesPath+'/'+pokemon.name+'.png'" [alt]="pokemon.name" [width]="100" [height]="100" />
-                            </td>
-                            <td>
-                                <h4>{{capitalizeFirstLetter(pokemon.name)}} <span *ngIf="pokemon.nickname">({{pokemon.nickname}})</span></h4>
-                            </td>
-                            <td>
-                                <h4><span class="label" [ngClass]="getColorForType(pokemon.type)">{{capitalizeFirstLetter(pokemon.type)}}</span></h4>
-                            </td>
-                            <td>
-                                <input [(ngModel)]="pokemon.nickname" class="form-control" type="text" [placeholder]="'Enter a nickname for '+capitalizeFirstLetter(pokemon.name)" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h4>Working with countries</h4>
+                <form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="isoAlpha2">Enter ISO Alpha2 country code to get info about country</label>
+                                <input [(ngModel)]="code" name="code" type="text" id="isoAlpha2" class="form-control" maxlength="2" placeholder="For example: us">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="freeText">Say something for that country...</label>
+                                <textarea [(ngModel)]="description" name="description" rows="5" cols="3" id="freeText" class="form-control" placeholder="Enter text here..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <h4>What you type goes here...</h4>
+            <div class="col-md-3">
+                <h5>Flag</h5>
+                <strong *ngIf="!code">Please enter a valid country code...</strong>
+                <img *ngIf="code" [src]="getFlagByCode(code)" [alt]="code" class="flag img-rounded" />
+            </div>
+            <div class="col-md-9" *ngIf="description">
+                <h5>Description</h5>
+                <div class="well">
+                    {{description}}
+                </div>
             </div>
         </div>
     </div>

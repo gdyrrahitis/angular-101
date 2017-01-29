@@ -1,33 +1,22 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
+import { getAlpha2Codes } from "i18n-iso-countries";
+
 type pokemon = { type: string, name: string, nickname?: string };
 
 @Component({
+    moduleId: module.id,
     selector: "twoway-binding",
-    templateUrl: "modules/Sections/Section1/Two_Way_Binding/templates/twowaybinding.component.html"
+    templateUrl: "./twoWay.component.html",
+    styleUrls: ["./twoWay.component.css"]
 })
-export class TwoWayBindingComponent {
-    pokeball: string;
-    imagesPath: string;
-    pokemons: pokemon[];
+export class TwoWayComponent {
+    url: string;
 
     constructor() {
-        this.pokeball = "pokeball";
-        this.imagesPath = "modules/Content/images";
-        this.pokemons = [{ type: "electric", name: "pikachu" }, { type: "fire", name: "charmander" }, { type: "water", name: "squirtle" }];
+        this.url = "http://flagpedia.net/data/flags/normal/$P0.png";
     }
 
-    getColorForType(type: string) {
-        switch (type) {
-            case "electric": return "btn-warning";
-            case "fire": return "btn-danger";
-            case "water": return "btn-info";
-            case "air": return "btn-success";
-            case "normal": return "btn-default";
-            default: return "";
-        }
-    }
-    
-    capitalizeFirstLetter(input: string) {
-        return input.replace(input.charAt(0), input.charAt(0).toUpperCase());
+    getFlagByCode(code: string) {
+        return this.url.replace("$P0", code);
     }
 }

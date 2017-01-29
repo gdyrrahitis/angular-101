@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
 // TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
-import { PropertyComponent } from "../samples/Bindings/Property/index";
-import { EventComponent } from "../samples/Bindings/Event/index";
+import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -26,11 +26,15 @@ let router = RouterModule.forRoot([
     {
         path: 'binding/event',
         component: EventComponent
+    },
+    {
+        path: 'binding/two-way',
+        component: TwoWayComponent
     }
 ]);
 
 @NgModule({
-    imports: [BrowserModule, router],
+    imports: [BrowserModule, router, FormsModule],
     declarations: [
         AppComponent,
         HeaderComponent,
@@ -38,6 +42,7 @@ let router = RouterModule.forRoot([
         FooterComponent,
         PropertyComponent,
         EventComponent,
+        TwoWayComponent,
         SafePipe],
     providers: [],
     bootstrap: [AppComponent]
