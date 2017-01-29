@@ -1,1 +1,1 @@
-export * from "./app/propertybinding.component";
+export * from "./src/components/index";

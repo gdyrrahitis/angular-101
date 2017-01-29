@@ -2,7 +2,9 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
 
+// TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
+import { PropertyComponent } from "../samples/Bindings/Property/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -15,6 +17,10 @@ let router = RouterModule.forRoot([
     {
         path: 'home',
         component: SamplesListComponent
+    },
+    {
+        path: 'binding/property',
+        component: PropertyComponent
     }
 ]);
 
@@ -25,6 +31,7 @@ let router = RouterModule.forRoot([
         HeaderComponent,
         SamplesListComponent, 
         FooterComponent,
+        PropertyComponent,
         SafePipe],
     providers: [],
     bootstrap: [AppComponent]

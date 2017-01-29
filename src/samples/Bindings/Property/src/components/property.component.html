@@ -1,9 +1,7 @@
 <div class="row">
     <div class="col-md-12">
-        <hgroup>
-            <h3>Property binding</h3>
-            <h4>One way binding</h4>
-        </hgroup>
+        <h3>Property binding</h3>
+        <h4>One way binding</h4>
         <hr />
         <div class="row">
             <div class="col-md-12">
@@ -14,20 +12,20 @@
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title" [innerText]="pokeballTitle"></h3>
+                                        <h3 class="panel-title" [innerText]="unitedKingdomTitle"></h3>
                                     </div>
                                     <div class="panel-body text-center">
-                                        <img [src]="imagesPath+'/'+pokeball" [alt]="pokeball" [width]="imageWidth" [height]="imageHeight">
+                                        <img [src]="unitedKingdomFlag" [alt]="unitedKingdomTitle" [width]="imageWidth" [height]="imageHeight">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title" [innerText]="pikachuTitle"></h3>
+                                        <h3 class="panel-title" [innerText]="usaTitle"></h3>
                                     </div>
                                     <div class="panel-body text-center">
-                                        <img [src]="imagesPath+'/'+pikachu" [alt]="pikachu" [style.width]="imageWidth" [style.height]="imageHeight">
+                                        <img [src]="usaFlag" [alt]="usaTitle" [style.width]="imageWidth" [style.height]="imageHeight">
                                     </div>
                                 </div>
                             </div>
@@ -41,18 +39,18 @@
             <div class="col-md-12">
                 <h4>Bind properties conditionally</h4>
                 <p>
-                    <button class="btn" (click)="selectedPokemon ? selectedPokemon=null: selectedPokemon=pikachu" [innerText]="selectedPokemon ? 'Back to pokeball' : 'Choose it'"
-                        [ngClass]="selectedPokemon ? 'btn-danger': 'btn-success'"></button>
+                    <button class="btn" (click)="flagToggle ? flagToggle=null: flagToggle=unitedKingdomFlag" [innerText]="flagToggle ? 'Change to US' : 'Change to UK'"
+                        [ngClass]="flagToggle ? 'btn-primary': 'btn-info'"></button>
                 </p>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title" [innerText]="selectedPokemon ? pikachuTitle: pokeballTitle"></h3>
+                                <h3 class="panel-title" [innerText]="flagToggle ? unitedKingdomTitle: usaTitle"></h3>
                             </div>
                             <div class="panel-body text-center">
-                                <img [src]="selectedPokemon ? imagesPath+'/'+pikachu : imagesPath+'/'+pokeball" [alt]="selectedPokemon ? pikachu : pokeball"
-                                    [width]="imageWidth" [height]="imageHeight">
+                                <img [src]="flagToggle ? unitedKingdomFlag : usaFlag" [alt]="flagToggle ? unitedKingdomFlag : usaFlag" [width]="imageWidth"
+                                    [height]="imageHeight">
                             </div>
                         </div>
                     </div>
@@ -71,11 +69,11 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title" [innerText]="backgroundToggle ? pikachuTitle: pokeballTitle"></h3>
+                                <h3 class="panel-title" [innerText]="backgroundToggle ? unitedKingdomTitle: usaTitle"></h3>
                             </div>
                             <div class="panel-body">
-                                <div class="bg-pokemon" [ngStyle]="backgroundToggle ? {'background-image': 'url('+imagesPath+'/'+pikachu+')'} : {'background-image': 'url('+imagesPath+'/'+pokeball+')'}" [title]="selectedPokemon ? pikachu : pokeball"
-                                    [style.width]="imageWidth" [style.height]="imageHeight">
+                                <div class="bg-pokemon" [ngStyle]="backgroundToggle ? {'background-image': 'url('+unitedKingdomFlag+')', 'background-size': dimensionsFull} : {'background-image': 'url('+usaFlag+')', 'background-size': dimensionsFull}" [title]="backgroundToggle ? unitedKingdomTitle : usaTitle"
+                                    [style.width]="imageWidth" [style.height]="imageHeight" [style.margin]="centerDisplay">
                             </div>
                         </div>
                     </div>
