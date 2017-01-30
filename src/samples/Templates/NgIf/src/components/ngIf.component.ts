@@ -1,8 +1,10 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
 @Component({
-    selector: "my-ngif",
-    templateUrl: "modules/Sections/Section1/NgIf/templates/ngif.component.html"
+    moduleId: module.id,
+    selector: "app-ngif",
+    templateUrl: "./ngif.component.html",
+    styleUrls: ["./ngIf.component.css"]
 })
 export class NgIfComponent {
     imagesPath: string;
@@ -11,9 +13,9 @@ export class NgIfComponent {
     chosen: boolean;
 
     constructor() {
-        this.imagesPath = "modules/Content/images/";
+        this.imagesPath = "http://flagpedia.net/data/flags/normal/";
         this.pokeball = "pokeball.png";
-        this.pikachu = "pikachu.png";
+        this.pikachu = "au.png";
         this.chosen = false;
     }
 }

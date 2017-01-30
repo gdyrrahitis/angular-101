@@ -1,1 +1,1 @@
-export * from "./app/ngif.component";
+export * from "./src/components/ngif.component";

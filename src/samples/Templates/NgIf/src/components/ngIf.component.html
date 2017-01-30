@@ -1,24 +1,24 @@
 <div class="row">
     <div class="col-md-12">
-        <hgroup>
-            <h3>NgIf</h3>
-            <h4>Conditionally add or remove elements from DOM</h4>
-        </hgroup>
+        <h3>NgIf</h3>
+        <h4>Conditionally add or remove elements from DOM</h4>
         <hr />
         <button class="btn btn-primary btn-large" (click)="chosen = !chosen">Toggle</button>
         <div class="row" *ngIf="!chosen">
             <div class="col-md-12">
-                <h4>Which Pokemon is in the pokeball???</h4>
+                <h4>Which country's flag is behind?</h4>
                 <a class="thumbnail">
-                    <img src="{{imagesPath+pokeball}}" alt="{{pokeball}}" width="500" heigth="500" />
+                    <div class="question-mark-container flag">
+                        <span class="question-mark">?</span>
+                    </div>
                 </a>
             </div>
         </div>
         <div class="row" *ngIf="chosen">
             <div class="col-md-12">
-                <h4>It is Pikachu!</h4>
+                <h4>It is Australia's!</h4>
                 <a class="thumbnail">
-                    <img src="{{imagesPath+pikachu}}" alt="{{pikachu}}" width="500" heigth="500" />
+                    <img src="{{imagesPath+pikachu}}" alt="{{pikachu}}" class="flag img-rounded" />
                 </a>
             </div>
         </div>

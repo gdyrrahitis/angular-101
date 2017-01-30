@@ -19,7 +19,6 @@
     "src/samples/Routing/",
     "src/samples/Services/",
     
-    "src/samples/Templates/NgFor",
-    "src/samples/Templates/NgIf"
+    "src/samples/Templates/NgFor"
   ]
 }

@@ -1,0 +1,27 @@
+.flag {
+    width: 350;
+    height: 250;
+}
+
+.question-mark-container{
+    border-radius: 5px;
+    background-color: #ccc;
+    margin: 0 auto;
+}
+
+.question-mark {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 8.5rem;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px #333;
+    position: relative;
+    top: 20%;
+    transition: color .8s ease-in-out;
+    text-decoration: none;
+}
+
+a.thumbnail:hover, a.thumbnail:active, a.thumbnail:focus{
+    text-decoration: none;
+}
