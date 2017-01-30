@@ -18,6 +18,8 @@
     "src/samples/Remote/",
     "src/samples/Routing/",
     "src/samples/Services/",
-    "src/samples/Templates/"
+    
+    "src/samples/Templates/NgFor",
+    "src/samples/Templates/NgIf"
   ]
 }

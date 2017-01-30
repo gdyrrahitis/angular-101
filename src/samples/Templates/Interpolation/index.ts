@@ -1,1 +1,1 @@
-export * from "./app/interpolation.component";
+export * from "./src/components/interpolation.component";

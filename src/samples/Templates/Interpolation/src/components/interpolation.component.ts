@@ -1,17 +1,19 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
 @Component({
-    selector: "interpolation",
-    templateUrl: "modules/Sections/Section1/Interpolation/templates/interpolation.component.html"
+    moduleId: module.id,
+    selector: "app-interpolation",
+    templateUrl: "./interpolation.component.html",
+    styleUrls: ["./interpolation.component.css"]
 })
 export class InterpolationComponent {
     imagesPath: string;
-    pokeball: string;
-    pikachu: string;
+    canada: string;
+    usa: string;
 
     constructor() {
-        this.imagesPath = "modules/Content/images";
-        this.pokeball = "pokeball.png";
-        this.pikachu = "pikachu.png";
+        this.imagesPath = "http://flagpedia.net/data/flags/normal/";
+        this.canada = "ca.png";
+        this.usa = "us.png";
     }
 }

@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 // TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
+import { InterpolationComponent } from "../samples/Templates/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -30,6 +31,10 @@ let router = RouterModule.forRoot([
     {
         path: 'binding/two-way',
         component: TwoWayComponent
+    },
+        {
+        path: 'templates/interpolation',
+        component: InterpolationComponent
     }
 ]);
 
@@ -43,6 +48,7 @@ let router = RouterModule.forRoot([
         PropertyComponent,
         EventComponent,
         TwoWayComponent,
+        InterpolationComponent,
         SafePipe],
     providers: [],
     bootstrap: [AppComponent]
