@@ -1,5 +1,4 @@
 import {Component} from "@angular/core";
-import { getAlpha2Codes } from "i18n-iso-countries";
 
 type pokemon = { type: string, name: string, nickname?: string };
 

@@ -17,8 +17,6 @@
     "src/samples/Components/",
     "src/samples/Remote/",
     "src/samples/Routing/",
-    "src/samples/Services/",
-    
-    "src/samples/Templates/NgFor"
+    "src/samples/Services/"
   ]
 }

@@ -1,15 +1,26 @@
-import {Component} from "angular2/core";
+import { Component } from "@angular/core";
+import { getName } from "i18n-iso-countries";
 
 @Component({
-    selector: "my-ngfor",
-    templateUrl: "modules/Sections/Section1/NgFor/templates/ngfor.component.html"
+    moduleId: module.id,
+    selector: "app-ngfor",
+    templateUrl: "./ngfor.component.html",
+    styleUrls: ["./ngFor.component.css"]
 })
 export class NgForComponent {
-    pokemonCaught: string[];
+    europe: string[];
+    america: string[];
+    asia: string[];
     imagesPath: string;
-    
-    constructor () {
-        this.imagesPath = "modules/Content/images/";
-        this.pokemonCaught = ["pikachu", "charmander", "squirtle"];
+
+    constructor() {
+        this.imagesPath = "http://flagpedia.net/data/flags/normal/";
+        this.europe = ["es", "de", "fr"];
+        this.america = ["br", "ar", "us"];
+        this.asia = ["cn", "th", "jp"];
+    }
+
+    getCountryNameBy(code: string): string {
+        return getName(code, "en");
     }
 }

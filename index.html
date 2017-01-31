@@ -18,7 +18,11 @@
     <script src="systemjs-config.js"></script>
     <!-- 2. Configure SystemJS -->
     <script>
-        System.import("app").catch(function(err) { console.log(err); });
+        System.import("json").then(function () {
+            return System.import("app").catch(function (err) { console.log(err); });
+        }).then(null, function (err) {
+            console.error("Oh no, error!", err);
+        });
     </script>
 </head>
 
