@@ -1,7 +1,5 @@
 import {Component} from "@angular/core";
 
-type pokemon = { type: string, name: string, nickname?: string };
-
 @Component({
     moduleId: module.id,
     selector: "twoway-binding",
