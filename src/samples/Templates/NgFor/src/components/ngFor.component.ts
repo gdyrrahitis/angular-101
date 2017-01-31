@@ -23,4 +23,8 @@ export class NgForComponent {
     getCountryNameBy(code: string): string {
         return getName(code, "en");
     }
+
+    getSrcFromCode(code: string): string {
+        return this.imagesPath + code + ".png";
+    }
 }
