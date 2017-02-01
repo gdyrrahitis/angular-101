@@ -7,6 +7,7 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
+import { ServicesComponent, BackgroundColorByTypeDirective, CountryService } from "../samples/Services/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -43,6 +44,10 @@ let router = RouterModule.forRoot([
     {
         path: 'templates/ngfor',
         component: NgForComponent
+    },
+        {
+        path: 'services/services',
+        component: ServicesComponent
     }
 ]);
 
@@ -62,8 +67,11 @@ let router = RouterModule.forRoot([
         NgIfComponent,
         NgForComponent,
 
+        ServicesComponent,
+        BackgroundColorByTypeDirective,
+
         SafePipe],
-    providers: [],
+    providers: [CountryService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

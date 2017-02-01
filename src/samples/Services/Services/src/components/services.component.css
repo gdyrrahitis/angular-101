@@ -1,29 +1,10 @@
-.pokemon-container {
-    width: 350px;
-    max-width: 400px;
+.flag-container {
+    width: 175px;
+    vertical-align: middle;
 }
 
-.technique-container {
-    width: 450px;
-    max-width: 450px;
-}
-
-
-.pokemon-image {
-    width: 50%;
-}
-
-.pokemon-details {
-    width: 50%;
-}
-
-.pokemon-type {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-}
-
-.text-top {
-    vertical-align: top;
+.flag {
+    height: 90px;
+    background-repeat: no-repeat;
+    background-size: 150px 90px;
 }

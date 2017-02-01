@@ -1,33 +1,24 @@
-import {Component, OnInit} from "angular2/core";
-// Importing the service
-import {PokemonService} from "./Services/pokemon.service";
-import {Pokemon, Technique, Type} from "./Models/pokemon.models";
-import {BackgroundColorByTypeDirective} from "./Directives/backgroundcolor.directive";
+import { Component, OnInit } from "@angular/core";
+import { CountryService, ICountry, Code } from "../../index";
 
 @Component({
-    selector: "directives",
-    templateUrl: "modules/Sections/Section2/Services/templates/services.component.html",
-    styleUrls: ["modules/Sections/Section2/Services/styles/services.component.css"],
-    // Added the imported service to this component providers, in order to be injected later
-    providers: [PokemonService],
-    directives: [BackgroundColorByTypeDirective]
+    moduleId: module.id,
+    selector: "app-services",
+    templateUrl: "./services.component.html",
+    styleUrls: ["./services.component.css"]
 })
 export class ServicesComponent implements OnInit {
-    pokemons: Pokemon[];
-    imagesDirectory: string;
-    
+    countries: ICountry[];
+
     // Injected service in constructor without using @inject decorator
-    // TypeScript does this by default
-    constructor(private _pokemonService: PokemonService) {
-        this.imagesDirectory = "modules/Content/images";
-     }
+    constructor(private _countryService: CountryService) { }
 
     ngOnInit() {
         // Calling service method
-        this.pokemons = this._pokemonService.getPokemons();
+        this.countries = this._countryService.getCountries();
     }
 
-    getNameFromTypeEnum(type: Type): string {
-        return Type[type];
+    getCodeNameFrom(code: Code): string {
+        return Code[code];
     }
 }
