@@ -3,5 +3,7 @@ export * from "./src/enums/Code";
 export * from "./src/enums/Location";
 export * from "./src/models/Continent";
 export * from "./src/models/Country";
+export * from "./src/models/Color";
 export * from "./src/services/continent.service";
 export * from "./src/services/countries.service";
+export * from "./src/services/color.service";

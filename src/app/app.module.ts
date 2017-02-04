@@ -8,7 +8,7 @@ import { HttpModule } from "@angular/http";
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
-import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent } from "../samples/Services/index";
+import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -77,7 +77,7 @@ let router = RouterModule.forRoot([
         DiComponent,
 
         SafePipe],
-    providers: [CountryService, CountriesService, ContinentService],
+    providers: [CountryService, CountriesService, ContinentService, ColorService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
