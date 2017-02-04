@@ -2,12 +2,13 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 // TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
-import { ServicesComponent, BackgroundColorByTypeDirective, CountryService } from "../samples/Services/index";
+import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent } from "../samples/Services/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -45,14 +46,18 @@ let router = RouterModule.forRoot([
         path: 'templates/ngfor',
         component: NgForComponent
     },
-        {
+    {
         path: 'services/services',
         component: ServicesComponent
+    },
+    {
+        path: 'services/di',
+        component: DiComponent
     }
 ]);
 
 @NgModule({
-    imports: [BrowserModule, router, FormsModule],
+    imports: [BrowserModule, router, FormsModule, HttpModule],
     declarations: [
         AppComponent,
         HeaderComponent,
@@ -69,9 +74,10 @@ let router = RouterModule.forRoot([
 
         ServicesComponent,
         BackgroundColorByTypeDirective,
+        DiComponent,
 
         SafePipe],
-    providers: [CountryService],
+    providers: [CountryService, CountriesService, ContinentService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

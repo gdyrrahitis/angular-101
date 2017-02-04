@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Services</h3>
+        <h4>Dependency Injection</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Using Dependency injection with services</h4>
+                <div class="row">
+                    <div id="map" #map></div>
+                </div>
+                <div class="row" *ngIf="continent">
+                    <div class="col-md-12">
+                        <h2>{{continent.name}}</h2>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Flag</td>
+                                    <td>Name</td>
+                                    <td>Code</td>
+                                    <td>Population</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let country of continent.countries">
+                                    <td>
+                                        <img [src]="country.getFlag()" alt="country.name" class="flag" />
+                                    </td>
+                                    <td>{{country.name}}</td>
+                                    <td>{{country.code}}</td>
+                                    <td>{{country.population | number}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

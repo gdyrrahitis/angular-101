@@ -1,0 +1,9 @@
+.continent {
+    background-color: blue;
+    cursor: pointer;
+}
+
+.flag {
+    height: 90px;
+    width: 150px;
+}

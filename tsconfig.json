@@ -7,7 +7,8 @@
   "emitDecoratorMetadata": true,
   "experimentalDecorators": true,
   "removeComments": false,
-  "noImplicitAny": false
+  "noImplicitAny": false,
+  "allowSyntheticDefaultImports": true
  },
   "exclude": [
     "node_modules",
@@ -16,7 +17,6 @@
     
     "src/samples/Components/",
     "src/samples/Remote/",
-    "src/samples/Routing/",
-    "src/samples/Services/DependencyInjection"
+    "src/samples/Routing/"
   ]
 }
