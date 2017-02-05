@@ -9,6 +9,7 @@ import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } 
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
 import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
+import { HttpComponent } from "../samples/Remote/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -53,6 +54,10 @@ let router = RouterModule.forRoot([
     {
         path: 'services/di',
         component: DiComponent
+    },
+    {
+        path: 'remote/http',
+        component: HttpComponent
     }
 ]);
 
@@ -75,6 +80,8 @@ let router = RouterModule.forRoot([
         ServicesComponent,
         BackgroundColorByTypeDirective,
         DiComponent,
+
+        HttpComponent,
 
         SafePipe],
     providers: [CountryService, CountriesService, ContinentService, ColorService],

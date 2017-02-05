@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Http Service</h3>
+        <h4>Using Http service to fetch remote data</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Get all countries by region</h4>
+                <form>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <!--<input  />-->
+                                <select id="region" type="text" name="region" class="form-control" ngModel #region="ngModel" required>
+                                    <optgroup label="Regions">
+                                        <option value="americas">America</option>
+                                        <option value="europe">Europe</option>
+                                        <option value="asia">Asia</option>
+                                        <option value="africa">Africa</option>
+                                        <option value="oceania">Oceania</option>
+                                    </optgroup>
+                                </select>
+                                <div [hidden]="region.valid || region.pristine" class="alert alert-danger">Region is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-primary" (click)="getRegions(region)">Submit</button>
+                            <button type="button" class="btn btn-warning" (click)="clear()">Clear</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row" *ngIf="countries && countries.length > 0">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Flag</th>
+                            <th>Name</th>
+                            <th>Capital</th>
+                            <th>Population</th>
+                            <th>Code</th>
+                            <th>NativeName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let country of countries">
+                            <td>
+                                <img [src]="country.getFlag()" onerror="if (this.src != '/src/styles/images/404.png'){ this.src = '/src/styles/images/404.png'; this.className += ' flag-error'; }"
+                                    [alt]="country.name" class="flag" />
+                            </td>
+                            <td>{{country.name}}</td>
+                            <td>{{country.capital}}</td>
+                            <td>{{country.population | number}}</td>
+                            <td>{{country.alpha2Code}}</td>
+                            <td>{{country.nativeName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

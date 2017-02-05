@@ -1,0 +1,12 @@
+.flag {
+    height: 90px;
+    width: 150px;
+}
+
+.flag-error {
+    height: 96px;
+    width: 96px;
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+}
