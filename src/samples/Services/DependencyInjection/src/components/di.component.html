@@ -6,6 +6,16 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>Using Dependency injection with services</h4>
+                <h5>Constructor shows different ways to inject something in class</h5>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><code>constructor(@Inject(ContinentService) private _continentService: ContinentService, private _renderer: Renderer, private _injector: Injector)</code></p>
+                        <p>or..</p>
+                        <p><code>let colorService: ColorService = this._injector.get(ColorService);</code></p>
+                    </div>
+                </div>
+                <h6>Click continent on map to show relevant countries</h6>
+
                 <div class="row">
                     <div id="map" #map></div>
                 </div>
