@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Child components</h3>
+        <h4>Using a child component</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Passing country from array to child component</h4>
+                <h5>Will show a grid of the <code>child-country.component</code> </h5>
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let country of countries">
+                        <app-child-country [country]="country"></app-child-country>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

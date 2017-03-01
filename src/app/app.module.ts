@@ -1,8 +1,9 @@
 import { NgModule } from "@angular/core";
-import { RouterModule } from '@angular/router';
+
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { RoutingModule } from "./routing.module";
 
 // TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
@@ -10,59 +11,12 @@ import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/B
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
 import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
 import { HttpComponent } from "../samples/Remote/index";
+import { ChildCountryComponent,CountriesListComponent } from "../samples/Components/index";
 
 import { SafePipe } from "./pipes/index";
 
-let router = RouterModule.forRoot([
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-    },
-    {
-        path: 'home',
-        component: SamplesListComponent
-    },
-    {
-        path: 'binding/property',
-        component: PropertyComponent
-    },
-    {
-        path: 'binding/event',
-        component: EventComponent
-    },
-    {
-        path: 'binding/two-way',
-        component: TwoWayComponent
-    },
-    {
-        path: 'templates/interpolation',
-        component: InterpolationComponent
-    },
-    {
-        path: 'templates/ngif',
-        component: NgIfComponent
-    },
-    {
-        path: 'templates/ngfor',
-        component: NgForComponent
-    },
-    {
-        path: 'services/services',
-        component: ServicesComponent
-    },
-    {
-        path: 'services/di',
-        component: DiComponent
-    },
-    {
-        path: 'remote/http',
-        component: HttpComponent
-    }
-]);
-
 @NgModule({
-    imports: [BrowserModule, router, FormsModule, HttpModule],
+    imports: [BrowserModule, RoutingModule, FormsModule, HttpModule],
     declarations: [
         AppComponent,
         HeaderComponent,
@@ -83,6 +37,9 @@ let router = RouterModule.forRoot([
 
         HttpComponent,
 
+        ChildCountryComponent,
+        CountriesListComponent,
+        
         SafePipe],
     providers: [CountryService, CountriesService, ContinentService, ColorService],
     bootstrap: [AppComponent]

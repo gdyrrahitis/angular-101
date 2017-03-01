@@ -54,7 +54,7 @@
                     <a [routerLink]="['Interaction']" class="list-group-item">
                         <div class="truncate pull-left">Component interaction</div>
                     </a>
-                    <a [routerLink]="['Childs']" class="list-group-item">
+                    <a routerLink="/component/child" class="list-group-item">
                         <div class="truncate pull-left">Child components</div>
                     </a>
                     <a [routerLink]="['LifecycleHooks']" class="list-group-item">
@@ -88,11 +88,11 @@
             <div class="col-md-4 list-category text-primary">
                 <h2 class="title header-section">Routing</h2>
                 <div class="list-group">
-                    <a [routerLink]="['Routing']" class="list-group-item">
-                        <div class="truncate pull-left">Routing</div>
+                    <a [routerLink]="['/routing', 'dynamic']" class="list-group-item">
+                        <div class="truncate pull-left">Dynamic routes</div>
                     </a>
-                    <a [routerLink]="['HierarchicalRoutes']" class="list-group-item">
-                        <div class="truncate pull-left">Hierachical routes</div>
+                    <a routerLink="/routing/child" class="list-group-item">
+                        <div class="truncate pull-left">Child routes</div>
                     </a>
                 </div>
             </div>
