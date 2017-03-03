@@ -4,16 +4,17 @@
         <h4>Using child routes</h4>
         <hr>
         <div class="row">
-            <div class="col-md-6">
-                <h4>Loading a country</h4>
-                <!--TODO: -->
-            </div>
-            <div class="col-md-6">
-                <h4>Loading a continent</h4>
-                <!--TODO:-->
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" routerLinkActive="active">
+                        <a routerLink="/routing/child/country/currency/euro">Loading countries with € currency</a>
+                    </li>
+                    <li role="presentation" routerLinkActive="active">
+                        <a routerLink="/routing/child/country/language/greek">Greek language countries</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="row">
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>
