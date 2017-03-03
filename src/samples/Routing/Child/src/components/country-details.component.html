@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="media">
+            <div class="media-left">
+                <img *ngIf="country" class="media-object" [src]="getFlag(country.code)" [alt]="country.name">
+            </div>
+            <div class="media-body" *ngIf="country">
+                <h4 class="media-heading">{{country.name}}</h4>
+                <h5>Population {{country.population | number}} people</h5>
+            </div>
+        </div>
+    </div>
+</div>

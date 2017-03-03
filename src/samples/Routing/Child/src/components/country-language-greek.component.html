@@ -9,6 +9,12 @@
 
     <!-- List group -->
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let country of countries" >{{country.name}}</li>
+        <li class="list-group-item" *ngFor="let country of countries">
+            <button class="btn btn-info" (click)="navigateToCountry(country)">{{country.name}}</button>
+        </li>
     </ul>
+
+    <div class="panel-footer">
+        <router-outlet></router-outlet>
+    </div>
 </div>

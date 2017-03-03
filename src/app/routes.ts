@@ -6,7 +6,7 @@ import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/B
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
 import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
 import { HttpComponent } from "../samples/Remote/index";
-import { ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent } from "../samples/Routing/index";
+import { ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent } from "../samples/Routing/index";
 import { CountriesListComponent } from "../samples/Components/index";
 
 export const Router = RouterModule.forRoot([
@@ -65,7 +65,13 @@ export const Router = RouterModule.forRoot([
             },
             {
                 path: "language/greek", 
-                component: CountryLanguageGreekComponent
+                component: CountryLanguageGreekComponent,
+                children: [
+                    {
+                        path: ":code",
+                        component: CountryDetailsComponent
+                    }
+                ]
             }
         ]
     },

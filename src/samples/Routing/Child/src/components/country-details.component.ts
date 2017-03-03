@@ -1,0 +1,28 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Http, Response } from "@angular/http";
+
+@Component({
+    moduleId: module.id,
+    selector: 'app-country-details',
+    templateUrl: "./country-details.component.html"
+})
+export class CountryDetailsComponent implements OnInit {
+    private url = "http://flagpedia.net/data/flags/small/";
+    country: any;
+
+    constructor(private _route: ActivatedRoute, private _http: Http) { }
+
+    ngOnInit() {
+        this._route.params.subscribe(params => {
+            let code = params.code;
+            this._http.get("https://restcountries.eu/rest/v2/alpha/" + code).subscribe(res => this.country = res.json());
+        });
+    }
+
+    getFlag() {
+        if (this.country)
+            return this.url + this.country.alpha2Code.toLowerCase() + ".png";
+        return "";
+    }
+}
