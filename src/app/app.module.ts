@@ -11,7 +11,8 @@ import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/B
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
 import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
 import { HttpComponent } from "../samples/Remote/index";
-import { ChildCountryComponent,CountriesListComponent } from "../samples/Components/index";
+import { ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent } from "../samples/Routing/index";
+import { ChildCountryComponent, CountriesListComponent } from "../samples/Components/index";
 
 import { SafePipe } from "./pipes/index";
 
@@ -39,7 +40,11 @@ import { SafePipe } from "./pipes/index";
 
         ChildCountryComponent,
         CountriesListComponent,
-        
+
+        ChildComponent,
+        CountryCurrencyEuroComponent,
+        CountryLanguageGreekComponent,
+
         SafePipe],
     providers: [CountryService, CountriesService, ContinentService, ColorService],
     bootstrap: [AppComponent]
