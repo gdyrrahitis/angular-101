@@ -15,9 +15,7 @@ import { ColorService } from "../services/color.service";
     styleUrls: ["./di.component.css"]
 })
 export class DiComponent implements OnInit, AfterViewInit {
-    private url: string = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-continents.json";
     private colors;
-    private svg: any;
     private width: number = 1000;
     private height: number = 500;
     continent: Continent;
@@ -36,34 +34,15 @@ export class DiComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.svg = d3.select(this.map.nativeElement)
-            .append("svg")
-            .attr("width", this.width)
-            .attr("height", this.height);
+        let options = {
+            element: this.map.nativeElement, 
+            width: this.width, 
+            height: this.height, 
+            fillCallback: this.fill, 
+            clickHandler: this.continentClickHandler
+        };
 
-        let projection = d3.geo.robinson().translate([this.width / 2, this.height / 2]);
-        d3.json(this.url, (error: any, world: any) => this.geoJsonDraw(error, world, projection));
-    }
-
-    private geoJsonDraw(error: any, world: any, projection: any) {
-        if (error) {
-            return console.error(error);
-        }
-
-        let path = d3.geo.path().projection(projection);
-
-        // Draw the continents
-        let continents = this.svg.selectAll(".subunit")
-            .data(topojson.feature(world, world.objects.continent).features)
-            .enter()
-            .append("path")
-            .attr("id", function (d: any) { return d.id; })
-            .attr("data-name", function (d: any) { return d.properties.name; })
-            .attr("data-continent", function (d: any) { return d.properties.continent; })
-            .attr("class", function (d) { return "continent"; })
-            .attr("fill", this.fill)
-            .style("cursor", "pointer")
-            .attr("d", path).on("click", this.continentClickHandler);
+        this._continentService.draw(options);
     }
 
     private fill = (d: any) => {

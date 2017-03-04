@@ -9,7 +9,7 @@ import { RoutingModule } from "./routing.module";
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
-import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
+import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService, D3Service } from "../samples/Services/index";
 import { HttpComponent } from "../samples/Remote/index";
 import { ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent } from "../samples/Routing/index";
 import { ChildCountryComponent, CountriesListComponent } from "../samples/Components/index";
@@ -47,7 +47,7 @@ import { SafePipe } from "./pipes/index";
         CountryDetailsComponent,
 
         SafePipe],
-    providers: [CountryService, CountriesService, ContinentService, ColorService],
+    providers: [CountryService, CountriesService, ContinentService, ColorService, D3Service],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
