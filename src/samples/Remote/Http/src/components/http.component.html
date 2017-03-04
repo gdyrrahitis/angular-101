@@ -28,6 +28,17 @@
                             <button type="button" class="btn btn-warning" (click)="clear()">Clear</button>
                         </div>
                     </div>
+                    <div class="row" *ngIf="countries && countries.length > 0">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" id="countryName" name="countryName" class="form-control"
+                                    placeholder="Filter by country name" #value (keyup)="onChange(value)"/>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-warning" (click)="reset()">Reset</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -59,6 +70,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="row" *ngIf="countries?.length === 0">
+            <div class="well">No country info to show, please make a selection</div>
         </div>
     </div>
 </div>

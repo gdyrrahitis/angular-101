@@ -16,6 +16,7 @@ import { Country } from "../models/Country";
 export class HttpComponent {
     private url: string = "https://restcountries.eu/rest/v1/region/";
     countries: Country[] = [];
+    tempCountries: Country[] = [];
     submitted: boolean;
     errorMessage: string;
 
@@ -27,6 +28,7 @@ export class HttpComponent {
             .map(this.extractCountries)
             .subscribe(countries => {
                 this.countries = countries;
+                this.tempCountries = countries;
             },
             error => {
                 console.log(error);
@@ -50,5 +52,20 @@ export class HttpComponent {
 
     clear() {
         this.countries = [];
+    }
+
+    onChange(input) {
+        let countryName: string = input.value;
+
+        console.log(countryName)
+        if (countryName.length > 1) {
+            this.countries = this.countries.filter(country => country.name.indexOf(input.value) !== -1);
+        } else {
+            this.reset();
+        }
+    }
+
+    reset() {
+        this.countries = this.tempCountries;
     }
 }
