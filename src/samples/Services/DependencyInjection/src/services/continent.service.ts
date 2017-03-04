@@ -21,7 +21,15 @@ declare type DrawOptions = {
     world: any,
     projection: any,
     element: any
-}
+};
+
+declare type PathOptions = {
+    element: any,
+    features: any,
+    path: any,
+    fillCallback(d: any): any,
+    clickHandler(d: any): any
+};
 
 @Injectable()
 export class ContinentService {
@@ -70,20 +78,21 @@ export class ContinentService {
 
     private geoJsonDraw(options: DrawOptions) {
         if (options.error) {
-            return this.errorHandler(options.error);
+            this.errorHandler(options.error);
+            return;
         }
 
-        let path = this._d3Service.getPathFromProjection(options.projection);
-
-        // Draw the continents
-        this._d3Service.drawContinentsOnElement(options.element,
-            topojson.feature(options.world, options.world.objects.continent).features,
-            path,
-            this._fillCallback,
-            this._clickHandler);
+        let pathOptions: PathOptions = {
+            element: options.element,
+            features: topojson.feature(options.world, options.world.objects.continent).features,
+            path: this._d3Service.getPathFromProjection(options.projection),
+            fillCallback: this._fillCallback,
+            clickHandler: this._clickHandler
+        }
+        this._d3Service.drawContinentsOnElement(pathOptions);
     }
 
     private errorHandler(error: any) {
-        return console.error(error);
+        console.error(error);
     }
 }

@@ -8,7 +8,19 @@ declare module "d3" {
     var geo: any
 }
 
-declare type D3Options = { element: any, width: number, height: number };
+declare type D3Options = { 
+    element: any, 
+    width: number, 
+    height: number 
+};
+
+declare type PathOptions = {
+    element: any,
+    features: any,
+    path: any,
+    fillCallback(d: any): any,
+    clickHandler(d: any): any
+};
 
 @Injectable()
 export class D3Service {
@@ -37,17 +49,17 @@ export class D3Service {
         return d3.geo.path().projection(projection);
     }
 
-    drawContinentsOnElement(element: any, data: any, path: any, fillCallback: any, clickHandler: any) {
-        return element.selectAll(".subunit")
-            .data(data)
+    drawContinentsOnElement(options: PathOptions) {
+        return options.element.selectAll(".subunit")
+            .data(options.features)
             .enter()
             .append("path")
             .attr("id", function (d: any) { return d.id; })
             .attr("data-name", function (d: any) { return d.properties.name; })
             .attr("data-continent", function (d: any) { return d.properties.continent; })
             .attr("class", function (d) { return "continent"; })
-            .attr("fill", fillCallback)
+            .attr("fill", options.fillCallback)
             .style("cursor", "pointer")
-            .attr("d", path).on("click", clickHandler)
+            .attr("d", options.path).on("click", options.clickHandler)
     }
 }
