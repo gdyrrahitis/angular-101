@@ -27,26 +27,29 @@ export class DynamicContinentChildComponent implements OnInit {
 
     fetchCountriesByContinentName(name: string) {
         this.currentContinent = name;
-        this._http.get(this.url + name).subscribe(res => {
-            this.countries = [];
-            let response: any[] = res.json();
+        this._http.get(this.url + name).subscribe(res => this.responseHandler(res));
+    }
 
-            this.alphabet.forEach((letter) => {
-                let countriesWithInitial = {
-                    initial: letter,
-                    countries: []
-                };
-                response.forEach((value) => {
-                    let firstLetter = value.name.charAt(0);
+    private responseHandler(res: Response) {
+        this.countries = [];
+        let response: any[] = res.json();
 
-                    if(firstLetter !== letter){
-                        return;
-                    }
+        this.alphabet.forEach((letter) => {
+            let countriesWithInitial = {
+                initial: letter,
+                countries: []
+            };
+            
+            response.forEach((value) => {
+                let firstLetter = value.name.charAt(0);
 
-                    countriesWithInitial.countries.push(value);
-                });
-                this.countries.push(countriesWithInitial);
+                if (firstLetter !== letter) {
+                    return;
+                }
+
+                countriesWithInitial.countries.push(value);
             });
+            this.countries.push(countriesWithInitial);
         });
     }
 }
