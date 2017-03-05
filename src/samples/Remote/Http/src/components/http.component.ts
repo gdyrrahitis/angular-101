@@ -68,4 +68,16 @@ export class HttpComponent {
     reset() {
         this.countries = this.tempCountries;
     }
+
+    isRegionValidAndPristine (region) {
+        return region.valid || region.pristine;
+    }
+
+    get isCountriesArrayValid () {
+        return this.countries && this.countries.length > 0;
+    }
+
+    get isCountriesArrayEmpty() {
+        return this.countries!.length === 0;
+    }
 }

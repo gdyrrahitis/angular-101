@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Routing</h3>
+        <h4>Using child routes</h4>
+        <hr>
+        <div class="row margin-bottom-15">
+            <div class="col-md-12">
+                <ul class="nav nav-pills">
+                    <li role="presentation" routerLinkActive="active" *ngFor="let region of regions" >
+                        <a [routerLink]="['/routing/dynamic/', 'continent', region.toLowerCase()]">{{region}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <router-outlet>
+            <div class="well">
+                Select any of the above
+            </div>
+        </router-outlet>
+    </div>
+</div>

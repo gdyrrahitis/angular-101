@@ -6,7 +6,10 @@ import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/B
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
 import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
 import { HttpComponent } from "../samples/Remote/index";
-import { ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent } from "../samples/Routing/index";
+import {
+    ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
+    DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
+} from "../samples/Routing/index";
 import { CountriesListComponent } from "../samples/Components/index";
 
 export const Router = RouterModule.forRoot([
@@ -64,12 +67,32 @@ export const Router = RouterModule.forRoot([
                 component: CountryCurrencyEuroComponent,
             },
             {
-                path: "language/greek", 
+                path: "language/greek",
                 component: CountryLanguageGreekComponent,
                 children: [
                     {
                         path: ":code",
                         component: CountryDetailsComponent
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        path: "routing/dynamic",
+        component: DynamicComponent,
+        children: [
+            {
+                path: "continent/:name",
+                component: DynamicContinentChildComponent
+            },
+            {
+                path: "continent/:name/country/:code",
+                component: DynamicCountryChildComponent,
+                children: [
+                    {
+                        path: "fx-rates/:currency",
+                        component: DynamicFxRatesComponent
                     }
                 ]
             }

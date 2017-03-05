@@ -21,7 +21,6 @@
     "src/samples/Components/Pipes",
     "src/samples/Components/ViewChild",
     "src/samples/Remote/AsyncPipe",
-    "src/samples/Remote/Promises",
-    "src/samples/Routing/Dynamic"
+    "src/samples/Remote/Promises"
   ]
 }

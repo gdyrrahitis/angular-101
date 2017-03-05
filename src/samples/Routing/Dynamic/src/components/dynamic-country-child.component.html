@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object" [src]="getFlagSrc(country?.alpha2Code)" [alt]="country?.name">
+            </div>
+            <div class="media-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{country?.name}}</div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Capital: {{country?.capital}}</li>
+                        <li class="list-group-item">Population: {{country?.population | number}}</li>
+                        <li class="list-group-item">
+                            <table class="table">
+                                <caption>Check foreign exchange rates for currency</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Symbol</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let currency of country?.currencies">
+                                        <td>
+                                            <a [routerLink]="['/routing/dynamic', 'continent', country?.region.toLowerCase(), 'country', country?.alpha2Code.toLowerCase(), 'fx-rates', currency.code.toLowerCase()]">{{currency.code}}</a>
+                                        </td>
+                                        <td>{{currency.name}}</td>
+                                        <td>{{currency.symbol}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

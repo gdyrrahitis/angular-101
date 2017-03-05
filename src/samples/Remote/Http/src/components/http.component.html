@@ -20,7 +20,7 @@
                                         <option value="oceania">Oceania</option>
                                     </optgroup>
                                 </select>
-                                <div [hidden]="region.valid || region.pristine" class="alert alert-danger">Region is required</div>
+                                <div [hidden]="isRegionValidAndPristine(region)" class="alert alert-danger">Region is required</div>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -28,7 +28,7 @@
                             <button type="button" class="btn btn-warning" (click)="clear()">Clear</button>
                         </div>
                     </div>
-                    <div class="row" *ngIf="countries && countries.length > 0">
+                    <div class="row" *ngIf="isCountriesArrayValid">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <input type="text" id="countryName" name="countryName" class="form-control"
@@ -42,7 +42,7 @@
                 </form>
             </div>
         </div>
-        <div class="row" *ngIf="countries && countries.length > 0">
+        <div class="row" *ngIf="isCountriesArrayValid">
             <div class="col-md-12">
                 <table class="table table-hover">
                     <thead>
@@ -71,7 +71,7 @@
                 </table>
             </div>
         </div>
-        <div class="row" *ngIf="countries?.length === 0">
+        <div class="row" *ngIf="isCountriesArrayEmpty">
             <div class="well">No country info to show, please make a selection</div>
         </div>
     </div>

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12" *ngIf="rates">
+        <h4>Foreign exchange rates quoted against {{currency}}</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rate of rates.rates | keys; let i=index">
+                    <td>{{rate}}</td>
+                    <td>{{rates.rates[rate]}}</td>
+
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="transformRates[i].rate1" [placeholder]="rate" [name]="'rate-' + rate + i"
+                            (keyup)="onBackspace($event, 'rate2', i)" (keypress)="inputChange($event, 'rate2', i)" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="transformRates[i].rate2" [placeholder]="currency" [name]="'rate-' + currency + i"
+                            (keyup)="onBackspace($event, 'rate1', i)" (keypress)="inputChange($event, 'rate1', i)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12" *ngIf="error">
+        <div class="alert alert-danger" role="alert">
+            No current or historical foreign exchange rates for '{{currency}}' currency.
+        </div>
+    </div>
+</div>
