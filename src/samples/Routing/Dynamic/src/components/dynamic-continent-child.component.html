@@ -1,13 +1,15 @@
-<div *ngFor="let country of countries"><div class="row" *ngIf="country.countries.length > 0">
-    <div class="col-md-12">
-        <h3>{{country.initial}}</h3>
+<div *ngFor="let country of countries">
+    <div class="row" *ngIf="country.countries.length > 0">
+        <div class="col-md-12">
+            <h3>{{country.initial}}</h3>
+            <hr />
+            <ul class="list-inline">
+                <li *ngFor="let value of country.countries; let i=index" class="list-item">
+                    <a [routerLink]="['/routing/dynamic', 'continent', currentContinent, 'country', value.alpha2Code.toLowerCase()]">{{value.name}}</a>
+                    <span class="separator" *ngIf="i < (country.countries.length - 1)">-</span>
+                </li>
+            </ul>
+        </div>
         <hr />
-        <ul class="list-inline">
-            <li *ngFor="let value of country.countries; let i=index" class="list-item">
-                <a [routerLink]="['/routing/dynamic', 'continent', currentContinent, 'country', value.alpha2Code.toLowerCase()]">{{value.name}}</a>
-                <span class="separator" *ngIf="i < (country.countries.length - 1)">-</span>
-            </li>
-        </ul>
     </div>
-    <hr />
-</div></div>
+</div>
