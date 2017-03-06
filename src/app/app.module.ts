@@ -17,7 +17,10 @@ import {
     ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
 } from "../samples/Routing/index";
-import { ChildCountryComponent, CountriesListComponent, InteractionCountryDetailsComponent, InteractionCountryListComponent } from "../samples/Components/index";
+import {
+    ChildCountryComponent, CountriesListComponent,
+    InteractionCountryDetailsComponent, InteractionCountryListComponent, InteractionAddNewCountryComponent, PubSubService
+} from "../samples/Components/index";
 
 import { SafePipe, KeysPipe } from "./pipes/index";
 
@@ -56,10 +59,18 @@ import { SafePipe, KeysPipe } from "./pipes/index";
         CountryDetailsComponent,
         InteractionCountryDetailsComponent,
         InteractionCountryListComponent,
+        InteractionAddNewCountryComponent,
 
         SafePipe,
         KeysPipe],
-    providers: [CountryService, CountriesService, ContinentService, ColorService, D3Service],
+    providers: [
+        PubSubService,
+        CountryService,
+        CountriesService,
+        ContinentService,
+        ColorService,
+        D3Service
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
