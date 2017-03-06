@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-body bg-info">
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object flag" [src]="getFlagSrcByCode(country.alpha2Code)" [alt]="country.name" />
+            </div>
+            <div class="media-body">
+                <p class="text-center lead">
+                    <a href="#" (click)="updateSelectedCountry($event, country)">{{country.name}}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

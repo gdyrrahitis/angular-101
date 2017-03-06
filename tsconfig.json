@@ -16,7 +16,6 @@
     "typings/main.d.ts",
     
     "src/samples/Components/Directives",
-    "src/samples/Components/Interaction",
     "src/samples/Components/LifecycleHooks",
     "src/samples/Components/Pipes",
     "src/samples/Components/ViewChild",

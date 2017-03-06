@@ -17,7 +17,7 @@ import {
     ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
 } from "../samples/Routing/index";
-import { ChildCountryComponent, CountriesListComponent } from "../samples/Components/index";
+import { ChildCountryComponent, CountriesListComponent, InteractionCountryDetailsComponent, InteractionCountryListComponent } from "../samples/Components/index";
 
 import { SafePipe, KeysPipe } from "./pipes/index";
 
@@ -54,6 +54,8 @@ import { SafePipe, KeysPipe } from "./pipes/index";
         CountryCurrencyEuroComponent,
         CountryLanguageGreekComponent,
         CountryDetailsComponent,
+        InteractionCountryDetailsComponent,
+        InteractionCountryListComponent,
 
         SafePipe,
         KeysPipe],
