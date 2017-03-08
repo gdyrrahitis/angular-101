@@ -19,7 +19,8 @@ import {
 } from "../samples/Routing/index";
 import {
     ChildCountryComponent, CountriesListComponent,
-    InteractionCountryDetailsComponent, InteractionCountryListComponent, InteractionAddNewCountryComponent, PubSubService
+    InteractionCountryDetailsComponent, InteractionCountryListComponent, InteractionAddNewCountryComponent, PubSubService,
+    ProjectionCountryListComponent, ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent
 } from "../samples/Components/index";
 
 import { SafePipe, KeysPipe } from "./pipes/index";
@@ -60,6 +61,9 @@ import { SafePipe, KeysPipe } from "./pipes/index";
         InteractionCountryDetailsComponent,
         InteractionCountryListComponent,
         InteractionAddNewCountryComponent,
+        ProjectionCountryListComponent,
+        ProjectionCountryMultipleSlotComponent,
+        ProjectionCountrySingleSlotComponent,
 
         SafePipe,
         KeysPipe],

@@ -10,7 +10,7 @@ import {
     ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
 } from "../samples/Routing/index";
-import { CountriesListComponent, InteractionCountryListComponent } from "../samples/Components/index";
+import { CountriesListComponent, InteractionCountryListComponent, ProjectionCountryListComponent } from "../samples/Components/index";
 
 export const Router = RouterModule.forRoot([
     {
@@ -105,5 +105,9 @@ export const Router = RouterModule.forRoot([
     {
         path: "component/interaction",
         component: InteractionCountryListComponent
+    },
+    {
+        path: "component/projection",
+        component: ProjectionCountryListComponent
     }
 ]);

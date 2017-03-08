@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object flag" [src]="getFlagSrc(country.alpha2Code)" [alt]="country.name">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading" [ngClass]="{'dropup': !visible}" >
+                    <a href="#" (click)="toggleVisibility($event)">{{country.name}} <span class="caret"></span></a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-content *ngIf="visible"></ng-content>
