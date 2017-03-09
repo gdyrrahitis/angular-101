@@ -10,7 +10,8 @@ import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } 
 import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
 import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
 import {
-    ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService, D3Service
+    ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService, D3Service,
+    MAP_CONFIG, MapConfiguration
 } from "../samples/Services/index";
 import { HttpComponent } from "../samples/Remote/index";
 import {
@@ -26,7 +27,12 @@ import {
 import { SafePipe, KeysPipe } from "./pipes/index";
 
 @NgModule({
-    imports: [BrowserModule, RoutingModule, FormsModule, HttpModule],
+    imports: [
+        BrowserModule, 
+        RoutingModule, 
+        FormsModule, 
+        HttpModule
+    ],
     declarations: [
         AppComponent,
         HeaderComponent,
@@ -73,7 +79,8 @@ import { SafePipe, KeysPipe } from "./pipes/index";
         CountriesService,
         ContinentService,
         ColorService,
-        D3Service
+        D3Service,
+        { provide: MAP_CONFIG, useValue: MapConfiguration }
     ],
     bootstrap: [AppComponent]
 })

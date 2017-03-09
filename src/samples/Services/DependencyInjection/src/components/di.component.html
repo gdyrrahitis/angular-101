@@ -12,6 +12,7 @@
                         <p><code>constructor(@Inject(ContinentService) private _continentService: ContinentService, private _renderer: Renderer, private _injector: Injector)</code></p>
                         <p>or..</p>
                         <p><code>let colorService: ColorService = this._injector.get(ColorService);</code></p>
+                        <p>For non-class providers use the <code>OpaqueToken</code> to register and resolve.</p>
                     </div>
                 </div>
                 <h6>Click continent on map to show relevant countries</h6>

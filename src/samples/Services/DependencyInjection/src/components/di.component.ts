@@ -7,6 +7,7 @@ import { Component, ElementRef, OnInit, AfterViewInit, ViewChild, Renderer, Inje
 import { Continent } from "../models/Continent";
 import { ContinentService } from "../services/continent.service";
 import { ColorService } from "../services/color.service";
+import { MAP_CONFIG, WorldMapConfig } from "../configuration/configuration";
 
 @Component({
     moduleId: module.id,
@@ -16,16 +17,20 @@ import { ColorService } from "../services/color.service";
 })
 export class DiComponent implements OnInit, AfterViewInit {
     private colors;
-    private width: number = 1000;
-    private height: number = 500;
+    private width: number;
+    private height: number;
     continent: Continent;
     continents: Continent[];
     @ViewChild('map') map: ElementRef;
 
     constructor(
         @Inject(ContinentService) private _continentService: ContinentService,
+        @Inject(MAP_CONFIG) private _mapConfig: WorldMapConfig,
         private _renderer: Renderer,
-        private _injector: Injector) { }
+        private _injector: Injector) { 
+            this.height = this._mapConfig.height;
+            this.width = this._mapConfig.width;
+        }
 
     ngOnInit() {
         this.continents = this._continentService.getContinents();
