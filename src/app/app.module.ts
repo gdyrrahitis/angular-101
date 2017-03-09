@@ -21,7 +21,8 @@ import {
 import {
     ChildCountryComponent, CountriesListComponent,
     InteractionCountryDetailsComponent, InteractionCountryListComponent, InteractionAddNewCountryComponent, PubSubService,
-    ProjectionCountryListComponent, ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent
+    ProjectionCountryListComponent, ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent,
+    PipesComponent, FlagSrcPipe, PeoplePipe
 } from "../samples/Components/index";
 
 import { SafePipe, KeysPipe } from "./pipes/index";
@@ -70,9 +71,12 @@ import { SafePipe, KeysPipe } from "./pipes/index";
         ProjectionCountryListComponent,
         ProjectionCountryMultipleSlotComponent,
         ProjectionCountrySingleSlotComponent,
+        PipesComponent,
 
         SafePipe,
-        KeysPipe],
+        KeysPipe,
+        FlagSrcPipe,
+        PeoplePipe],
     providers: [
         PubSubService,
         CountryService,
