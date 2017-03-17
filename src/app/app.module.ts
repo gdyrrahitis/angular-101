@@ -3,7 +3,9 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { RoutingModule } from "./routing.module";
+import { RouterModule } from "@angular/router";
+
+import { ROUTES} from "./routes";
 
 // TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
@@ -30,7 +32,7 @@ import { SafePipe, KeysPipe } from "./pipes/index";
 @NgModule({
     imports: [
         BrowserModule, 
-        RoutingModule, 
+        RouterModule.forRoot(ROUTES), 
         FormsModule, 
         HttpModule
     ],
@@ -54,6 +56,7 @@ import { SafePipe, KeysPipe } from "./pipes/index";
 
         HttpComponent,
 
+        ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
         ChildCountryComponent,
         CountriesListComponent,
         DynamicComponent,
@@ -61,10 +64,6 @@ import { SafePipe, KeysPipe } from "./pipes/index";
         DynamicCountryChildComponent,
         DynamicFxRatesComponent,
 
-        ChildComponent,
-        CountryCurrencyEuroComponent,
-        CountryLanguageGreekComponent,
-        CountryDetailsComponent,
         InteractionCountryDetailsComponent,
         InteractionCountryListComponent,
         InteractionAddNewCountryComponent,

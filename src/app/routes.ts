@@ -1,4 +1,4 @@
-import { RouterModule } from "@angular/router";
+import { Route } from "@angular/router";
 
 // TODO: Add to individual modules
 import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
@@ -16,7 +16,7 @@ import {
     PipesComponent
 } from "../samples/Components/index";
 
-export const Router = RouterModule.forRoot([
+export const ROUTES: Route[] = [
     {
         path: "",
         redirectTo: "home",
@@ -118,4 +118,4 @@ export const Router = RouterModule.forRoot([
         path: "component/pipes",
         component: PipesComponent
     }
-]);
+];

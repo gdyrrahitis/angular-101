@@ -18,7 +18,9 @@
     "@angular/platform-browser": "^2.4.5",
     "@angular/platform-browser-dynamic": "^2.4.5",
     "@angular/router": "^3.4.5",
+    "@angular/upgrade": "2.4.5",
     "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
     "d3": "^3.5.17",
     "d3-array": "^1.0.2",
     "d3-geo-projection": "~1.2.1",
@@ -35,6 +37,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
+    "@types/core-js": "^0.9.34",
     "@types/d3": "^4.4.1",
     "@types/d3-array": "^1.0.7",
     "@types/d3-geo": "^1.4.0",

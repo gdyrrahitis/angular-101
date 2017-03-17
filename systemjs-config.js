@@ -1,15 +1,21 @@
 (function (global) {
+    var paths = {
+      // paths serve as alias
+      'npm:': 'node_modules/'
+    };
 
     // Where to look for packages
     var map = {
         "app": "src",
-        "@angular": "node_modules/@angular",
-        "rxjs": "node_modules/rxjs",
-        "i18n-iso-countries": "node_modules/i18n-iso-countries",
-        "json": "node_modules/systemjs-plugin-json",
-        "pad": "node_modules/pad/lib",
-        "d3": "node_modules/d3",
-        "d3-array": "node_modules/d3-array/build",
+        "@angular": "npm:@angular",
+        '@angular/router/upgrade': 'npm:@angular/router/bundles/router-upgrade.umd.js',
+        '@angular/upgrade/static': 'npm:@angular/forms/bundles/upgrade-static.umd.js',
+        "rxjs": "npm:rxjs",
+        "i18n-iso-countries": "npm:i18n-iso-countries",
+        "json": "npm:systemjs-plugin-json",
+        "pad": "npm:pad/lib",
+        "d3": "npm:d3",
+        "d3-array": "npm:d3-array/build",
         "d3-geo": "//d3js.org/d3.geo.projection.v0.min.js",
         "topojson": "//d3js.org/topojson.v1.min.js"
     };
@@ -34,7 +40,8 @@
         "platform-browser-dynamic",
         "router",
         "forms",
-        "http"
+        "http",
+        "upgrade"
     ];
 
     // Mapping angular2 packages
@@ -45,6 +52,7 @@
     // Set UMD packages (for this sample project, in order to be safe with other environments like Karma, we should use the index as well)
     ngPackageNames.forEach(packageUmd);
     var config = {
+        paths: paths,
         map: map,
         packages: packages,
         meta: {
