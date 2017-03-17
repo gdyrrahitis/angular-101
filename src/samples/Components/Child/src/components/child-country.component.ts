@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Country, Continent } from "../../../../../app/models/index";
+import { Country } from "../models/Country";
+import { Continent } from "../models/Continent";
 
 @Component({
     moduleId: module.id,

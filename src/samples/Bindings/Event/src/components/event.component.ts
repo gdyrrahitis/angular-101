@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { ICountry, IContinent } from "../../../../../app/models/index";
+import { ICountry } from "../models/Country";
+import { IContinent } from "../models/Continent";
 
 @Component({
     moduleId: module.id,

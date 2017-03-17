@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 import { getName } from "i18n-iso-countries";
 
-import { Country, Continent } from "../../../../../app/models/index";
+import { Country } from "../models/Country";
+import { Continent } from "../models/Continent";
 import { ChildCountryComponent } from "./child-country.component";
 
 @Component({
