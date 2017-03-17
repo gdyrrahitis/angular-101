@@ -1,1 +1,1 @@
-export * from "./twoWay.component";
+export * from "./two-way.component";

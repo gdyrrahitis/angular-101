@@ -21,7 +21,7 @@ export class PipesComponent implements OnInit {
         });
     }
 
-    sortOnPopulation(a: any, b: any): number {
+    private sortOnPopulation(a: any, b: any): number {
         if (a.population < b.population)
             return 1;
         else if (a.population == b.population)

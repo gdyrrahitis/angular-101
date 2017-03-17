@@ -3,9 +3,9 @@ import { getName } from "i18n-iso-countries";
 
 @Component({
     moduleId: module.id,
-    selector: "app-ngfor",
-    templateUrl: "./ngfor.component.html",
-    styleUrls: ["./ngFor.component.css"]
+    selector: "app-ng-for",
+    templateUrl: "./ng-for.component.html",
+    styleUrls: ["./ng-for.component.css"]
 })
 export class NgForComponent {
     europe: string[];

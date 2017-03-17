@@ -13,7 +13,6 @@ export class PropertyComponent {
     imageHeight: number;
     unitedKingdomTitle: string;
     usaTitle: string;
-    selectedPokemon: string;
     backgroundToggle: boolean;
     cssToggle: boolean;
     centerDisplay: string;

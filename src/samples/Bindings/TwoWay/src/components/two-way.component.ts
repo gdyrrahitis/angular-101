@@ -2,9 +2,9 @@ import {Component} from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: "twoway-binding",
-    templateUrl: "./twoWay.component.html",
-    styleUrls: ["./twoWay.component.css"]
+    selector: "two-way-binding",
+    templateUrl: "./two-way.component.html",
+    styleUrls: ["./two-way.component.css"]
 })
 export class TwoWayComponent {
     url: string;

@@ -1,1 +1,1 @@
-export * from "./src/components/ngfor.component";
+export * from "./src/components/ng-for.component";

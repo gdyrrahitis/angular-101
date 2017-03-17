@@ -1,1 +1,1 @@
-export * from "./src/components/ngif.component";
+export * from "./src/components/ng-if.component";

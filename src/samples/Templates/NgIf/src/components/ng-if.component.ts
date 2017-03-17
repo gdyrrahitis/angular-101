@@ -2,9 +2,9 @@ import {Component} from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: "app-ngif",
-    templateUrl: "./ngif.component.html",
-    styleUrls: ["./ngIf.component.css"]
+    selector: "app-ng-if",
+    templateUrl: "./ng-if.component.html",
+    styleUrls: ["./ng-if.component.css"]
 })
 export class NgIfComponent {
     imagesPath: string;
