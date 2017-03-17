@@ -22,7 +22,7 @@ export class DynamicFxRatesComponent implements OnInit {
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
     ngOnInit() {
-        this._route.params.subscribe(params => this.loadFxRatesByCurrencyCode(params.currency));
+        this._route.params.subscribe((params:any) => this.loadFxRatesByCurrencyCode(params.currency));
     }
 
     loadFxRatesByCurrencyCode(currency: string) {

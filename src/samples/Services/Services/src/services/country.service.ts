@@ -1,7 +1,10 @@
 import { getName } from "i18n-iso-countries";
 
 import { Injectable } from "@angular/core";
-import { ICountry, IContinent, Country, Continent, Code, ContinentName } from "../../index";
+import { Continent, IContinent } from "../models/Continent";
+import { Country, ICountry } from "../models/Country";
+import { Code } from "../enums/Code";
+import { ContinentName } from "../enums/ContinentName";
 
 // A service is using the Injectable decorator, in order to be injected later to a class (for example, a component)
 @Injectable()

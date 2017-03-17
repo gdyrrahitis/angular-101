@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { CountryService, ICountry, Code } from "../../index";
+import { CountryService } from "../../index";
+import { ICountry } from "../models/Country";
+import { Code } from "../enums/Code";
 
 @Component({
     moduleId: module.id,

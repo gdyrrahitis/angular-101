@@ -1,4 +1,4 @@
-import { Country } from "../../index";
+import { Country } from "./Country";
 
 export class Continent {
     id: number;

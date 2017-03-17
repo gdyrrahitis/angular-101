@@ -15,7 +15,7 @@ export class DynamicCountryChildComponent implements OnInit {
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
     ngOnInit() { 
-        this._route.params.subscribe(params => this.initializeCountryByCode(params.code));
+        this._route.params.subscribe((params:any) => this.initializeCountryByCode(params.code));
     }
 
     initializeCountryByCode(code: string) {

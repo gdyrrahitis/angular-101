@@ -1,8 +1,0 @@
-{
-  "name": "angular2-samples",
-  "globalDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
-    "jasmine": "registry:dt/jasmine#2.5.0+20170117213604",
-    "node": "registry:dt/node#7.0.0+20170124134802"
-  }
-}

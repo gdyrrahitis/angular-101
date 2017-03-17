@@ -2,7 +2,9 @@ import { getName } from "i18n-iso-countries";
 
 import { Injectable } from "@angular/core";
 
-import { Country, Code, Location } from "../../index";
+import { Code } from "../enums/Code";
+import { Location } from "../enums/Location";
+import { Country } from "../models/Country";
 
 @Injectable()
 export class CountriesService {

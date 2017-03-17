@@ -14,7 +14,7 @@ export class CountryDetailsComponent implements OnInit {
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
     ngOnInit() {
-        this._route.params.subscribe(params => {
+        this._route.params.subscribe((params: any) => {
             let code = params.code;
             this._http.get("https://restcountries.eu/rest/v2/alpha/" + code).subscribe(res => this.country = res.json());
         });

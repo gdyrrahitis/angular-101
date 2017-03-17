@@ -22,7 +22,7 @@ export class DynamicContinentChildComponent implements OnInit {
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
     ngOnInit() {
-        this._route.params.subscribe(params => this.fetchCountriesByContinentName(params.name));
+        this._route.params.subscribe((params:any) => this.fetchCountriesByContinentName(params.name));
     }
 
     fetchCountriesByContinentName(name: string) {

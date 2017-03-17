@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input } from "@angular/core";
-import { Code } from "../../index";
+import { Code } from "../enums/Code";
 
 @Directive({
     selector: "[bgImage]"
