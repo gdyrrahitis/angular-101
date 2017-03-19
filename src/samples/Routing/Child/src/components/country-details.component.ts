@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { ActivatedRoute } from "@angular/router";
-import "rxjs/add/operator/throw";
+import "rxjs/add/observable/throw";
 import { Observable } from "rxjs/Observable";
 
 @Component({
