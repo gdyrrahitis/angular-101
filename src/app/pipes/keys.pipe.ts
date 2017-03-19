@@ -8,7 +8,7 @@ export class KeysPipe implements PipeTransform {
         let keys = [];
 
         for (let key in value) {
-            if (Object.prototype.hasOwnProperty(key)) {
+            if (key) {
                 keys.push(key);
             }
         }

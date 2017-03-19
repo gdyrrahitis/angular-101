@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import "rxjs/add/Observable/throw";
+import { Observable } from "rxjs/Observable";
 
 import { ProjectionCountryMultipleSlotComponent } from "./projection-country-multiple-slot.component";
 
@@ -30,7 +32,9 @@ export class ProjectionCountryListComponent implements OnInit {
     constructor(private http: Http) { }
 
     public ngOnInit() {
-        this.http.get(this.url).subscribe((res) => {
+        this.http.get(this.url)
+            .catch(this.handleError)
+            .subscribe((res) => {
             let response: any[] = res.json();
             let filteredCountries = response.filter((country) => country.population > this.maxPopulation);
             let length = filteredCountries.length - 1;
@@ -38,13 +42,18 @@ export class ProjectionCountryListComponent implements OnInit {
             for (let i = 0; i < this.rows; i++) {
                 let row: any[] = [];
                 for (let j = 0; j < this.rows; j++) {
-                    let randomIndex = +(Math.random() * length);
+                    let randomIndex = Math.floor(Math.random() * length);
                     let country = filteredCountries[randomIndex];
                     row.push(country);
                 }
                 this.countriesRows.push(row);
             }
         });
+    }
+
+    private handleError(error) {
+        console.error(error);
+        return Observable.throw(error);
     }
 
     public getFlagSrc(code: string) {
