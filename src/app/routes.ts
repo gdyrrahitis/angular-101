@@ -7,10 +7,10 @@ import {
     PipesComponent,
     ProjectionCountryListComponent,
 } from "../samples/Components/index";
-import { HttpComponent } from "../samples/Remote/index";
+import { AsyncPipeComponent, HttpComponent } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
-    DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent,
+    DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
 } from "../samples/Routing/index";
 import {
     BackgroundColorByTypeDirective, ColorService, ContinentService,
@@ -23,47 +23,47 @@ export const ROUTES: Route[] = [
     {
         path: "",
         redirectTo: "home",
-        pathMatch: "full",
+        pathMatch: "full"
     },
     {
         path: "home",
-        component: SamplesListComponent,
+        component: SamplesListComponent
     },
     {
         path: "binding/property",
-        component: PropertyComponent,
+        component: PropertyComponent
     },
     {
         path: "binding/event",
-        component: EventComponent,
+        component: EventComponent
     },
     {
         path: "binding/two-way",
-        component: TwoWayComponent,
+        component: TwoWayComponent
     },
     {
         path: "templates/interpolation",
-        component: InterpolationComponent,
+        component: InterpolationComponent
     },
     {
         path: "templates/ngif",
-        component: NgIfComponent,
+        component: NgIfComponent
     },
     {
         path: "templates/ngfor",
-        component: NgForComponent,
+        component: NgForComponent
     },
     {
         path: "services/services",
-        component: ServicesComponent,
+        component: ServicesComponent
     },
     {
         path: "services/di",
-        component: DiComponent,
+        component: DiComponent
     },
     {
         path: "remote/http",
-        component: HttpComponent,
+        component: HttpComponent
     },
     {
         path: "routing/child/country",
@@ -71,7 +71,7 @@ export const ROUTES: Route[] = [
         children: [
             {
                 path: "currency/euro",
-                component: CountryCurrencyEuroComponent,
+                component: CountryCurrencyEuroComponent
             },
             {
                 path: "language/greek",
@@ -79,11 +79,11 @@ export const ROUTES: Route[] = [
                 children: [
                     {
                         path: ":code",
-                        component: CountryDetailsComponent,
-                    },
-                ],
-            },
-        ],
+                        component: CountryDetailsComponent
+                    }
+                ]
+            }
+        ]
     },
     {
         path: "routing/dynamic",
@@ -91,7 +91,7 @@ export const ROUTES: Route[] = [
         children: [
             {
                 path: "continent/:name",
-                component: DynamicContinentChildComponent,
+                component: DynamicContinentChildComponent
             },
             {
                 path: "continent/:name/country/:code",
@@ -99,26 +99,30 @@ export const ROUTES: Route[] = [
                 children: [
                     {
                         path: "fx-rates/:currency",
-                        component: DynamicFxRatesComponent,
-                    },
-                ],
-            },
-        ],
+                        component: DynamicFxRatesComponent
+                    }
+                ]
+            }
+        ]
     },
     {
         path: "component/child",
-        component: CountriesListComponent,
+        component: CountriesListComponent
     },
     {
         path: "component/interaction",
-        component: InteractionCountryListComponent,
+        component: InteractionCountryListComponent
     },
     {
         path: "component/projection",
-        component: ProjectionCountryListComponent,
+        component: ProjectionCountryListComponent
     },
     {
         path: "component/pipes",
-        component: PipesComponent,
+        component: PipesComponent
     },
+        {
+        path: "remote/async",
+        component: AsyncPipeComponent
+    }
 ];

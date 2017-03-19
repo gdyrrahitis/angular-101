@@ -15,7 +15,7 @@ import {
     PeoplePipe, PipesComponent, ProjectionCountryListComponent,
     ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService,
 } from "../samples/Components/index";
-import { HttpComponent } from "../samples/Remote/index";
+import { AsyncPipeComponent, HttpComponent, PopulationService } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent,
@@ -55,6 +55,7 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         DiComponent,
 
         HttpComponent,
+        AsyncPipeComponent,
 
         ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
         ChildCountryComponent,
@@ -84,6 +85,7 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         ColorService,
         D3Service,
         { provide: MAP_CONFIG, useValue: MapConfiguration },
+        PopulationService
     ],
     bootstrap: [AppComponent]
 })

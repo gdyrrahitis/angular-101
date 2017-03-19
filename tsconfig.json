@@ -19,7 +19,6 @@
     "src/samples/Components/Directives",
     "src/samples/Components/LifecycleHooks",
     "src/samples/Components/ViewChild",
-    "src/samples/Remote/AsyncPipe",
     "src/samples/Remote/Promises"
   ]
 }

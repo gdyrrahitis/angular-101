@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Async pipe</h3>
+        <h4>Using the async pipe to resolve observables without explicitly subscribing</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Calculate a given person's world population rank of the new millenium as of today</h4>
+                <form class="form" novalidate>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="countries">Pick a country or 'World' for all</label>
+                                <select name="countries" id="countries" [(ngModel)]="populationRank.countryName" class="form-control" (change)="changeValue()">
+                                    <option *ngFor="let country of countries | async"  [ngValue]="country">{{country}}</option>
+                                </select>
+                                <span class="help-block">World is for all countries</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input disabled class="form-control" type="text" name="date" [value]="populationRank.dateOfBirth | date:'yyyy-MM-dd'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <select class="form-control" [disabled]="!populationRank.countryName" name="sex" id="sex" [(ngModel)]="populationRank.sex" (change)="changeValue()">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="alert alert-info" *ngIf="rank" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;<span style="text-transform: capitalize">{{(rank | async)?.sex}}</span> population rank in <strong>{{populationRank.countryName}}</strong> since new millenium is {{(rank | async)?.rank | number}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
