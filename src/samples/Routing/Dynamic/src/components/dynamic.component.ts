@@ -13,5 +13,5 @@ import { Component } from "@angular/core";
     ],
 })
 export class DynamicComponent {
-    regions: string[] = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+    public regions: string[] = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 }

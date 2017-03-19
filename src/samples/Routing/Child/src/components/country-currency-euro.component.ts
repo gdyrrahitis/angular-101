@@ -6,12 +6,12 @@ import { Http, Response } from "@angular/http";
     selector: "routing-continent",
     templateUrl: "./country-currency-euro.component.html",
 })
-export class CountryCurrencyEuroComponent implements OnInit{
-    countries: any;
+export class CountryCurrencyEuroComponent implements OnInit {
+    public countries: any;
 
-    constructor(private _http: Http) { }
+    constructor(private http: Http) { }
 
-    ngOnInit() {
-        this._http.get("https://restcountries.eu/rest/v2/currency/eur").subscribe((res) => this.countries = res.json());
+    public ngOnInit() {
+        this.http.get("https://restcountries.eu/rest/v2/currency/eur").subscribe((res) => this.countries = res.json());
     }
 }

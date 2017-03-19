@@ -10,17 +10,15 @@ import { ICountry } from "../models/Country";
     styleUrls: ["./services.component.css"],
 })
 export class ServicesComponent implements OnInit {
-    countries: ICountry[];
+    public countries: ICountry[];
 
-    // Injected service in constructor without using @inject decorator
-    constructor(private _countryService: CountryService) { }
+    constructor(private countryService: CountryService) { }
 
-    ngOnInit() {
-        // Calling service method
-        this.countries = this._countryService.getCountries();
+    public ngOnInit() {
+        this.countries = this.countryService.getCountries();
     }
 
-    getCodeNameFrom(code: Code): string {
+    public getCodeNameFrom(code: Code): string {
         return Code[code];
     }
 }

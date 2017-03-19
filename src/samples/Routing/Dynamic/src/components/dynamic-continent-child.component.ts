@@ -8,26 +8,26 @@ import { ActivatedRoute } from "@angular/router";
     templateUrl: "./dynamic-continent-child.component.html",
 })
 export class DynamicContinentChildComponent implements OnInit {
-    private url: string = "https://restcountries.eu/rest/v2/region/";
-    currentContinent: string;
-    countries: any[] = [];
-    alphabet: string[] = [
+    public currentContinent: string;
+    public countries: any[] = [];
+    public alphabet: string[] = [
         "A", "B", "C", "D", "E", "F",
         "G", "H", "I", "J", "K", "L",
         "M", "N", "O", "P", "Q", "R",
         "S", "T", "U", "V", "W", "X",
         "Y", "Z",
     ];
+    private url: string = "https://restcountries.eu/rest/v2/region/";
 
-    constructor(private _route: ActivatedRoute, private _http: Http) { }
+    constructor(private route: ActivatedRoute, private http: Http) { }
 
-    ngOnInit() {
-        this._route.params.subscribe((params: any) => this.fetchCountriesByContinentName(params.name));
+    public ngOnInit() {
+        this.route.params.subscribe((params: any) => this.fetchCountriesByContinentName(params.name));
     }
 
-    fetchCountriesByContinentName(name: string) {
+    public fetchCountriesByContinentName(name: string) {
         this.currentContinent = name;
-        this._http.get(this.url + name).subscribe((res) => this.responseHandler(res));
+        this.http.get(this.url + name).subscribe((res) => this.responseHandler(res));
     }
 
     private responseHandler(res: Response) {

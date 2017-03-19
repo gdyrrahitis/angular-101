@@ -6,12 +6,10 @@ import { Component, Input } from "@angular/core";
     templateUrl: "./projection-country-multiple-slot.component.html",
 })
 export class ProjectionCountryMultipleSlotComponent {
-    @Input() name: string;
-    visible: boolean = true;
+    @Input() public name: string;
+    public visible: boolean = true;
 
-    constructor() { }
-
-    toggleVisibility(event) {
+    public toggleVisibility(event) {
         event.preventDefault();
         this.visible = !this.visible;
     }

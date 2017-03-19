@@ -5,6 +5,7 @@ import * as topojson from "topojson";
 import { AfterViewInit, Component, ElementRef, Inject, Injector, OnInit, Renderer, ViewChild } from "@angular/core";
 
 import { MAP_CONFIG, WorldMapConfig } from "../configuration/configuration";
+import { Color } from "../models/Color";
 import { Continent } from "../models/Continent";
 import { ColorService } from "../services/color.service";
 import { ContinentService } from "../services/continent.service";
@@ -16,29 +17,29 @@ import { ContinentService } from "../services/continent.service";
     styleUrls: ["./di.component.css"],
 })
 export class DiComponent implements OnInit, AfterViewInit {
-    private colors;
+    public continent: Continent;
+    public continents: Continent[];
+    @ViewChild("map") public  map: ElementRef;
+    private colors: Color[];
     private width: number;
     private height: number;
-    continent: Continent;
-    continents: Continent[];
-    @ViewChild("map") map: ElementRef;
 
     constructor(
-        @Inject(ContinentService) private _continentService: ContinentService,
-        @Inject(MAP_CONFIG) private _mapConfig: WorldMapConfig,
-        private _renderer: Renderer,
-        private _injector: Injector) {
-            this.height = this._mapConfig.height;
-            this.width = this._mapConfig.width;
-        }
+        @Inject(ContinentService) private continentService: ContinentService,
+        @Inject(MAP_CONFIG) private mapConfig: WorldMapConfig,
+        private renderer: Renderer,
+        private injector: Injector) {
+        this.height = this.mapConfig.height;
+        this.width = this.mapConfig.width;
+    }
 
-    ngOnInit() {
-        this.continents = this._continentService.getContinents();
-        let colorService: ColorService = this._injector.get(ColorService);
+    public ngOnInit() {
+        this.continents = this.continentService.getContinents();
+        let colorService: ColorService = this.injector.get(ColorService);
         this.colors = colorService.Colors;
     }
 
-    ngAfterViewInit() {
+    public ngAfterViewInit() {
         let options = {
             element: this.map.nativeElement,
             width: this.width,
@@ -47,12 +48,12 @@ export class DiComponent implements OnInit, AfterViewInit {
             clickHandler: this.continentClickHandler,
         };
 
-        this._continentService.draw(options);
+        this.continentService.draw(options);
     }
 
     private fill = (d: any) => {
         let name = this.getContinentName(d);
-        return this.colors.filter((c) => c.name == name)[0].color;
+        return this.colors.filter((c) => c.name === name)[0].color;
     }
 
     private getContinentName(continent: any): string {
@@ -61,7 +62,7 @@ export class DiComponent implements OnInit, AfterViewInit {
 
     private continentClickHandler = (d: any) => {
         let name = this.getContinentName(d);
-        let continent = this.continents.filter((c) => c.name == name)[0];
+        let continent = this.continents.filter((c) => c.name === name)[0];
         this.continent = continent;
     }
 }

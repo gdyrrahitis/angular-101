@@ -21,24 +21,24 @@ import { ProjectionCountryMultipleSlotComponent } from "./projection-country-mul
     ],
 })
 export class ProjectionCountryListComponent implements OnInit {
-    private _flagUrl: string = "http://flagpedia.net/data/flags/small/";
-    private _url: string = "https://restcountries.eu/rest/v2/all";
-    private _rows: number = 2;
-    private _maxPopulation: number = 5000000;
-    countriesRows: any[] = [];
+    public countriesRows: any[] = [];
+    private flagUrl: string = "http://flagpedia.net/data/flags/small/";
+    private url: string = "https://restcountries.eu/rest/v2/all";
+    private rows: number = 2;
+    private maxPopulation: number = 5000000;
 
-    constructor(private _http: Http) { }
+    constructor(private http: Http) { }
 
-    ngOnInit() {
-        this._http.get(this._url).subscribe((res) => {
+    public ngOnInit() {
+        this.http.get(this.url).subscribe((res) => {
             let response: any[] = res.json();
-            let filteredCountries = response.filter((country) => country.population > this._maxPopulation);
+            let filteredCountries = response.filter((country) => country.population > this.maxPopulation);
             let length = filteredCountries.length - 1;
 
-            for (let i = 0; i < this._rows; i++) {
+            for (let i = 0; i < this.rows; i++) {
                 let row: any[] = [];
-                for (let j = 0; j < this._rows; j++) {
-                    let randomIndex = parseInt((Math.random() * length).toString());
+                for (let j = 0; j < this.rows; j++) {
+                    let randomIndex = +(Math.random() * length);
                     let country = filteredCountries[randomIndex];
                     row.push(country);
                 }
@@ -47,7 +47,7 @@ export class ProjectionCountryListComponent implements OnInit {
         });
     }
 
-    getFlagSrc(code: string) {
-        return `${this._flagUrl}${code.toLowerCase()}.png`;
+    public getFlagSrc(code: string) {
+        return `${this.flagUrl}${code.toLowerCase()}.png`;
     }
 }

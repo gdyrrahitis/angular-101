@@ -10,15 +10,15 @@ import { ICountry } from "../models/Country";
 })
 export class EventComponent {
 
-    changedElement: any;
-    clickedElement: any;
-    countries: ICountry[];
-    imagesPath: string;
-    continent: IContinent;
-    continents: IContinent[] = [];
+    public changedElement: any;
+    public clickedElement: any;
+    public countries: ICountry[];
+    public imagesPath: string;
+    public continent: IContinent;
+    public continents: IContinent[] = [];
 
-    selectedContinent: IContinent;
-    continentToSwap: IContinent;
+    public selectedContinent: IContinent;
+    public continentToSwap: IContinent;
 
     constructor() {
         this.imagesPath = "http://flagpedia.net/data/flags/normal/$P0.png";
@@ -38,44 +38,44 @@ export class EventComponent {
         this.selectedContinent = this.continents[0];
     }
 
-    setSelectedContinent($event, continent: IContinent) {
+    public setSelectedContinent($event, continent: IContinent) {
         this.clickedElement = $event.target;
         this.continent = continent;
     }
 
-    getCountriesBySelectedContinent(): ICountry[] {
+    public getCountriesBySelectedContinent(): ICountry[] {
         return this.getCountriesByContinent(this.continent);
     }
 
-    getCountriesByContinent(continent: IContinent): ICountry[] {
+    public getCountriesByContinent(continent: IContinent): ICountry[] {
         return this.countries.filter((c) => c.continent.name === continent.name);
     }
 
-    getSrcForCountry(country: ICountry): string {
+    public getSrcForCountry(country: ICountry): string {
         return this.imagesPath.replace("$P0", country.code);
     }
 
-    clear($event) {
+    public clear($event) {
         this.continent = null;
         this.clickedElement = $event.target;
     }
 
-    getCurrentTime() {
+    public getCurrentTime() {
         return (new Date()).toLocaleString();
     }
 
-    changeShowingList($event) {
-        this.continentToSwap = this.continents.filter((c) => c.name == $event.target.value)[0];
+    public changeShowingList($event) {
+        this.continentToSwap = this.continents.filter((c) => c.name === $event.target.value)[0];
         this.changedElement = $event.target;
     }
 
-    getContinentsExceptFromSelected() {
+    public getContinentsExceptFromSelected() {
         if (typeof this.selectedContinent !== "undefined") {
             return this.continents.filter((c) => c.name !== this.selectedContinent.name);
         }
     }
 
-    swap() {
+    public swap() {
         this.selectedContinent = this.continentToSwap;
         this.continentToSwap = null;
     }

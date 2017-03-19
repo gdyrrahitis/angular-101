@@ -3,6 +3,7 @@ import { FormControl } from "@angular/forms";
 import { Http, Response } from "@angular/http";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/of";
 import { Observable } from "rxjs/Observable";
 
 import { Country } from "../models/Country";
@@ -14,25 +15,28 @@ import { Country } from "../models/Country";
     templateUrl: "./http.component.html",
 })
 export class HttpComponent {
+    public countries: Country[] = [];
+    public tempCountries: Country[] = [];
+    public submitted: boolean;
+    public errorMessage: string;
     private url: string = "https://restcountries.eu/rest/v1/region/";
-    countries: Country[] = [];
-    tempCountries: Country[] = [];
-    submitted: boolean;
-    errorMessage: string;
 
-    constructor(private _http: Http) {
+    constructor(private http: Http) {
     }
 
-    getCountriesByRegion(region: string) {
-        this._http.get(`${this.url}${region}`)
+    public getCountriesByRegion(region: string) {
+        this.http.get(`${this.url}${region}`)
             .map(this.extractCountries)
+            .catch(this.handleError)
             .subscribe((countries) => {
                 this.countries = countries;
                 this.tempCountries = countries;
-            },
-            (error) => {
-                console.log(error);
             });
+    }
+
+    private handleError(error) {
+        console.error(error);
+        return Observable.throw(error);
     }
 
     private extractCountries(res: Response) {
@@ -46,18 +50,17 @@ export class HttpComponent {
         return countries;
     }
 
-    getRegions(region: any) {
+    public getRegions(region: any) {
         this.getCountriesByRegion(region.value);
     }
 
-    clear() {
+    public clear() {
         this.countries = [];
     }
 
-    onChange(input) {
+    public onChange(input) {
         let countryName: string = input.value;
 
-        console.log(countryName);
         if (countryName.length > 1) {
             this.countries = this.countries.filter((country) => country.name.indexOf(input.value) !== -1);
         } else {
@@ -65,11 +68,11 @@ export class HttpComponent {
         }
     }
 
-    reset() {
+    public reset() {
         this.countries = this.tempCountries;
     }
 
-    isRegionValidAndPristine (region) {
+    public isRegionValidAndPristine (region) {
         return region.valid || region.pristine;
     }
 

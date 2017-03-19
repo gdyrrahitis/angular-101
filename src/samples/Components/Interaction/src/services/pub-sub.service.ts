@@ -3,7 +3,7 @@ import { ObjectEventEmitter } from "../eventEmitters/objectEventEmitter";
 
 @Injectable()
 export class PubSubService {
-    emitter: ObjectEventEmitter;
+    public emitter: ObjectEventEmitter;
 
     constructor() {
         this.emitter = new ObjectEventEmitter();

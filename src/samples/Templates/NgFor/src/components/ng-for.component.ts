@@ -8,10 +8,10 @@ import { getName } from "i18n-iso-countries";
     styleUrls: ["./ng-for.component.css"],
 })
 export class NgForComponent {
-    europe: string[];
-    america: string[];
-    asia: string[];
-    imagesPath: string;
+    public europe: string[];
+    public america: string[];
+    public asia: string[];
+    public imagesPath: string;
 
     constructor() {
         this.imagesPath = "http://flagpedia.net/data/flags/normal/";
@@ -20,11 +20,11 @@ export class NgForComponent {
         this.asia = ["cn", "th", "jp"];
     }
 
-    getCountryNameBy(code: string): string {
+    public getCountryNameBy(code: string): string {
         return getName(code, "en");
     }
 
-    getSrcFromCode(code: string): string {
+    public getSrcFromCode(code: string): string {
         return this.imagesPath + code + ".png";
     }
 }

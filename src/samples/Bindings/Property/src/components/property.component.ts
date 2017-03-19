@@ -7,16 +7,16 @@ import { Component } from "@angular/core";
     styleUrls: ["./property.component.css"],
 })
 export class PropertyComponent {
-    unitedKingdomFlag: string;
-    usaFlag: string;
-    imageWidth: number;
-    imageHeight: number;
-    unitedKingdomTitle: string;
-    usaTitle: string;
-    backgroundToggle: boolean;
-    cssToggle: boolean;
-    centerDisplay: string;
-    dimensionsFull: string;
+    public unitedKingdomFlag: string;
+    public usaFlag: string;
+    public imageWidth: number;
+    public imageHeight: number;
+    public unitedKingdomTitle: string;
+    public usaTitle: string;
+    public backgroundToggle: boolean;
+    public cssToggle: boolean;
+    public centerDisplay: string;
+    public dimensionsFull: string;
 
     constructor() {
         this.unitedKingdomFlag = "http://flagpedia.net/data/flags/normal/gb.png";

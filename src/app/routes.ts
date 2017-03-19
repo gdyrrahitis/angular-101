@@ -12,7 +12,10 @@ import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent,
 } from "../samples/Routing/index";
-import { BackgroundColorByTypeDirective, ColorService, ContinentService, CountriesService, CountryService, DiComponent, ServicesComponent } from "../samples/Services/index";
+import {
+    BackgroundColorByTypeDirective, ColorService, ContinentService,
+    CountriesService, CountryService, DiComponent, ServicesComponent
+} from "../samples/Services/index";
 import { InterpolationComponent, NgForComponent, NgIfComponent } from "../samples/Templates/index";
 import { AppComponent, FooterComponent, HeaderComponent, SamplesListComponent } from "./components/index";
 

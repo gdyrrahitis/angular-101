@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({ name: "people" })
 export class PeoplePipe implements PipeTransform {
-    transform(value: string) {
-        let population = parseInt(value.replace(/,/g, ""));
+    public  transform(value: string) {
+        let population = +(value.replace(/,/g, ""));
 
         if (population < 100) {
             return value;

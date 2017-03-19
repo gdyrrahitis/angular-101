@@ -8,19 +8,19 @@ import { PubSubService } from "../services/pub-sub.service";
     templateUrl: "./interaction-add-new-country.component.html",
 })
 export class InteractionAddNewCountryComponent {
+    @Output() public cancelable = new EventEmitter();
     private url: string = "https://restcountries.eu/rest/v2/alpha/";
-    @Output() cancelable = new EventEmitter();
 
-    constructor(private _http: Http, private _pubsubService: PubSubService) { }
+    constructor(private http: Http, private pubSubService: PubSubService) { }
 
-    addCountry(input) {
+    public addCountry(input) {
         let code = input.value;
-        this._http.get(this.url + code).subscribe((res) => {
-            this._pubsubService.emitter.emit(res.json());
+        this.http.get(this.url + code).subscribe((res) => {
+            this.pubSubService.emitter.emit(res.json());
         });
     }
 
-    cancel() {
+    public cancel() {
         this.cancelable.emit();
     }
 }

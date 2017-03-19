@@ -1,8 +1,9 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
 @Component({
-    selector: "directives",
-    templateUrl: "modules/Sections/Section4/Promises/templates/promises.component.html",
+    moduleId: module.id,
+    selector: "app-promises",
+    templateUrl: "./promises.component.html",
 })
 export class PromisesComponent {
 

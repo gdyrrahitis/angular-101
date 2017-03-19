@@ -8,15 +8,15 @@ import { Router } from "@angular/router";
     templateUrl: "./country-language-greek.component.html",
 })
 export class CountryLanguageGreekComponent {
-    countries: any;
+    public countries: any;
 
-    constructor(private _http: Http, private _router: Router) { }
+    constructor(private http: Http, private router: Router) { }
 
-    ngOnInit() {
-        this._http.get("https://restcountries.eu/rest/v2/lang/el").subscribe((res) => this.countries = res.json());
+    public ngOnInit() {
+        this.http.get("https://restcountries.eu/rest/v2/lang/el").subscribe((res) => this.countries = res.json());
     }
 
-    navigateToCountry(country) {
-        this._router.navigate(["/routing/child/country", "language", "greek", country.alpha2Code]);
+    public navigateToCountry(country) {
+        this.router.navigate(["/routing/child/country", "language", "greek", country.alpha2Code]);
     }
 }

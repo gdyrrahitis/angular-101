@@ -1,3 +1,13 @@
 {
-    "extends": "tslint:recommended"
+    "extends": "tslint:recommended",
+    "rules": {
+        "eofline": false,
+        "object-literal-sort-keys": false,
+        "trailing-comma": [
+            false
+        ],
+        "member-ordering": [
+            false
+        ]
+    }
 }

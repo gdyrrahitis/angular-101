@@ -1,11 +1,11 @@
 import { OpaqueToken } from "@angular/core";
 
-export interface WorldMapConfig {
+export interface IWorldMapConfig {
     width: number;
     height: number;
 }
 
-export let MapConfiguration: WorldMapConfig = {
+export let MapConfiguration: IWorldMapConfig = {
     width: 1000,
     height: 500,
 };

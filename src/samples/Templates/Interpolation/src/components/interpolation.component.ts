@@ -7,9 +7,9 @@ import {Component} from "@angular/core";
     styleUrls: ["./interpolation.component.css"],
 })
 export class InterpolationComponent {
-    imagesPath: string;
-    canada: string;
-    usa: string;
+    public imagesPath: string;
+    public canada: string;
+    public usa: string;
 
     constructor() {
         this.imagesPath = "http://flagpedia.net/data/flags/normal/";

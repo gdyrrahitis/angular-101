@@ -4,11 +4,13 @@ import { Pipe, PipeTransform } from "@angular/core";
     name: "keys",
 })
 export class KeysPipe implements PipeTransform {
-    transform(value: any, args: string[]) {
+    public transform(value: any, args: string[]) {
         let keys = [];
 
         for (let key in value) {
-            keys.push(key);
+            if (Object.prototype.hasOwnProperty(key)) {
+                keys.push(key);
+            }
         }
 
         return keys;

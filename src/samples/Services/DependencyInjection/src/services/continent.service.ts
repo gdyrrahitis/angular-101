@@ -35,10 +35,10 @@ declare type PathOptions = {
 export class ContinentService {
     private url: string = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-continents.json";
     private continents: Continent[];
-    private _fillCallback: any;
-    private _clickHandler: any;
+    private fillCallback: any;
+    private clickHandler: any;
 
-    constructor(private _countriesService: CountriesService, private _d3Service: D3Service) {
+    constructor(private countriesService: CountriesService, private d3Service: D3Service) {
         this.continents = [
             new Continent(Location.America, this.getContinentName(Location.America)),
             new Continent(Location.Africa, this.getContinentName(Location.Africa)),
@@ -55,25 +55,26 @@ export class ContinentService {
     }
 
     private setCountries() {
-        let countries: Country[] = this._countriesService.getCountries();
+        let countries: Country[] = this.countriesService.getCountries();
         this.continents.forEach((continent) => {
-            let relatedCountries = countries.filter((country) => country.continentId == continent.id);
+            let relatedCountries = countries.filter((country) => country.continentId === continent.id);
             continent.countries = relatedCountries;
         });
     }
 
-    getContinents(): Continent[] {
+    public getContinents(): Continent[] {
         return this.continents;
     }
 
-    draw(options: ContinentOptions) {
-        this._fillCallback = options.fillCallback;
-        this._clickHandler = options.clickHandler;
+    public draw(options: ContinentOptions) {
+        this.fillCallback = options.fillCallback;
+        this.clickHandler = options.clickHandler;
 
-        let svg = this._d3Service.setSvgElement(options);
+        let svg = this.d3Service.setSvgElement(options);
 
-        let projection = this._d3Service.getRobinsonProjection(options.width, options.height);
-        this._d3Service.fetchAndDrawMapFromJsonSource(this.url, (error: any, world: any) => this.geoJsonDraw({ error, element: svg, projection, world }));
+        let projection = this.d3Service.getRobinsonProjection(options.width, options.height);
+        this.d3Service.fetchAndDrawMapFromJsonSource(this.url,
+            (error: any, world: any) => this.geoJsonDraw({ error, element: svg, projection, world }));
     }
 
     private geoJsonDraw(options: DrawOptions) {
@@ -85,11 +86,11 @@ export class ContinentService {
         let pathOptions: PathOptions = {
             element: options.element,
             features: topojson.feature(options.world, options.world.objects.continent).features,
-            path: this._d3Service.getPathFromProjection(options.projection),
-            fillCallback: this._fillCallback,
-            clickHandler: this._clickHandler,
+            path: this.d3Service.getPathFromProjection(options.projection),
+            fillCallback: this.fillCallback,
+            clickHandler: this.clickHandler,
         };
-        this._d3Service.drawContinentsOnElement(pathOptions);
+        this.d3Service.drawContinentsOnElement(pathOptions);
     }
 
     private errorHandler(error: any) {

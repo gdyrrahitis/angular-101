@@ -13,21 +13,21 @@ declare type Rate = {
     templateUrl: "./dynamic-fx-rates.component.html",
 })
 export class DynamicFxRatesComponent implements OnInit {
+    public transformRates: Rate[] = [];
+    public rates: any;
+    public error: any;
+    public currency: string;
     private url: string = "http://api.fixer.io/latest?base=";
-    transformRates: Rate[] = [];
-    rates: any;
-    error: any;
-    currency: string;
 
-    constructor(private _route: ActivatedRoute, private _http: Http) { }
+    constructor(private route: ActivatedRoute, private http: Http) { }
 
-    ngOnInit() {
-        this._route.params.subscribe((params: any) => this.loadFxRatesByCurrencyCode(params.currency));
+    public ngOnInit() {
+        this.route.params.subscribe((params: any) => this.loadFxRatesByCurrencyCode(params.currency));
     }
 
-    loadFxRatesByCurrencyCode(currency: string) {
+    public loadFxRatesByCurrencyCode(currency: string) {
         this.currency = currency.toUpperCase();
-        this._http.get(this.url + currency).subscribe((res) => {
+        this.http.get(this.url + currency).subscribe((res) => {
             let response = res.json();
             this.rates = response;
 
@@ -40,7 +40,7 @@ export class DynamicFxRatesComponent implements OnInit {
         });
     }
 
-    inputChange(event, transformRateKey, index) {
+    public inputChange(event, transformRateKey, index) {
         let pattern = /^[0-9.]*$/;
         let charCode = String.fromCharCode(event.charCode);
 
@@ -67,7 +67,7 @@ export class DynamicFxRatesComponent implements OnInit {
         this.transformRates[index][transformRateKey] = result.toFixed(3);
     }
 
-    onBackspace(event, transformRateKey, index) {
+    public onBackspace(event, transformRateKey, index) {
         if (this.isBackspace(event)) {
             this.calculateFxRate(event, transformRateKey, index, "");
         }

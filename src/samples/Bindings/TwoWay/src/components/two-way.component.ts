@@ -7,13 +7,13 @@ import {Component} from "@angular/core";
     styleUrls: ["./two-way.component.css"],
 })
 export class TwoWayComponent {
-    url: string;
+    public url: string;
 
     constructor() {
         this.url = "http://flagpedia.net/data/flags/normal/$P0.png";
     }
 
-    getFlagByCode(code: string) {
+    public getFlagByCode(code: string) {
         return this.url.replace("$P0", code);
     }
 }

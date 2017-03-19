@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class FlagSrcPipe implements PipeTransform {
     private flagUrl: string = "http://flagpedia.net/data/flags/";
 
-    transform(value: string, type: string) {
+    public transform(value: string, type: string) {
         return `${this.flagUrl}${type.toLowerCase()}/${value.toLowerCase()}.png`;
     }
 }

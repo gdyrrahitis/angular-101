@@ -1,6 +1,9 @@
 import { Routes } from "@angular/router";
 
-import { ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent } from "./index";
+import {
+    ChildComponent, CountryCurrencyEuroComponent,
+    CountryDetailsComponent, CountryLanguageGreekComponent
+} from "./index";
 
 export const ROUTES: Routes = [
     {

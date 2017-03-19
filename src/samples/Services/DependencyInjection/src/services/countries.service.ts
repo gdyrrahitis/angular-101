@@ -25,7 +25,7 @@ export class CountriesService {
 
     }
 
-    getCountries(): Country[] {
+    public getCountries(): Country[] {
         return this.countries;
     }
 

@@ -8,25 +8,25 @@ import { Http, Response } from "@angular/http";
     styleUrls: ["./pipe.component.css"],
 })
 export class PipesComponent implements OnInit {
+    public countries: any[];
     private url: string = "https://restcountries.eu/rest/v2/alpha?codes=cn;gb;us;it;cy";
 
-    countries: any[];
+    constructor(private http: Http) { }
 
-    constructor(private _http: Http) { }
-
-    ngOnInit() {
-        this._http.get(this.url).subscribe((res) => {
+    public ngOnInit() {
+        this.http.get(this.url).subscribe((res) => {
             let ordered: any = (<any[]> res.json()).sort(this.sortOnPopulation);
             this.countries = ordered;
         });
     }
 
     private sortOnPopulation(a: any, b: any): number {
-        if (a.population < b.population)
+        if (a.population < b.population) {
             return 1;
-        else if (a.population == b.population)
+        } else if (a.population === b.population) {
             return 0;
-        else
+        } else {
             return -1;
+        }
     }
 }

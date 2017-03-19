@@ -9,7 +9,7 @@ export class Country {
         public nativeName: string,
     ) { }
 
-    getFlag(){
+    public getFlag() {
         return this.url + this.alpha2Code.toLowerCase() + ".png";
     }
 }

@@ -5,7 +5,7 @@ export class ObjectEventEmitter extends Subject<any> {
         super();
     }
 
-    emit (value) {
+    public emit (value) {
         super.next(value);
     }
 }

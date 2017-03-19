@@ -6,9 +6,9 @@ import { Component } from "@angular/core";
     templateUrl: "./footer.component.html",
 })
 export class FooterComponent {
-    gravatarUrl: string;
-    twitterHandle: string;
-    githubUrl: string;
+    public gravatarUrl: string;
+    public twitterHandle: string;
+    public githubUrl: string;
 
     constructor() {
         this.gravatarUrl = "https://s.gravatar.com/avatar/750fb2d20360d5a472ef76cfc2037342?s=80";

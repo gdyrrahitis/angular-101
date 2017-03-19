@@ -11,7 +11,7 @@ import { ChildCountryComponent } from "./child-country.component";
     templateUrl: "./countries-list.component.html",
 })
 export class CountriesListComponent {
-    countries: Country[] = [
+    public countries: Country[] = [
         new Country("gb", getName("gb", "en"), new Continent("Europe")),
         new Country("es", getName("es", "en"), new Continent("Europe")),
         new Country("fr", getName("fr", "en"), new Continent("Europe")),

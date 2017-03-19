@@ -1,8 +1,9 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
 @Component({
+    moduleId: module.id,
     selector: "directives",
-    templateUrl: "modules/Sections/Section2/Lifecycle_hooks/templates/lifecyclehooks.component.html",
+    templateUrl: "./lifecyclehooks.component.html",
 })
 export class LifecycleHooksComponent {
 

@@ -14,18 +14,15 @@ import { Component, Input } from "@angular/core";
     ],
 })
 export class ProjectionCountrySingleSlotComponent {
+    public visible: boolean = true;
+    @Input() public country: any;
     private url: string = "http://flagpedia.net/data/flags/small/";
 
-    visible: boolean = true;
-    @Input() country: any;
-
-    constructor() { }
-
-    getFlagSrc(code: string) {
+    public getFlagSrc(code: string) {
         return `${this.url}${code.toLowerCase()}.png`;
     }
 
-    toggleVisibility(event) {
+    public toggleVisibility(event) {
         event.preventDefault();
         this.visible = !this.visible;
     }
