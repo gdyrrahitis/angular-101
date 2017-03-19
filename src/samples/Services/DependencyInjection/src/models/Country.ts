@@ -5,8 +5,8 @@ export class Country {
     population: number;
     code: string;
     continentId: number;
-    
-    constructor (name:string, population: number, code: string, continentId: number) {
+
+    constructor (name: string, population: number, code: string, continentId: number) {
         this.name = name;
         this.population = population;
         this.code = code;

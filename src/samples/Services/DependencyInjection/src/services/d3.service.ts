@@ -2,16 +2,16 @@ import * as d3 from "d3";
 import "d3-geo";
 import * as topojson from "topojson";
 
-import { Injectable, ElementRef } from '@angular/core';
+import { ElementRef, Injectable } from "@angular/core";
 
 declare module "d3" {
-    var geo: any
+    let geo: any;
 }
 
-declare type D3Options = { 
-    element: any, 
-    width: number, 
-    height: number 
+declare type D3Options = {
+    element: any,
+    width: number,
+    height: number,
 };
 
 declare type PathOptions = {
@@ -19,7 +19,7 @@ declare type PathOptions = {
     features: any,
     path: any,
     fillCallback(d: any): any,
-    clickHandler(d: any): any
+    clickHandler(d: any): any,
 };
 
 @Injectable()
@@ -60,6 +60,6 @@ export class D3Service {
             .attr("class", function (d) { return "continent"; })
             .attr("fill", options.fillCallback)
             .style("cursor", "pointer")
-            .attr("d", options.path).on("click", options.clickHandler)
+            .attr("d", options.path).on("click", options.clickHandler);
     }
 }

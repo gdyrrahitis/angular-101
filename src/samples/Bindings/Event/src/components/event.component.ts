@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
-import { ICountry } from "../models/Country";
 import { IContinent } from "../models/Continent";
+import { ICountry } from "../models/Country";
 
 @Component({
     moduleId: module.id,
     selector: "event-binding",
     templateUrl: "./event.component.html",
-    styleUrls: ["./event.component.css"]
+    styleUrls: ["./event.component.css"],
 })
 export class EventComponent {
 
@@ -29,11 +29,11 @@ export class EventComponent {
             { code: "us", name: "USA", continent: { name: "America" } },
             { code: "ca", name: "Canada", continent: { name: "America" } },
             { code: "cn", name: "China", continent: { name: "Asia" } },
-            { code: "in", name: "India", continent: { name: "Asia" } }
+            { code: "in", name: "India", continent: { name: "Asia" } },
         ];
 
-        var names = new Set(this.countries.map(c => c.continent.name));
-        names.forEach(c => this.continents.push({ name: c }));
+        let names = new Set(this.countries.map((c) => c.continent.name));
+        names.forEach((c) => this.continents.push({ name: c }));
 
         this.selectedContinent = this.continents[0];
     }
@@ -48,7 +48,7 @@ export class EventComponent {
     }
 
     getCountriesByContinent(continent: IContinent): ICountry[] {
-        return this.countries.filter(c => c.continent.name === continent.name);
+        return this.countries.filter((c) => c.continent.name === continent.name);
     }
 
     getSrcForCountry(country: ICountry): string {
@@ -65,13 +65,13 @@ export class EventComponent {
     }
 
     changeShowingList($event) {
-        this.continentToSwap = this.continents.filter(c => c.name == $event.target.value)[0];
+        this.continentToSwap = this.continents.filter((c) => c.name == $event.target.value)[0];
         this.changedElement = $event.target;
     }
 
     getContinentsExceptFromSelected() {
         if (typeof this.selectedContinent !== "undefined") {
-            return this.continents.filter(c => c.name !== this.selectedContinent.name);
+            return this.continents.filter((c) => c.name !== this.selectedContinent.name);
         }
     }
 

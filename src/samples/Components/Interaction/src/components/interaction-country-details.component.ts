@@ -1,17 +1,17 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-interaction-country-details',
-    templateUrl: './interaction-country-details.component.html',
+    selector: "app-interaction-country-details",
+    templateUrl: "./interaction-country-details.component.html",
     styles: [
         `
         .flag{
             width: 90;
             height: 60;
         }
-        `
-    ]
+        `,
+    ],
 })
 export class InteractionCountryDetailsComponent {
     private flagUrl = "http://flagpedia.net/data/flags/small/";

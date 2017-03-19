@@ -3,5 +3,5 @@ export enum Location {
     Africa,
     Asia,
     Oceania,
-    Europe
+    Europe,
 }

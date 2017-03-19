@@ -1,66 +1,66 @@
 import { Route } from "@angular/router";
 
 // TODO: Add to individual modules
-import { AppComponent, HeaderComponent, SamplesListComponent, FooterComponent } from "./components/index";
-import { PropertyComponent, EventComponent, TwoWayComponent } from "../samples/Bindings/index";
-import { InterpolationComponent, NgIfComponent, NgForComponent } from "../samples/Templates/index";
-import { ServicesComponent, BackgroundColorByTypeDirective, CountryService, CountriesService, ContinentService, DiComponent, ColorService } from "../samples/Services/index";
+import { EventComponent, PropertyComponent, TwoWayComponent } from "../samples/Bindings/index";
+import {
+    CountriesListComponent, InteractionCountryListComponent,
+    PipesComponent,
+    ProjectionCountryListComponent,
+} from "../samples/Components/index";
 import { HttpComponent } from "../samples/Remote/index";
 import {
-    ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
-    DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
+    ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
+    DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent,
 } from "../samples/Routing/index";
-import {
-    CountriesListComponent, InteractionCountryListComponent, 
-    ProjectionCountryListComponent,
-    PipesComponent
-} from "../samples/Components/index";
+import { BackgroundColorByTypeDirective, ColorService, ContinentService, CountriesService, CountryService, DiComponent, ServicesComponent } from "../samples/Services/index";
+import { InterpolationComponent, NgForComponent, NgIfComponent } from "../samples/Templates/index";
+import { AppComponent, FooterComponent, HeaderComponent, SamplesListComponent } from "./components/index";
 
 export const ROUTES: Route[] = [
     {
         path: "",
         redirectTo: "home",
-        pathMatch: "full"
+        pathMatch: "full",
     },
     {
         path: "home",
-        component: SamplesListComponent
+        component: SamplesListComponent,
     },
     {
         path: "binding/property",
-        component: PropertyComponent
+        component: PropertyComponent,
     },
     {
         path: "binding/event",
-        component: EventComponent
+        component: EventComponent,
     },
     {
         path: "binding/two-way",
-        component: TwoWayComponent
+        component: TwoWayComponent,
     },
     {
         path: "templates/interpolation",
-        component: InterpolationComponent
+        component: InterpolationComponent,
     },
     {
         path: "templates/ngif",
-        component: NgIfComponent
+        component: NgIfComponent,
     },
     {
         path: "templates/ngfor",
-        component: NgForComponent
+        component: NgForComponent,
     },
     {
         path: "services/services",
-        component: ServicesComponent
+        component: ServicesComponent,
     },
     {
         path: "services/di",
-        component: DiComponent
+        component: DiComponent,
     },
     {
         path: "remote/http",
-        component: HttpComponent
+        component: HttpComponent,
     },
     {
         path: "routing/child/country",
@@ -76,11 +76,11 @@ export const ROUTES: Route[] = [
                 children: [
                     {
                         path: ":code",
-                        component: CountryDetailsComponent
-                    }
-                ]
-            }
-        ]
+                        component: CountryDetailsComponent,
+                    },
+                ],
+            },
+        ],
     },
     {
         path: "routing/dynamic",
@@ -88,7 +88,7 @@ export const ROUTES: Route[] = [
         children: [
             {
                 path: "continent/:name",
-                component: DynamicContinentChildComponent
+                component: DynamicContinentChildComponent,
             },
             {
                 path: "continent/:name/country/:code",
@@ -96,26 +96,26 @@ export const ROUTES: Route[] = [
                 children: [
                     {
                         path: "fx-rates/:currency",
-                        component: DynamicFxRatesComponent
-                    }
-                ]
-            }
-        ]
+                        component: DynamicFxRatesComponent,
+                    },
+                ],
+            },
+        ],
     },
     {
         path: "component/child",
-        component: CountriesListComponent
+        component: CountriesListComponent,
     },
     {
         path: "component/interaction",
-        component: InteractionCountryListComponent
+        component: InteractionCountryListComponent,
     },
     {
         path: "component/projection",
-        component: ProjectionCountryListComponent
+        component: ProjectionCountryListComponent,
     },
     {
         path: "component/pipes",
-        component: PipesComponent
-    }
+        component: PipesComponent,
+    },
 ];

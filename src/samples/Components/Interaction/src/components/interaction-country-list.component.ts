@@ -5,7 +5,7 @@ import { PubSubService } from "../services/pub-sub.service";
 @Component({
     moduleId: module.id,
     selector: "app-interaction-country-list",
-    templateUrl: "./interaction-country-list.component.html"
+    templateUrl: "./interaction-country-list.component.html",
 })
 export class InteractionCountryListComponent implements OnInit {
     private url: string = "https://restcountries.eu/rest/v2/all";
@@ -17,8 +17,8 @@ export class InteractionCountryListComponent implements OnInit {
     constructor(private _http: Http, private _pubSubService: PubSubService) { }
 
     ngOnInit() {
-        this._http.get(this.url).subscribe(res => this.httpGetHandler(res));
-        this._pubSubService.emitter.subscribe(value => {
+        this._http.get(this.url).subscribe((res) => this.httpGetHandler(res));
+        this._pubSubService.emitter.subscribe((value) => {
             let length = this.countriesArray.length;
             let lastInnerArray: any[] = this.countriesArray[length - 1];
             if (lastInnerArray.length === 2) {

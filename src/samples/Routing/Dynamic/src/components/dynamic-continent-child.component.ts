@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-dynamic-continent',
-    templateUrl: './dynamic-continent-child.component.html',
+    selector: "app-dynamic-continent",
+    templateUrl: "./dynamic-continent-child.component.html",
 })
 export class DynamicContinentChildComponent implements OnInit {
     private url: string = "https://restcountries.eu/rest/v2/region/";
@@ -16,18 +16,18 @@ export class DynamicContinentChildComponent implements OnInit {
         "G", "H", "I", "J", "K", "L",
         "M", "N", "O", "P", "Q", "R",
         "S", "T", "U", "V", "W", "X",
-        "Y", "Z"
+        "Y", "Z",
     ];
 
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
     ngOnInit() {
-        this._route.params.subscribe((params:any) => this.fetchCountriesByContinentName(params.name));
+        this._route.params.subscribe((params: any) => this.fetchCountriesByContinentName(params.name));
     }
 
     fetchCountriesByContinentName(name: string) {
         this.currentContinent = name;
-        this._http.get(this.url + name).subscribe(res => this.responseHandler(res));
+        this._http.get(this.url + name).subscribe((res) => this.responseHandler(res));
     }
 
     private responseHandler(res: Response) {
@@ -37,9 +37,9 @@ export class DynamicContinentChildComponent implements OnInit {
         this.alphabet.forEach((letter) => {
             let countriesWithInitial = {
                 initial: letter,
-                countries: []
+                countries: [],
             };
-            
+
             response.forEach((value) => {
                 let firstLetter = value.name.charAt(0);
 

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-dynamic-country',
-    templateUrl: './dynamic-country-child.component.html'
+    selector: "app-dynamic-country",
+    templateUrl: "./dynamic-country-child.component.html",
 })
 export class DynamicCountryChildComponent implements OnInit {
     private url: string = "https://restcountries.eu/rest/v2/alpha/";
@@ -14,12 +14,12 @@ export class DynamicCountryChildComponent implements OnInit {
 
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
-    ngOnInit() { 
-        this._route.params.subscribe((params:any) => this.initializeCountryByCode(params.code));
+    ngOnInit() {
+        this._route.params.subscribe((params: any) => this.initializeCountryByCode(params.code));
     }
 
     initializeCountryByCode(code: string) {
-        this._http.get(this.url + code).subscribe(res => this.country = res.json());
+        this._http.get(this.url + code).subscribe((res) => this.country = res.json());
     }
 
     getFlagSrc(code: string) {

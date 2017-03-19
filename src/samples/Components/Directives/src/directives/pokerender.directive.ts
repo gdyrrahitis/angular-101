@@ -1,10 +1,10 @@
-import {Directive, ElementRef, Input, Output, EventEmitter} from "angular2/core";
+import {Directive, ElementRef, EventEmitter, Input, Output} from "angular2/core";
 
 @Directive({
     selector: "[pokeRender]",
     host: {
-        "(click)": "clickHandler()"
-    }
+        "(click)": "clickHandler()",
+    },
 })
 export class PokemonRenderDirective {
     private imagePath: string = "modules/Content/images";
@@ -22,13 +22,13 @@ export class PokemonRenderDirective {
     }
 
     clickHandler() {
-        var that = this;
+        let that = this;
         if (that.clicks >= 5) return;
         that.clicks++;
         that.myOnClick.emit({ value: that.clicks });
 
         if (that.clicks >= 5) {
-            var nextEvolution = that.pokemonNextEvolutions[0];
+            let nextEvolution = that.pokemonNextEvolutions[0];
             that.preEvolve();
             setTimeout(function () {
                 that.render(nextEvolution);
@@ -38,12 +38,12 @@ export class PokemonRenderDirective {
     }
 
     private postEvolve() {
-        var body = document.querySelector("body");
+        let body = document.querySelector("body");
         body.className = "";
     }
 
     private preEvolve() {
-        var body = document.querySelector("body");
+        let body = document.querySelector("body");
         body.className = "flash";
     }
 

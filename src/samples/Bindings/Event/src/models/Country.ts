@@ -1,9 +1,9 @@
 import { IContinent } from "./Continent";
 
 export interface ICountry {
-    code: string,
-    name: string,
-    continent: IContinent
+    code: string;
+    name: string;
+    continent: IContinent;
 }
 
 export class Country implements ICountry {

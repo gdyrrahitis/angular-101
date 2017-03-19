@@ -7,5 +7,5 @@ export enum Code {
     CN,
     AU,
     NA,
-    GA
+    GA,
 }

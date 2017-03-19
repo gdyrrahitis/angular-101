@@ -7,7 +7,7 @@ export interface WorldMapConfig {
 
 export let MapConfiguration: WorldMapConfig = {
     width: 1000,
-    height: 500
-}
+    height: 500,
+};
 
 export let MAP_CONFIG = new OpaqueToken("MapConfiguration");

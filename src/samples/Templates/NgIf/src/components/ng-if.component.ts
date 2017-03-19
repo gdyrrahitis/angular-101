@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
     moduleId: module.id,
     selector: "app-ng-if",
     templateUrl: "./ng-if.component.html",
-    styleUrls: ["./ng-if.component.css"]
+    styleUrls: ["./ng-if.component.css"],
 })
 export class NgIfComponent {
     imagesPath: string;

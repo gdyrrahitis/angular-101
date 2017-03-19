@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
 
 import { ProjectionCountryMultipleSlotComponent } from "./projection-country-multiple-slot.component";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-projection-country-list',
-    templateUrl: './projection-country-list.component.html',
+    selector: "app-projection-country-list",
+    templateUrl: "./projection-country-list.component.html",
     styles: [
         `
         .flag {
@@ -17,8 +17,8 @@ import { ProjectionCountryMultipleSlotComponent } from "./projection-country-mul
         .margin-bottom-15 {
             margin-bottom: 15px;
         }
-        `
-    ]
+        `,
+    ],
 })
 export class ProjectionCountryListComponent implements OnInit {
     private _flagUrl: string = "http://flagpedia.net/data/flags/small/";
@@ -30,9 +30,9 @@ export class ProjectionCountryListComponent implements OnInit {
     constructor(private _http: Http) { }
 
     ngOnInit() {
-        this._http.get(this._url).subscribe(res => {
+        this._http.get(this._url).subscribe((res) => {
             let response: any[] = res.json();
-            let filteredCountries = response.filter(country => country.population > this._maxPopulation);
+            let filteredCountries = response.filter((country) => country.population > this._maxPopulation);
             let length = filteredCountries.length - 1;
 
             for (let i = 0; i < this._rows; i++) {

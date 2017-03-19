@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { ActivatedRoute } from "@angular/router";
 
 declare type Rate = {
     rate1?: number,
-    rate2?: number
+    rate2?: number,
 };
 
 @Component({
     moduleId: module.id,
-    selector: 'app-fx-rates',
-    templateUrl: './dynamic-fx-rates.component.html'
+    selector: "app-fx-rates",
+    templateUrl: "./dynamic-fx-rates.component.html",
 })
 export class DynamicFxRatesComponent implements OnInit {
     private url: string = "http://api.fixer.io/latest?base=";
@@ -22,17 +22,17 @@ export class DynamicFxRatesComponent implements OnInit {
     constructor(private _route: ActivatedRoute, private _http: Http) { }
 
     ngOnInit() {
-        this._route.params.subscribe((params:any) => this.loadFxRatesByCurrencyCode(params.currency));
+        this._route.params.subscribe((params: any) => this.loadFxRatesByCurrencyCode(params.currency));
     }
 
     loadFxRatesByCurrencyCode(currency: string) {
         this.currency = currency.toUpperCase();
-        this._http.get(this.url + currency).subscribe(res => {
+        this._http.get(this.url + currency).subscribe((res) => {
             let response = res.json();
             this.rates = response;
 
             let rates = Object.keys(this.rates.rates);
-            rates.forEach(value => {
+            rates.forEach((value) => {
                 this.transformRates.push({});
             });
         }, (error) => {
@@ -57,9 +57,9 @@ export class DynamicFxRatesComponent implements OnInit {
         let fxRate = this.rates.rates[rates[index]];
         let value: string = event.target.value + charCode;
 
-        let result: number = transformRateKey === "rate1" ? fxRate * parseFloat(value): parseFloat(value) / fxRate;
+        let result: number = transformRateKey === "rate1" ? fxRate * parseFloat(value) : parseFloat(value) / fxRate;
 
-        if(isNaN(result)) {
+        if (isNaN(result)) {
             this.transformRates[index][transformRateKey] = null;
             return;
         }
@@ -67,10 +67,9 @@ export class DynamicFxRatesComponent implements OnInit {
         this.transformRates[index][transformRateKey] = result.toFixed(3);
     }
 
-
     onBackspace(event, transformRateKey, index) {
-        if(this.isBackspace(event)) {
-            this.calculateFxRate(event, transformRateKey, index, '');
+        if (this.isBackspace(event)) {
+            this.calculateFxRate(event, transformRateKey, index, "");
         }
     }
 

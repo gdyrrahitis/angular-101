@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { CountryService } from "../../index";
-import { ICountry } from "../models/Country";
 import { Code } from "../enums/Code";
+import { ICountry } from "../models/Country";
 
 @Component({
     moduleId: module.id,
     selector: "app-services",
     templateUrl: "./services.component.html",
-    styleUrls: ["./services.component.css"]
+    styleUrls: ["./services.component.css"],
 })
 export class ServicesComponent implements OnInit {
     countries: ICountry[];

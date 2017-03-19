@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-projection-country-multiple-slot',
-    templateUrl: './projection-country-multiple-slot.component.html'
+    selector: "app-projection-country-multiple-slot",
+    templateUrl: "./projection-country-multiple-slot.component.html",
 })
 export class ProjectionCountryMultipleSlotComponent {
     @Input() name: string;

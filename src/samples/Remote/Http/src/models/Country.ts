@@ -6,9 +6,8 @@ export class Country {
         public capital: string,
         public population: number,
         public alpha2Code: string,
-        public nativeName: string
+        public nativeName: string,
     ) { }
-
 
     getFlag(){
         return this.url + this.alpha2Code.toLowerCase() + ".png";

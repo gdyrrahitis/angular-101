@@ -5,7 +5,7 @@ import { getName } from "i18n-iso-countries";
     moduleId: module.id,
     selector: "app-ng-for",
     templateUrl: "./ng-for.component.html",
-    styleUrls: ["./ng-for.component.css"]
+    styleUrls: ["./ng-for.component.css"],
 })
 export class NgForComponent {
     europe: string[];

@@ -1,11 +1,11 @@
 import {Component} from "angular2/core";
-import {PokemonRenderDirective} from "./directives/pokeRender.directive";
 import {PokemonEvolutionsStructuralDirective} from "./directives/pokemonEvolutions.structural.directive";
+import {PokemonRenderDirective} from "./directives/pokeRender.directive";
 
 @Component({
     selector: "directives",
     templateUrl: "modules/Sections/Section2/Directives/templates/directives.component.html",
-    directives: [PokemonRenderDirective, PokemonEvolutionsStructuralDirective]
+    directives: [PokemonRenderDirective, PokemonEvolutionsStructuralDirective],
 })
 export class DirectivesComponent {
     private pokemonName: string;

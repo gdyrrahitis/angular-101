@@ -9,8 +9,8 @@ import { Component } from "@angular/core";
         .margin-bottom-15 {
             margin-bottom: 15px;
         }
-        `
-    ]
+        `,
+    ],
 })
 export class DynamicComponent {
     regions: string[] = ["Africa", "Americas", "Asia", "Europe", "Oceania"];

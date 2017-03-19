@@ -20,7 +20,7 @@ export class CountriesService {
             this.getCountry(Code.CN, 1363350000, Location.Asia),
             this.getCountry(Code.DE, 80619000, Location.Europe),
             this.getCountry(Code.GA, 1672000, Location.Africa),
-            this.getCountry(Code.NA, 2113077, Location.Africa)
+            this.getCountry(Code.NA, 2113077, Location.Africa),
         ];
 
     }

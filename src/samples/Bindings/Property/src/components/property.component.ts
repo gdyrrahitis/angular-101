@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     moduleId: module.id,
     selector: "property-binding",
     templateUrl: "./property.component.html",
-    styleUrls: ["./property.component.css"]
+    styleUrls: ["./property.component.css"],
 })
 export class PropertyComponent {
     unitedKingdomFlag: string;
@@ -28,6 +28,6 @@ export class PropertyComponent {
         this.backgroundToggle = false;
         this.cssToggle = true;
         this.centerDisplay = "0 auto";
-        this.dimensionsFull = "100% 100%"
+        this.dimensionsFull = "100% 100%";
     }
 }

@@ -3,6 +3,6 @@ import { AppModule } from "./app.module";
 
 platformBrowserDynamic().bootstrapModule(AppModule).then(() => {
         console.log("Welcome to Angular!!!");
-    },(error) => {
+    }, (error) => {
         console.error(error);
     });

@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class PeoplePipe implements PipeTransform {
     transform(value: string) {
         let population = parseInt(value.replace(/,/g, ""));
-        
+
         if (population < 100) {
             return value;
         }

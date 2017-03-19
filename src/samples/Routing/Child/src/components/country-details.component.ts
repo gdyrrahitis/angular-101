@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, Input, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-country-details',
-    templateUrl: "./country-details.component.html"
+    selector: "app-country-details",
+    templateUrl: "./country-details.component.html",
 })
 export class CountryDetailsComponent implements OnInit {
     private url = "http://flagpedia.net/data/flags/small/";
@@ -16,7 +16,7 @@ export class CountryDetailsComponent implements OnInit {
     ngOnInit() {
         this._route.params.subscribe((params: any) => {
             let code = params.code;
-            this._http.get("https://restcountries.eu/rest/v2/alpha/" + code).subscribe(res => this.country = res.json());
+            this._http.get("https://restcountries.eu/rest/v2/alpha/" + code).subscribe((res) => this.country = res.json());
         });
     }
 

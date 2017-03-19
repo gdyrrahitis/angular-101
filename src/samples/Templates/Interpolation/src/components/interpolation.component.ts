@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
     moduleId: module.id,
     selector: "app-interpolation",
     templateUrl: "./interpolation.component.html",
-    styleUrls: ["./interpolation.component.css"]
+    styleUrls: ["./interpolation.component.css"],
 })
 export class InterpolationComponent {
     imagesPath: string;

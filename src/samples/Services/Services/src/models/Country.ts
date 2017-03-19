@@ -1,10 +1,10 @@
-import { IContinent } from "./Continent";
 import { Code } from "../enums/Code";
+import { IContinent } from "./Continent";
 
 export class Country {
     constructor(public code: Code,
-        public name: string,
-        public continent: IContinent
+                public name: string,
+                public continent: IContinent,
     ) { }
 }
 

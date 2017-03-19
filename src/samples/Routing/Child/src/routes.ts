@@ -17,10 +17,10 @@ export const ROUTES: Routes = [
                 children: [
                     {
                         path: ":code",
-                        component: CountryDetailsComponent
-                    }
-                ]
-            }
-        ]
-    }
+                        component: CountryDetailsComponent,
+                    },
+                ],
+            },
+        ],
+    },
 ];

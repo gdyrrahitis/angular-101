@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 
-import { Country } from "../models/Country";
 import { Continent } from "../models/Continent";
+import { Country } from "../models/Country";
 
 @Component({
     moduleId: module.id,
-    selector: 'app-child-country',
+    selector: "app-child-country",
     templateUrl: "./child-country.component.html",
-    styleUrls: ["./child-country.component.css"]
+    styleUrls: ["./child-country.component.css"],
 })
 export class ChildCountryComponent implements OnInit {
     private url: string = "http://flagpedia.net/data/flags/small/";

@@ -1,17 +1,17 @@
 import { Component } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { Http, Response } from "@angular/http";
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import "rxjs/add/operator/catch";
+import "rxjs/add/operator/map";
+import { Observable } from "rxjs/Observable";
 
 import { Country } from "../models/Country";
 
 @Component({
     moduleId: module.id,
     selector: "app-http",
+    styleUrls: ["./http.component.css"],
     templateUrl: "./http.component.html",
-    styleUrls: ["./http.component.css"]
 })
 export class HttpComponent {
     private url: string = "https://restcountries.eu/rest/v1/region/";
@@ -26,11 +26,11 @@ export class HttpComponent {
     getCountriesByRegion(region: string) {
         this._http.get(`${this.url}${region}`)
             .map(this.extractCountries)
-            .subscribe(countries => {
+            .subscribe((countries) => {
                 this.countries = countries;
                 this.tempCountries = countries;
             },
-            error => {
+            (error) => {
                 console.log(error);
             });
     }
@@ -39,7 +39,7 @@ export class HttpComponent {
         let countries: Country[] = [];
         let body = res.json();
 
-        body.forEach(obj => {
+        body.forEach((obj) => {
             let country = new Country(obj.name, obj.capital, obj.population, obj.alpha2Code, obj.nativeName);
             countries.push(country);
         });
@@ -57,9 +57,9 @@ export class HttpComponent {
     onChange(input) {
         let countryName: string = input.value;
 
-        console.log(countryName)
+        console.log(countryName);
         if (countryName.length > 1) {
-            this.countries = this.countries.filter(country => country.name.indexOf(input.value) !== -1);
+            this.countries = this.countries.filter((country) => country.name.indexOf(input.value) !== -1);
         } else {
             this.reset();
         }

@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input } from "@angular/core";
 import { Code } from "../enums/Code";
 
 @Directive({
-    selector: "[bgImage]"
+    selector: "[bgImage]",
 })
 export class BackgroundColorByTypeDirective {
     private url: string = "http://flagpedia.net/data/flags/normal/";

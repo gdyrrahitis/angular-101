@@ -1,17 +1,17 @@
-import {Directive, Input, TemplateRef, ViewContainerRef, ViewRef, HostViewRef} from "angular2/core";
+import {Directive, HostViewRef, Input, TemplateRef, ViewContainerRef, ViewRef} from "angular2/core";
 
 @Directive({
-    selector: "[pokeEvolutions]"
+    selector: "[pokeEvolutions]",
 })
 export class PokemonEvolutionsStructuralDirective {
-    
+
     private imagePath: string = "modules/Content/images";
-    
+
     @Input("pokeEvolutions") set evolutions (allEvolutuons: string[]) {
-        var that = this;
+        let that = this;
         that.viewContainer.clear();
-        allEvolutuons.forEach(element => {
-            var view = that.viewContainer.createEmbeddedView(that.templateRef);
+        allEvolutuons.forEach((element) => {
+            let view = that.viewContainer.createEmbeddedView(that.templateRef);
             view.rootNodes.forEach((node) => {
                 node.src = this.imagePath + "/" + element + ".png";
                 node.alt = element;
@@ -22,5 +22,5 @@ export class PokemonEvolutionsStructuralDirective {
     }
 
     constructor(private templateRef: TemplateRef,
-               private viewContainer: ViewContainerRef) { }
+                private viewContainer: ViewContainerRef) { }
 }
