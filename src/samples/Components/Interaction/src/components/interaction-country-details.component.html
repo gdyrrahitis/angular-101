@@ -1,13 +1,16 @@
 <div class="panel panel-default">
-    <div class="panel-body bg-info">
+    <div [ngClass]="'panel-body bg-' + bgColor">
         <div class="media">
             <div class="media-left">
                 <img class="media-object flag" [src]="getFlagSrcByCode(country.alpha2Code)" [alt]="country.name" />
             </div>
             <div class="media-body">
                 <p class="text-center lead">
-                    <a href="#" (click)="updateSelectedCountry($event, country)">{{country.name}}</a>
+                    <a href="#" [ngStyle]="{'color': color}" (click)="updateSelectedCountry($event, country)">{{country.name}}</a>
                 </p>
+            </div>
+            <div class="media-bottom">
+                <p *ngIf="previousColor">Previous color was <span class="badge">{{previousColor}}</span></p>
             </div>
         </div>
     </div>

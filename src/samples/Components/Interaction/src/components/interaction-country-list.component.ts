@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { PubSubService } from "../services/pub-sub.service";
 
@@ -11,6 +11,13 @@ export class InteractionCountryListComponent implements OnInit {
     public countriesArray: any[] = [];
     public selectedCountry: any;
     public addMode: boolean;
+    public boxStyles: any[] = [
+        { background: "info", color: "#337ab7" },
+        { background: "primary", color: "#eee" },
+        { background: "warning", color: "#337ab7" },
+        { background: "danger", color: "#337ab7" }
+    ];
+    public boxStyle: any = this.boxStyles[0];
     private url: string = "https://restcountries.eu/rest/v2/all";
     private limit: number = 6;
 
@@ -33,7 +40,7 @@ export class InteractionCountryListComponent implements OnInit {
     }
 
     public httpGetHandler(res: Response) {
-        let response: any[] = res.json();
+        let response: any[] = (<any[]> res.json()).filter((c) => c.population > 20000000);
         let max = response.length - 1;
         let rows = this.limit / 2;
         let columns = this.limit / 3;
@@ -41,7 +48,7 @@ export class InteractionCountryListComponent implements OnInit {
         for (let i = 0; i < rows; i++) {
             let countryArray = [];
             for (let j = 0; j < columns; j++) {
-                let random: number = +(Math.random() * max);
+                let random: number = Math.floor(Math.random() * max);
                 let country = response[random];
                 countryArray.push(country);
             }

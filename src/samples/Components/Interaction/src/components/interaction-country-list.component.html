@@ -10,11 +10,17 @@
             </div>
         </div>
         <div class="row" *ngIf="!addMode">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <button type="button" class="btn btn-primary" (click)="setAddMode()">Add country to grid</button>
-                <hr />
+            </div>
+            <div class="col-md-6">
+                <label for="boxStyles">Box styles</label>
+                <select id="boxStyles" class="form-control" [(ngModel)]="boxStyle" name="styles">
+                    <option *ngFor="let style of boxStyles" [ngValue]="style">{{ style.background }}</option>
+                </select>
             </div>
         </div>
+        <hr />
         <div class="row" *ngIf="selectedCountry">
             <div class="col-md-12">
                 <div class="alert alert-success">
@@ -24,7 +30,7 @@
         </div>
         <div class="row" *ngFor="let countryArray of countriesArray">
             <div class="col-md-6" *ngFor="let country of countryArray">
-                <app-interaction-country-details [country]="country" (selectedCountry)="countrySelection($event)"></app-interaction-country-details>
+                <app-interaction-country-details [country]="country" [bgColor]="boxStyle.background" [color]="boxStyle.color" (selectedCountry)="countrySelection($event)"></app-interaction-country-details>
             </div>
         </div>
     </div>
