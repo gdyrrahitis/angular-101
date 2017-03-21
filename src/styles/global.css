@@ -64,7 +64,6 @@ div.list-category a.list-group-item
     border-left: 0;
     border-right: 0;
     border-radius: 0;
-    border-bottom: 1px solid #E0E4E9;
     color: #4c4c4c; 
     font-size: 14px;
     text-indent: 5px;
@@ -72,7 +71,24 @@ div.list-category a.list-group-item
     padding-left: 0;
     padding-right: 0;
     overflow: hidden;
+    margin-bottom: 0;
+    border-bottom: 1px solid #E0E4E9;
+    -webkit-transition: border 0.2s ease-in-out 0.05s;
+    transition: border 0.2s ease-in-out 0.05s;
 }
+
+div.list-category a.list-group-item:hover {
+    border-bottom: 1px solid #337ab7;
+    -webkit-transition: border 0.2s ease-in-out 0.05s;
+    transition: border 0.2s ease-in-out 0.05s;
+}
+
+div.list-category a.list-group-item:last-child:hover {
+    border-bottom: 1px solid #337ab7;
+    -webkit-transition: border 0.2s ease-in-out 0.05s;
+    transition: border 0.2s ease-in-out 0.05s;
+}
+
 
 .truncate 
 {
