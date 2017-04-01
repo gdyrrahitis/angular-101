@@ -16,6 +16,10 @@ import {
     ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService,
 } from "../samples/Components/index";
 import {
+    FormsTemplateAuthorizationService, FormsTemplateDrivenComponent,
+    FormsTemplateSecretComponent
+} from "../samples/Forms/index";
+import {
     AsyncPipeComponent, HttpComponent, PopulationService,
     PromisesComponent, PromisesCountriesService
 } from "../samples/Remote/index";
@@ -79,6 +83,9 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         ProjectionCountrySingleSlotComponent,
         PipesComponent,
 
+        FormsTemplateDrivenComponent,
+        FormsTemplateSecretComponent,
+
         SafePipe,
         KeysPipe,
         FlagSrcPipe,
@@ -92,7 +99,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         D3Service,
         { provide: MAP_CONFIG, useValue: MapConfiguration },
         PopulationService,
-        PromisesCountriesService
+        PromisesCountriesService,
+        FormsTemplateAuthorizationService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Angular forms</h3>
+        <h4>Template driven forms</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Authenticate to proceed</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <form autocomplete="off" novalidate #authenticationForm="ngForm" (ngSubmit)="onFormSubmit(authenticationForm.value)">
+                            <div class="form-group">
+                                <input [ngClass]="{'has-error': username.invalid && !username.pristine}" type="text" name="username" class="form-control"
+                                    [(ngModel)]="login.username" #username="ngModel" required>
+                                <p class="text-danger" *ngIf="username.invalid && !username.pristine">Username is required</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" [ngClass]="{'has-error': password.invalid && !password.pristine}" name="password" class="form-control"
+                                    [(ngModel)]="login.password" #password="ngModel" required>
+                                <p class="text-danger" *ngIf="password.invalid && !password.pristine">Password is required</p>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit" [disabled]="!submitIsEnabled || !authenticationForm.form.valid">Login</button>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="error">
+                                {{error.error}}. {{error.message}}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="well well-lg">
+                            <p>Use the following credentials to enter</p>
+                            <dl class="dl-horizontal">
+                                <dt>Username</dt>
+                                <dd>angular</dd>
+
+                                <dt>Password</dt>
+                                <dd>123ng</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

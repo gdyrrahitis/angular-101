@@ -7,6 +7,7 @@ import {
     PipesComponent,
     ProjectionCountryListComponent,
 } from "../samples/Components/index";
+import { FormsTemplateDrivenComponent, FormsTemplateSecretComponent } from "../samples/Forms/index";
 import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
@@ -128,5 +129,13 @@ export const ROUTES: Route[] = [
     {
         path: "remote/promises",
         component: PromisesComponent
+    },
+    {
+        path: "forms/template",
+        component: FormsTemplateDrivenComponent
+    },
+    {
+        path: "forms/template/secret",
+        component: FormsTemplateSecretComponent
     }
 ];
