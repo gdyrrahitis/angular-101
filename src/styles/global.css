@@ -4,96 +4,25 @@
 }
 
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    position: relative;
     background-color: #fff;
     font-family: custom_font;
 }
 
-body.flash {
-    animation: flash 0.5s steps(3, start) infinite;
-}
-
-.header-section{
+.header-section {
     text-transform: capitalize;
     text-rendering: optimizeLegibility;
     text-shadow: 1px 2px #ddd;
 }
 
-.list-section {
-    list-style: none;
-}
 
-.list-section > li:before {
-    content: "\2234";
-    padding-right: 10px;
-}
-
-.list > .list-item {
-    margin-top:5px;
-    padding: 5px auto;
-}
-
-@keyframes flash {
-    to {
-        background-color: #000; 
-    }
-}
-
-
-
-/* this is the bit that gives the border color */
-div.list-category h2.title
-{
-    display: block;
-    padding: 14px 0 15px 0;
-    font-size: 20px;
-    font-weight: 100;
-    margin-bottom: 0px;
-    border-bottom: 1px solid;
-}
-
-/* removes the border at the top of the list so it doesnt cover up the border above */
-div.list-category a.list-group-item:first-child
-{
-border-top: 0;
-}
-
-div.list-category a.list-group-item  
-{
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    color: #4c4c4c; 
-    font-size: 14px;
-    text-indent: 5px;
-    text-decoration: none;
-    padding-left: 0;
-    padding-right: 0;
-    overflow: hidden;
-    margin-bottom: 0;
-    border-bottom: 1px solid #E0E4E9;
-    -webkit-transition: border 0.2s ease-in-out 0.05s;
-    transition: border 0.2s ease-in-out 0.05s;
-}
-
-div.list-category a.list-group-item:hover {
-    border-bottom: 1px solid #337ab7;
-    -webkit-transition: border 0.2s ease-in-out 0.05s;
-    transition: border 0.2s ease-in-out 0.05s;
-}
-
-div.list-category a.list-group-item:last-child:hover {
-    border-bottom: 1px solid #337ab7;
-    -webkit-transition: border 0.2s ease-in-out 0.05s;
-    transition: border 0.2s ease-in-out 0.05s;
-}
-
-
-.truncate 
-{
+.truncate {
     width: 80%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.panel-group .panel.panel-primary, .panel-primary > .panel-heading {
+    border-radius: 0;
 }

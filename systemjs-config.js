@@ -1,7 +1,7 @@
 (function (global) {
     var paths = {
-      // paths serve as alias
-      'npm:': 'node_modules/'
+        // paths serve as alias
+        'npm:': 'node_modules/'
     };
 
     // Where to look for packages
@@ -17,7 +17,9 @@
         "d3": "npm:d3",
         "d3-array": "npm:d3-array/build",
         "d3-geo": "//d3js.org/d3.geo.projection.v0.min.js",
-        "topojson": "//d3js.org/topojson.v1.min.js"
+        "topojson": "//d3js.org/topojson.v1.min.js",
+        'moment': 'node_modules/moment/moment.js',
+        'ng2-bootstrap': 'node_modules/ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
     };
 
     // What to do when no filename and/or no extension exists
@@ -27,7 +29,7 @@
         "i18n-iso-countries": { main: "index.js" },
         "json": { main: "json.js", defaultExtension: "js" },
         "pad": { main: "index.js", defaultExtension: "js" },
-        "d3": {main: "d3.js", defaultExtension: "js"},
+        "d3": { main: "d3.js", defaultExtension: "js" },
         "d3-array": { main: "d3-array.js", defaultExtension: "js" }
     };
 

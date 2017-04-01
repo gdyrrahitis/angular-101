@@ -1,120 +1,137 @@
-<div class="jumbotron">
+<div class="jumbotron jumbotron-blue">
     <div class="container">
-        <h1>101 Angular</h1>
-        <h4>Samples</h4>
+        <h1>Angular 101</h1>
+        <h4>Samples in Angular</h4>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Templates</h2>
-                <div class="list-group">
-                    <a [routerLink]="['/templates', 'interpolation']" class="list-group-item">
-                        <div class="truncate pull-left">Interpolation</div>
-                    </a>
-                    <a [routerLink]="['/templates', 'ngif']" class="list-group-item">
-                        <div class="truncate pull-left">NgIf</div>
-                    </a>
-                    <a [routerLink]="['/templates', 'ngfor']" class="list-group-item">
-                        <div class="truncate pull-left">NgFor</div>
-                    </a>
+    <div class="col-md-4 col-md-offset-4">
+        <accordion [closeOthers]="true">
+            <accordion-group heading="Templates" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a [routerLink]="['/templates', 'interpolation']" class="list-group-item">
+                                <div class="truncate pull-left">Interpolation</div>
+                            </a>
+                            <a [routerLink]="['/templates', 'ngif']" class="list-group-item">
+                                <div class="truncate pull-left">NgIf</div>
+                            </a>
+                            <a [routerLink]="['/templates', 'ngfor']" class="list-group-item">
+                                <div class="truncate pull-left">NgFor</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Bindings</h2>
-                <div class="list-group">
-                    <a [routerLink]="['/binding', 'property']" class="list-group-item">
-                        <div class="truncate pull-left">Property binding</div>
-                    </a>
-                    <a [routerLink]="['/binding', 'event']" class="list-group-item">
-                        <div class="truncate pull-left">Event Binding</div>
-                    </a>
-                    <a [routerLink]="['/binding' ,'two-way']" class="list-group-item">
-                        <div class="truncate pull-left">Two way binding</div>
-                    </a>
+            </accordion-group>
+            <accordion-group heading="Bindings" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a [routerLink]="['/binding', 'property']" class="list-group-item">
+                                <div class="truncate pull-left">Property binding</div>
+                            </a>
+                            <a [routerLink]="['/binding', 'event']" class="list-group-item">
+                                <div class="truncate pull-left">Event Binding</div>
+                            </a>
+                            <a [routerLink]="['/binding' ,'two-way']" class="list-group-item">
+                                <div class="truncate pull-left">Two way binding</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Remote</h2>
-                <div class="list-group">
-                    <a [routerLink]="['/remote' ,'http']" class="list-group-item">
-                        <div class="truncate pull-left">Http</div>
-                    </a>
-                    <a [routerLink]="['Promises']" class="list-group-item">
-                        <div class="truncate pull-left">Promises</div>
-                    </a>
-                    <a [routerLink]="['/remote', 'async']" class="list-group-item">
-                        <div class="truncate pull-left">Async pipe</div>
-                    </a>
+            </accordion-group>
+            <accordion-group heading="Remote" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a [routerLink]="['/remote' ,'http']" class="list-group-item">
+                                <div class="truncate pull-left">Http</div>
+                            </a>
+                            <a [routerLink]="['Promises']" class="list-group-item">
+                                <div class="truncate pull-left">Promises</div>
+                            </a>
+                            <a [routerLink]="['/remote', 'async']" class="list-group-item">
+                                <div class="truncate pull-left">Async pipe</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Forms</h2>
-                <div class="list-group">
-                    <a href="" class="list-group-item">
-                        <div class="truncate pull-left">Template driven</div>
-                    </a>
-                    <a href="" class="list-group-item">
-                        <div class="truncate pull-left">Reactive</div>
-                    </a>
-                    <a href="" class="list-group-item">
-                        <div class="truncate pull-left">Validators</div>
-                    </a>
+            </accordion-group>
+            <accordion-group heading="Forms" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a href="" class="list-group-item">
+                                <div class="truncate pull-left">Template driven</div>
+                            </a>
+                            <a href="" class="list-group-item">
+                                <div class="truncate pull-left">Reactive</div>
+                            </a>
+                            <a href="" class="list-group-item">
+                                <div class="truncate pull-left">Validators</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Services</h2>
-                <div class="list-group">
-                    <a [routerLink]="['/services', 'services']" class="list-group-item">
-                        <div class="truncate pull-left">Services</div>
-                    </a>
-                    <a [routerLink]="['/services', 'di']" class="list-group-item">
-                        <div class="truncate pull-left">Dependency injection</div>
-                    </a>
+            </accordion-group>
+            <accordion-group heading="Services" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a [routerLink]="['/services', 'services']" class="list-group-item">
+                                <div class="truncate pull-left">Services</div>
+                            </a>
+                            <a [routerLink]="['/services', 'di']" class="list-group-item">
+                                <div class="truncate pull-left">Dependency injection</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Routing</h2>
-                <div class="list-group">
-                    <a [routerLink]="['/routing', 'dynamic']" class="list-group-item">
-                        <div class="truncate pull-left">Dynamic routes</div>
-                    </a>
-                    <a [routerLink]="['/routing', 'child', 'country']" class="list-group-item">
-                        <div class="truncate pull-left">Child routes</div>
-                    </a>
+            </accordion-group>
+            <accordion-group heading="Routing" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a [routerLink]="['/routing', 'dynamic']" class="list-group-item">
+                                <div class="truncate pull-left">Dynamic routes</div>
+                            </a>
+                            <a [routerLink]="['/routing', 'child', 'country']" class="list-group-item">
+                                <div class="truncate pull-left">Child routes</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 list-category text-primary">
-                <h2 class="title header-section">Components</h2>
-                <div class="list-group">
-                    <a [routerLink]="['/component', 'interaction']" class="list-group-item">
-                        <div class="truncate pull-left">Component interaction</div>
-                    </a>
-                    <a [routerLink]="['/component', 'child']" class="list-group-item">
-                        <div class="truncate pull-left">Child components</div>
-                    </a>
-                    <a [routerLink]="['LifecycleHooks']" class="list-group-item">
-                        <div class="truncate pull-left">Lifecycle hooks</div>
-                    </a>
-                    <a [routerLink]="['ViewChild']" class="list-group-item">
-                        <div class="truncate pull-left">View child</div>
-                    </a>
-                    <a [routerLink]="['/component', 'projection']" class="list-group-item">
-                        <div class="truncate pull-left">Content projection</div>
-                    </a>
-                    <a [routerLink]="['Directives']" class="list-group-item">
-                        <div class="truncate pull-left">Directives</div>
-                    </a>
-                    <a [routerLink]="['/component', 'pipes']" class="list-group-item">
-                        <div class="truncate pull-left">Pipes</div>
-                    </a>
+            </accordion-group>
+            <accordion-group heading="Components" panelClass="panel-default">
+                <div class="row">
+                    <div class="col-md-12 list-category text-primary">
+                        <div class="list-group">
+                            <a [routerLink]="['/component', 'interaction']" class="list-group-item">
+                                <div class="truncate pull-left">Component interaction</div>
+                            </a>
+                            <a [routerLink]="['/component', 'child']" class="list-group-item">
+                                <div class="truncate pull-left">Child components</div>
+                            </a>
+                            <a [routerLink]="['LifecycleHooks']" class="list-group-item">
+                                <div class="truncate pull-left">Lifecycle hooks</div>
+                            </a>
+                            <a [routerLink]="['ViewChild']" class="list-group-item">
+                                <div class="truncate pull-left">View child</div>
+                            </a>
+                            <a [routerLink]="['/component', 'projection']" class="list-group-item">
+                                <div class="truncate pull-left">Content projection</div>
+                            </a>
+                            <a [routerLink]="['Directives']" class="list-group-item">
+                                <div class="truncate pull-left">Directives</div>
+                            </a>
+                            <a [routerLink]="['/component', 'pipes']" class="list-group-item">
+                                <div class="truncate pull-left">Pipes</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </accordion-group>
+        </accordion>
     </div>
 </div>

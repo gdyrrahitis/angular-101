@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
-
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { AccordionModule } from "ng2-bootstrap";
 
 import { ROUTES } from "./routes";
 
@@ -35,6 +35,7 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         RouterModule.forRoot(ROUTES),
         FormsModule,
         HttpModule,
+        AccordionModule.forRoot()
     ],
     declarations: [
         AppComponent,
