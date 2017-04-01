@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <h3>Promises</h3>
-        <h4>Using Http service to fetch remote data with promises instead of observables</h4>
+        <h4>Using Http service to fetch remote data with promises instead of observables, using the <code>.toPromise()</code> method</h4>
         <hr />
         <div class="row">
             <div class="col-md-12">
@@ -22,7 +22,7 @@
         <div class="row" *ngIf="totalPopulationRanks">
             <div class="col-md-6" *ngFor="let rank of totalPopulationRanks" >
                 <div class="well well-lg">
-                    Population {{getTodayOrTomorrow(rank.date)}} ({{rank.date | date:'dd/MM/yyyy'}}) is {{rank.population | number}}
+                    <p class="lead">Population {{getTodayOrTomorrow(rank.date)}} <small>({{rank.date | date:'dd/MM/yyyy'}})</small> is <strong>{{rank.population | number}}</strong></p>
                 </div>
             </div>
         </div>
