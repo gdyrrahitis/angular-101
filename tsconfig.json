@@ -18,7 +18,6 @@
     
     "src/samples/Components/Directives",
     "src/samples/Components/LifecycleHooks",
-    "src/samples/Components/ViewChild",
-    "src/samples/Remote/Promises"
+    "src/samples/Components/ViewChild"
   ]
 }

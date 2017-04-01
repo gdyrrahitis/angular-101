@@ -7,7 +7,7 @@ import {
     PipesComponent,
     ProjectionCountryListComponent,
 } from "../samples/Components/index";
-import { AsyncPipeComponent, HttpComponent } from "../samples/Remote/index";
+import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
@@ -121,8 +121,12 @@ export const ROUTES: Route[] = [
         path: "component/pipes",
         component: PipesComponent
     },
-        {
+    {
         path: "remote/async",
         component: AsyncPipeComponent
+    },
+    {
+        path: "remote/promises",
+        component: PromisesComponent
     }
 ];
