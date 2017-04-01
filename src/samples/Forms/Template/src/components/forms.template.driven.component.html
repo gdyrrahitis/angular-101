@@ -23,7 +23,7 @@
                                 <button class="btn btn-primary" type="submit" [disabled]="!submitIsEnabled || !authenticationForm.form.valid">Login</button>
                             </div>
                             <div class="alert alert-danger" *ngIf="error">
-                                {{error.error}}. {{error.message}}
+                                <i class="fa fa-exclamation-triangle"></i> {{error.error}}. {{error.message}}
                             </div>
                         </form>
                     </div>
