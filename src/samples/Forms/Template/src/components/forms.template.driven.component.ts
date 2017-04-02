@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
 
 import { LoginDetails } from "../models/LoginDetails";
 import { FormsTemplateAuthorizationService } from "../services/forms.template.authorization.service";
@@ -36,7 +36,7 @@ export class FormsTemplateDrivenComponent {
             })
             .subscribe((isLoggedIn) => {
                 if (isLoggedIn) {
-                    this.router.navigate(["forms", "template", "secret"]);
+                    this.router.navigate(["forms", "template", "secret", "life-expectancy-calculator"]);
                 } else {
                     this.error = {
                         error: "Login failed",

@@ -7,7 +7,10 @@ import {
     PipesComponent,
     ProjectionCountryListComponent,
 } from "../samples/Components/index";
-import { FormsTemplateDrivenComponent, FormsTemplateSecretComponent } from "../samples/Forms/index";
+import {
+    FormsTemplateCalculatorComponent, FormsTemplateDrivenComponent,
+    FormsTemplateEditAccountComponent, FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
+} from "../samples/Forms/index";
 import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
@@ -136,6 +139,20 @@ export const ROUTES: Route[] = [
     },
     {
         path: "forms/template/secret",
-        component: FormsTemplateSecretComponent
+        component: FormsTemplateSecretComponent,
+        children: [
+            {
+                path: "life-expectancy-calculator",
+                component: FormsTemplateCalculatorComponent
+            },
+            {
+                path: "edit-profile",
+                component: FormsTemplateEditProfileComponent
+            },
+            {
+                path: "edit-account",
+                component: FormsTemplateEditAccountComponent
+            }
+        ]
     }
 ];

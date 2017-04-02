@@ -4,6 +4,7 @@ import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { AccordionModule } from "ng2-bootstrap";
+import { DatepickerModule } from "ng2-bootstrap";
 
 import { ROUTES } from "./routes";
 
@@ -16,8 +17,9 @@ import {
     ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService,
 } from "../samples/Components/index";
 import {
-    FormsTemplateAuthorizationService, FormsTemplateDrivenComponent,
-    FormsTemplateSecretComponent
+    FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent,
+    FormsTemplateCountriesService, FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
+    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
 } from "../samples/Forms/index";
 import {
     AsyncPipeComponent, HttpComponent, PopulationService,
@@ -43,7 +45,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         RouterModule.forRoot(ROUTES),
         FormsModule,
         HttpModule,
-        AccordionModule.forRoot()
+        AccordionModule.forRoot(),
+        DatepickerModule.forRoot()
     ],
     declarations: [
         AppComponent,
@@ -85,6 +88,9 @@ import { KeysPipe, SafePipe } from "./pipes/index";
 
         FormsTemplateDrivenComponent,
         FormsTemplateSecretComponent,
+        FormsTemplateCalculatorComponent,
+        FormsTemplateEditAccountComponent,
+        FormsTemplateEditProfileComponent,
 
         SafePipe,
         KeysPipe,
@@ -100,7 +106,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         { provide: MAP_CONFIG, useValue: MapConfiguration },
         PopulationService,
         PromisesCountriesService,
-        FormsTemplateAuthorizationService
+        FormsTemplateAuthorizationService,
+        FormsTemplateCountriesService
     ],
     bootstrap: [AppComponent]
 })

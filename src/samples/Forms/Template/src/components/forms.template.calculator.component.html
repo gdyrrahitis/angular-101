@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <form novalidate>
+            <div class="row">
+                <div class="col-md-4">
+                    <div>
+                        <label class="control-label" for="dt">Birthday</label>
+                        <datepicker id="dt" name="dt" [(ngModel)]="currentUser.birthday" [showWeeks]="false" [minDate]="minDate" [maxDate]="maxDate"></datepicker>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label" for="remaining">Remaining life expectancy</label>
+                    <datepicker id="remaining" name="remaining" [(ngModel)]="dt" [showWeeks]="false" [minDate]="minDate" [maxDate]="maxDate"></datepicker>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label" for="country">Country/Region</label>
+                                <select name="country" id="country" class="form-control">
+                                    <option *ngFor="let country of countries" [ngValue]="country" [selected]="country === currentUser.country ? true: null">{{country}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label" for="sexGroup">Sex</label>
+                            <div class="form-group" id="sexGroup">
+                                <label class="radio-inline"><input type="radio" name="sex" id="male" value="male" [(ngModel)]="currentUser.sex"> Male</label>
+                                <label class="radio-inline"><input type="radio" name="sex" id="female" value="female" [(ngModel)]="currentUser.sex"> Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
