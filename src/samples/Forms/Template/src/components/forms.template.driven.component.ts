@@ -36,7 +36,7 @@ export class FormsTemplateDrivenComponent {
             })
             .subscribe((isLoggedIn) => {
                 if (isLoggedIn) {
-                    this.router.navigate(["forms", "template", "secret", "life-expectancy-calculator"]);
+                    this.router.navigate(["forms", "template", "secret", "robo-images"]);
                 } else {
                     this.error = {
                         error: "Login failed",

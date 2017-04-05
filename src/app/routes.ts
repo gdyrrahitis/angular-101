@@ -142,7 +142,7 @@ export const ROUTES: Route[] = [
         component: FormsTemplateSecretComponent,
         children: [
             {
-                path: "life-expectancy-calculator",
+                path: "robo-images",
                 component: FormsTemplateCalculatorComponent
             },
             {

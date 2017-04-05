@@ -10,11 +10,11 @@ const UserCredentials = {
     password: "123ng"
 };
 
-const UserMock = new User("George", "Dyrrachitis", new Date(1989, 9, 26), "male", "Greece");
+const UserMock = new User("George", "Dyrrachitis", "g.dyrra@email.com", "Greece");
 
 @Injectable()
 export class FormsTemplateAuthorizationService {
-    public currentUser: User;
+    public currentUser: User = UserMock;
     // tslint:disable-next-line:variable-name
     private _isAuthenticated: boolean;
 
@@ -63,6 +63,21 @@ export class FormsTemplateAuthorizationService {
             this.currentUser = undefined;
 
             subject.next(loginDetails);
+            subject.complete();
+        }, 1000);
+        return subject;
+    }
+
+    public saveProfileDetails(user: User) {
+        let subject = new Subject<User>();
+        setTimeout(() => {
+            UserMock.firstName = user.firstName;
+            UserMock.lastName = user.lastName;
+            UserMock.email = user.email;
+            UserMock.country = user.country;
+            UserMock.address = user.address;
+
+            subject.next(UserMock);
             subject.complete();
         }, 1000);
         return subject;
