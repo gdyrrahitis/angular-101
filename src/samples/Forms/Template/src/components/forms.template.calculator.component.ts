@@ -41,8 +41,10 @@ export class FormsTemplateCalculatorComponent implements OnInit {
 
     public monstersPick(name) {
         this.selectedMonsterButton = name;
+        let value = this.freeText ? this.freeText : this.currentUser[this.selectedUserButton];
+
         this.robotSrc = this.baseUrl
-            .replace("{placeholder}", this.currentUser[this.selectedUserButton])
+            .replace("{placeholder}", value)
             .replace("{set}", this.selectedMonsterButton);
     }
 
