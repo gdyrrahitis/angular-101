@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Angular forms</h3>
+        <h4>Reactive forms</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Authenticate to proceed</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <form autocomplete="off" novalidate [formGroup]="form" (ngSubmit)="onFormSubmit()">
+                            <div class="form-group">
+                                <input [ngClass]="{'has-error': form.controls.username.invalid && !form.controls.username.pristine}" type="text" name="username" class="form-control"
+                                    [(ngModel)]="login.username" formControlName="username">
+                                <p class="text-danger" *ngIf="form.controls.username.invalid && !form.controls.username.pristine">Username is required</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" [ngClass]="{'has-error': form.controls.password.invalid && !form.controls.password.pristine}" name="password" class="form-control"
+                                    [(ngModel)]="login.password" formControlName="password" required>
+                                <p class="text-danger" *ngIf="form.controls.password.invalid && !form.controls.password.pristine">Password is required</p>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit" [disabled]="!submitIsEnabled || !form.valid">Login</button>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="error">
+                                <i class="fa fa-exclamation-triangle"></i> {{error.error}}. {{error.message}}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="well well-lg">
+                            <p>Use the following credentials to enter</p>
+                            <dl class="dl-horizontal">
+                                <dt>Username</dt>
+                                <dd>angular</dd>
+
+                                <dt>Password</dt>
+                                <dd>123ng</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

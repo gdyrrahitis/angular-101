@@ -27,16 +27,16 @@ export class FormsTemplateCalculatorComponent implements OnInit {
         private authorizationService: FormsTemplateAuthorizationService) { }
 
     public ngOnInit() {
-        //if (this.authorizationService.isAuthenticated) {
+        if (this.authorizationService.isAuthenticated) {
         let user = this.authorizationService.currentUser;
         this.currentUser = Object.assign({}, user);
 
         this.robotSrc = this.baseUrl
             .replace("{placeholder}", this.currentUser[this.selectedUserButton])
             .replace("{set}", this.selectedMonsterButton);
-        //} else {
-        //    console.error("Security breach! Shouldn't have access to this page");
-        //}
+        } else {
+           console.error("Security breach! Shouldn't have access to this page");
+        }
     }
 
     public monstersPick(name) {

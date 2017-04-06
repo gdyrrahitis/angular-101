@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
@@ -17,10 +17,13 @@ import {
     ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService,
 } from "../samples/Components/index";
 import {
-    FormsTemplateAuthorizationPassRouterActivator, FormsTemplateAuthorizationRouterActivator,
-    FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent, FormsTemplateCountriesService,
-    FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
-    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
+    FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
+    FormsReactiveAuthorizationService, FormsReactiveCountriesService, FormsReactiveDrivenComponent,
+    FormsReactiveGenderizeComponent, FormsReactiveNamesService,
+    FormsReactiveSecretComponent, FormsTemplateAuthorizationPassRouterActivator,
+    FormsTemplateAuthorizationRouterActivator, FormsTemplateAuthorizationService,
+    FormsTemplateCalculatorComponent, FormsTemplateCountriesService, FormsTemplateDrivenComponent,
+    FormsTemplateEditAccountComponent, FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
 } from "../samples/Forms/index";
 import {
     AsyncPipeComponent, HttpComponent, PopulationService,
@@ -45,6 +48,7 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         BrowserModule,
         RouterModule.forRoot(ROUTES),
         FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         AccordionModule.forRoot(),
         DatepickerModule.forRoot()
@@ -92,6 +96,9 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsTemplateCalculatorComponent,
         FormsTemplateEditAccountComponent,
         FormsTemplateEditProfileComponent,
+        FormsReactiveDrivenComponent,
+        FormsReactiveGenderizeComponent,
+        FormsReactiveSecretComponent,
 
         SafePipe,
         KeysPipe,
@@ -110,7 +117,12 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsTemplateAuthorizationService,
         FormsTemplateCountriesService,
         FormsTemplateAuthorizationRouterActivator,
-        FormsTemplateAuthorizationPassRouterActivator
+        FormsTemplateAuthorizationPassRouterActivator,
+        FormsReactiveAuthorizationPassRouterActivator,
+        FormsReactiveAuthorizationRouterActivator,
+        FormsReactiveAuthorizationService,
+        FormsReactiveCountriesService,
+        FormsReactiveNamesService
     ],
     bootstrap: [AppComponent]
 })

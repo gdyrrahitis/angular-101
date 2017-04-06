@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Let me guess using your name!</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="button" (click)="selectFirstNameButton()" [class.active]="isFirstNameButtonSelected" name="firstName" class="btn btn-default btn-block">First name</button>
+                    </div>
+                    <div class="col-md-8">
+                        <form class="form-inline" [formGroup]="form" novalidate>
+                            <div class="form-group">
+                                <input type="text" formControlName="name" name="name" placeholder="Or enter name here..." class="form-control">
+                            </div>
+                            <button [disabled]="nameHasNoValue" (click)="search()" class="btn btn-primary">Go</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center" *ngIf="response">
+                <h1>{{response.probability | number}} % {{response.gender}}</h1>
+                <p>Name &quot;{{response.name}}&quot;. <small>Searched {{response.count}} entries to determine gender.</small></p>
+            </div>
+            <div class="col-md-6 text-center" *ngIf="errorResponse">
+                <div class="alert alert-danger margin-top-20" role="alert">
+                    Name &quot;{{errorResponse.param}}&quot; does not exist.<br/>{{errorResponse.message}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

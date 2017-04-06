@@ -8,8 +8,11 @@ import {
     ProjectionCountryListComponent,
 } from "../samples/Components/index";
 import {
-    FormsTemplateAuthorizationPassRouterActivator, FormsTemplateAuthorizationRouterActivator,
-    FormsTemplateCalculatorComponent, FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
+    FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
+    FormsReactiveDrivenComponent, FormsReactiveGenderizeComponent,
+    FormsReactiveSecretComponent, FormsTemplateAuthorizationPassRouterActivator,
+    FormsTemplateAuthorizationRouterActivator, FormsTemplateCalculatorComponent,
+    FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
     FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
 } from "../samples/Forms/index";
 import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
@@ -156,6 +159,23 @@ export const ROUTES: Route[] = [
             {
                 path: "edit-account",
                 component: FormsTemplateEditAccountComponent
+            }
+        ]
+    },
+    {
+        path: "forms/reactive",
+        component: FormsReactiveDrivenComponent,
+        canActivate: [FormsReactiveAuthorizationPassRouterActivator]
+    },
+    {
+        path: "forms/reactive/secret",
+        component: FormsReactiveSecretComponent,
+        canActivate: [FormsReactiveAuthorizationRouterActivator],
+        canActivateChild: [FormsReactiveAuthorizationRouterActivator],
+        children: [
+            {
+                path: "genderize-name",
+                component: FormsReactiveGenderizeComponent
             }
         ]
     }
