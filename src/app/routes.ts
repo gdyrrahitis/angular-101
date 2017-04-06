@@ -8,8 +8,9 @@ import {
     ProjectionCountryListComponent,
 } from "../samples/Components/index";
 import {
-    FormsTemplateCalculatorComponent, FormsTemplateDrivenComponent,
-    FormsTemplateEditAccountComponent, FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
+    FormsTemplateAuthorizationPassRouterActivator, FormsTemplateAuthorizationRouterActivator,
+    FormsTemplateCalculatorComponent, FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
+    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
 } from "../samples/Forms/index";
 import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
 import {
@@ -135,11 +136,14 @@ export const ROUTES: Route[] = [
     },
     {
         path: "forms/template",
-        component: FormsTemplateDrivenComponent
+        component: FormsTemplateDrivenComponent,
+        canActivate: [FormsTemplateAuthorizationPassRouterActivator]
     },
     {
         path: "forms/template/secret",
         component: FormsTemplateSecretComponent,
+        canActivate: [FormsTemplateAuthorizationRouterActivator],
+        canActivateChild: [FormsTemplateAuthorizationRouterActivator],
         children: [
             {
                 path: "robo-images",

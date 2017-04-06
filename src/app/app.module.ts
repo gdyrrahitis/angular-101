@@ -17,8 +17,9 @@ import {
     ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService,
 } from "../samples/Components/index";
 import {
-    FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent,
-    FormsTemplateCountriesService, FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
+    FormsTemplateAuthorizationPassRouterActivator, FormsTemplateAuthorizationRouterActivator,
+    FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent, FormsTemplateCountriesService,
+    FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
     FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
 } from "../samples/Forms/index";
 import {
@@ -107,7 +108,9 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         PopulationService,
         PromisesCountriesService,
         FormsTemplateAuthorizationService,
-        FormsTemplateCountriesService
+        FormsTemplateCountriesService,
+        FormsTemplateAuthorizationRouterActivator,
+        FormsTemplateAuthorizationPassRouterActivator
     ],
     bootstrap: [AppComponent]
 })
