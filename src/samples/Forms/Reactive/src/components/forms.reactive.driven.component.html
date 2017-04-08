@@ -16,7 +16,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="password" [ngClass]="{'has-error': form.controls.password.invalid && !form.controls.password.pristine}" name="password" class="form-control"
-                                    [(ngModel)]="login.password" formControlName="password" required>
+                                    [(ngModel)]="login.password" formControlName="password">
                                 <p class="text-danger" *ngIf="form.controls.password.invalid && !form.controls.password.pristine">Password is required</p>
                             </div>
                             <div class="form-group">
@@ -32,10 +32,10 @@
                             <p>Use the following credentials to enter</p>
                             <dl class="dl-horizontal">
                                 <dt>Username</dt>
-                                <dd>angular</dd>
+                                <dd>{{credentials.username}}</dd>
 
                                 <dt>Password</dt>
-                                <dd>123ng</dd>
+                                <dd>{{credentials.password}}</dd>
                             </dl>
                         </div>
                     </div>

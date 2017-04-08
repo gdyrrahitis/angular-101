@@ -12,7 +12,7 @@ export class FooterComponent {
 
     constructor() {
         this.gravatarUrl = "https://s.gravatar.com/avatar/750fb2d20360d5a472ef76cfc2037342?s=80";
-        this.twitterHandle = "https://twitter.com/giorgosdyrra";
+        this.twitterHandle = "//twitter.com/giorgosdyrra";
         this.githubUrl = "https://ghbtns.com/github-btn.html?user=gdyrrahitis&type=follow&count=true&size=medium";
     }
 }

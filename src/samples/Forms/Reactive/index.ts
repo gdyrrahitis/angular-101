@@ -2,6 +2,8 @@ export * from "./src/activators/forms.reactive.authorization.pass.router.activat
 export * from "./src/activators/forms.reactive.authorization.router.activator";
 export * from "./src/components/forms.reactive.driven.component";
 export * from "./src/components/forms.reactive.secret.component";
+export * from "./src/components/forms.reactive.edit.account.component";
+export * from "./src/components/forms.reactive.edit.profile.component";
 export * from "./src/components/forms.reactive.genderize.component";
 export * from "./src/services/forms.reactive.authorization.service";
 export * from "./src/services/forms.reactive.countries.service";

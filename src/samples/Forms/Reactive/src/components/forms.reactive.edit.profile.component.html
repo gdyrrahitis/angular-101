@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-12">
+        <form novalidate [formGroup]="form">
+            <fieldset>
+                <legend>Personal information</legend>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="firstName">First name</label>
+                            <input id="firstName" formControlName="firstName" [ngClass]="{'has-error': isRequiredValid(form.controls.firstName)}" class="form-control"
+                                type="text" name="firstName" [(ngModel)]="currentUser.firstName" />
+                            <p class="text-danger" *ngIf="isRequiredValid(form.controls.firstName)">First name is required</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last name</label>
+                            <input id="lastName" formControlName="lastName" [ngClass]="{'has-error': isRequiredValid(form.controls.lastName)}" class="form-control"
+                                type="text" name="lastName" [(ngModel)]="currentUser.lastName" />
+                            <p class="text-danger" *ngIf="isRequiredValid(form.controls.lastName)">Last name is required</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" formControlName="email" [ngClass]="{'has-error': !isValidEmail(form.controls.email) || isRequiredValid(form.controls.email)}"
+                                class="form-control" type="text" name="email" [(ngModel)]="currentUser.email" />
+                            <p class="text-danger" *ngIf="isRequiredValid(form.controls.email)">Email is required</p>
+                            <p class="text-danger" *ngIf="!isValidEmail(form.controls.email)">Email is not valid, please provide a valid email</p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset formGroupName="address">
+                <legend>Address information</legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="address">Street</label>
+                            <input id="address" formControlName="street" class="form-control" type="text" name="street" [(ngModel)]="currentUser.address.street"
+                            />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="address">Zip code</label>
+                            <input id="address" [ngClass]="{'has-error': form.controls.address.controls.zip.errors?.maxlength}" formControlName="zip" class="form-control" type="text" name="zip" [(ngModel)]="currentUser.address.zip"
+                            />
+                            <p class="text-danger" *ngIf="form.controls.address.controls.zip.errors?.maxlength">Zip code should have max 5 characters</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="country">Country</label>
+                            <select formControlName="country" name="country" id="country" class="form-control">
+                                <option *ngFor="let country of countries" [ngValue]="country" [selected]="country === currentUser.country ? true: null">{{country}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <button type="button" (click)="save()" [disabled]="submitted || (form.invalid || form.pristine)" class="btn btn-primary">Save profile</button>
+                <button type="button" (click)="resetForm()" [disabled]="form.pristine" class="btn btn-warning">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

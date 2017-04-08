@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 
@@ -15,16 +15,22 @@ import { FormsTemplateAuthorizationService } from "../services/forms.template.au
         }
     `]
 })
-export class FormsTemplateDrivenComponent {
-    public login: LoginDetails = {
-        username: "",
-        password: ""
-    };
+export class FormsTemplateDrivenComponent implements OnInit {
+    public credentials: LoginDetails;
+    public login: LoginDetails;
     private error: any;
     private submitIsEnabled: boolean = true;
 
-    constructor(private authorizationService: FormsTemplateAuthorizationService,
-                private router: Router) { }
+    constructor(
+        private authorizationService: FormsTemplateAuthorizationService,
+        private router: Router) { }
+
+    public ngOnInit() {
+        let login = { username: "", password: "" };
+        this.login = login;
+
+        this.credentials = this.authorizationService.getLoginDetails();
+    }
 
     public onFormSubmit(form) {
         this.error = undefined;

@@ -9,7 +9,8 @@ import {
 } from "../samples/Components/index";
 import {
     FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
-    FormsReactiveDrivenComponent, FormsReactiveGenderizeComponent,
+    FormsReactiveDrivenComponent, FormsReactiveEditAccountComponent,
+    FormsReactiveEditProfileComponent, FormsReactiveGenderizeComponent,
     FormsReactiveSecretComponent, FormsTemplateAuthorizationPassRouterActivator,
     FormsTemplateAuthorizationRouterActivator, FormsTemplateCalculatorComponent,
     FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
@@ -176,6 +177,14 @@ export const ROUTES: Route[] = [
             {
                 path: "genderize-name",
                 component: FormsReactiveGenderizeComponent
+            },
+            {
+                path: "edit-profile",
+                component: FormsReactiveEditProfileComponent
+            },
+            {
+                path: "edit-account",
+                component: FormsReactiveEditAccountComponent
             }
         ]
     }

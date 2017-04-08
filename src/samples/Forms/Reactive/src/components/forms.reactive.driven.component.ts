@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
@@ -6,7 +6,6 @@ import { Observable } from "rxjs/Observable";
 import { LoginDetails } from "../models/LoginDetails";
 import { FormsReactiveAuthorizationService } from "../services/forms.reactive.authorization.service";
 
-const emptyLoginDetails: LoginDetails = { username: "", password: "" };
 @Component({
     moduleId: module.id,
     selector: "app-forms-reactive",
@@ -17,15 +16,23 @@ const emptyLoginDetails: LoginDetails = { username: "", password: "" };
         }
     `]
 })
-export class FormsReactiveDrivenComponent {
+export class FormsReactiveDrivenComponent implements OnInit {
     public form: FormGroup = this.getForm();
-    public login: LoginDetails = emptyLoginDetails;
+    public credentials: LoginDetails;
+    public login: LoginDetails;
     private error: any;
     private submitIsEnabled: boolean = true;
 
     constructor(
         private authorizationService: FormsReactiveAuthorizationService,
         private router: Router) { }
+
+    public ngOnInit() {
+        let login = { username: "", password: "" };
+        this.login = login;
+
+        this.credentials = this.authorizationService.getLoginDetails();
+    }
 
     public onFormSubmit(form) {
         this.error = undefined;

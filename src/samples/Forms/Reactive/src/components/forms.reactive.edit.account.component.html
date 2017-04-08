@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-4">
+        <form novalidate [formGroup]="form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" formControlName="username" [ngClass]="{'has-error': isRequiredValid(form.controls.username)}" class="form-control" type="text" name="username" [(ngModel)]="loginDetails.username" />
+                <p class="text-danger" *ngIf="isRequiredValid(form.controls.username)">Username is required</p>
+            </div>
+            <div class="form-group">
+                <label for="password">New password</label>
+                <input id="password" formControlName="password" [ngClass]="{'has-error': isRequiredValid(form.controls.password)}" class="form-control" type="password" name="password" [(ngModel)]="loginDetails.password" /> 
+                <p class="text-danger" *ngIf="isRequiredValid(form.controls.password)">Password is required</p>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input id="confirmPassword" formControlName="confirmPassword" [ngClass]="{'has-error': isRequiredValidForPasswordConfirmation() || (havePasswordFieldsBeenVisited() && !passwordsMatch())}"  class="form-control" type="password" name="confirmPassword" [(ngModel)]="loginDetails.confirmPassword" /> 
+                <p class="text-danger" *ngIf="isRequiredValidForPasswordConfirmation()">Password confirmation is required</p>
+                <p class="text-danger" *ngIf="havePasswordFieldsBeenVisited() && !passwordsMatch()">Passwords do not match</p>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="isSubmitted || form.invalid">Save account</button>
+            </div>
+        </form>
+    </div>
+</div>

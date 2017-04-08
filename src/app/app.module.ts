@@ -19,11 +19,12 @@ import {
 import {
     FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
     FormsReactiveAuthorizationService, FormsReactiveCountriesService, FormsReactiveDrivenComponent,
+    FormsReactiveEditAccountComponent, FormsReactiveEditProfileComponent,
     FormsReactiveGenderizeComponent, FormsReactiveNamesService,
     FormsReactiveSecretComponent, FormsTemplateAuthorizationPassRouterActivator,
-    FormsTemplateAuthorizationRouterActivator, FormsTemplateAuthorizationService,
-    FormsTemplateCalculatorComponent, FormsTemplateCountriesService, FormsTemplateDrivenComponent,
-    FormsTemplateEditAccountComponent, FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
+    FormsTemplateAuthorizationRouterActivator, FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent,
+    FormsTemplateCountriesService, FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
+    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
 } from "../samples/Forms/index";
 import {
     AsyncPipeComponent, HttpComponent, PopulationService,
@@ -99,6 +100,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsReactiveDrivenComponent,
         FormsReactiveGenderizeComponent,
         FormsReactiveSecretComponent,
+        FormsReactiveEditAccountComponent,
+        FormsReactiveEditProfileComponent,
 
         SafePipe,
         KeysPipe,

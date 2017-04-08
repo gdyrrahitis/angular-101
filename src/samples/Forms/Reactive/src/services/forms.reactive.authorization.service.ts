@@ -15,12 +15,12 @@ const UserMock = new User("George", "Dyrrachitis", "g.dyrra@email.com", { street
 
 @Injectable()
 export class FormsReactiveAuthorizationService {
-    public currentUser: User = UserMock;
+    public currentUser: User;
     // tslint:disable-next-line:variable-name
     private _isAuthenticated: boolean;
 
     public get isAuthenticated(): boolean {
-        return true;//this._isAuthenticated && !!this.currentUser;
+        return this._isAuthenticated && !!this.currentUser;
     }
 
     public login(loginDetails: LoginDetails): Observable<boolean> {
