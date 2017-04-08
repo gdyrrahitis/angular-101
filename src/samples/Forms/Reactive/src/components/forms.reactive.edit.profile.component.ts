@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { FormsReactiveAuthorizationService } from "../services/forms.reactive.authorization.service";
 import { FormsReactiveCountriesService } from "../services/forms.reactive.countries.service";
 
@@ -21,10 +22,12 @@ export class FormsReactiveEditProfileComponent implements OnInit {
     public emailPattern =
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     private submitted: boolean = false;
+    private formSubmitted: boolean = false;
 
     constructor(
         private authorizationService: FormsReactiveAuthorizationService,
-        private countriesService: FormsReactiveCountriesService) { }
+        private countriesService: FormsReactiveCountriesService,
+        private router: Router) { }
 
     public ngOnInit() {
         this.currentUser = this.getCurrentUser();
@@ -62,9 +65,10 @@ export class FormsReactiveEditProfileComponent implements OnInit {
     }
 
     public save() {
-        this.submitted = true;
+        this.formSubmitted = true;
         this.authorizationService.saveProfileDetails(this.currentUser).subscribe(() => {
-            this.submitted = false;
+            this.submitted = true;
+            setTimeout(() => this.router.navigate(["forms", "reactive", "secret", "genderize-name"]), 1000);
         });
     }
 }
