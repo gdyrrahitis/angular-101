@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Fill the form based on custom settings</h4>
+                <form [formGroup]="form" novalidate>
+                    <div class="form-group">
+                        <input type="text" [class.has-error]="isControlValidAsRequired(form.controls.firstName) || form.controls.firstName.errors?.restrictNames"
+                            [(ngModel)]="model.firstName" formControlName="firstName" placeholder="First name" class="form-control"
+                        />
+                        <p class="text-danger" *ngIf="isControlValidAsRequired(form.controls.firstName)">First name is required</p>
+                        <p class="text-danger" *ngIf="form.controls.firstName.errors?.restrictNames">You cannot make this selection. {{form.controls.firstName.errors?.restrictNames}}</p>
+                    </div>
+                    <div class="form-group">
+                        <select [class.has-error]="isControlValidAsRequired(form.controls.country) || form.controls.country.errors?.restrictCountries"
+                            class="form-control" [(ngModel)]="model.country" formControlName="country">
+                            <option value="">Select country</option>
+                            <option *ngFor="let country of countries" [ngValue]="country">{{country}}</option>
+                        </select>
+                        <p class="text-danger" *ngIf="isControlValidAsRequired(form.controls.country)">Country is required</p>
+                        <p class="text-danger" *ngIf="form.controls.country.errors?.restrictCountries">You cannot make this selection. {{form.controls.country.errors?.restrictCountries}}</p>
+                    </div>
+                    <fieldset formGroupName="emailSection">
+                        <legend>Email validation</legend>
+                        <div class="form-group">
+                            <input type="text" [class.has-error]="isControlValidAsRequired(form.controls.emailSection.controls.email) || form.controls.emailSection.controls.email.errors?.pattern" [(ngModel)]="model.emailSection.email"
+                                formControlName="email" placeholder="Email" class="form-control">
+                            <p class="text-danger" *ngIf="isControlValidAsRequired(form.controls.emailSection.controls.email)">Email is required</p>
+                            <p class="text-danger" *ngIf="form.controls.emailSection.controls.email.errors?.pattern">Email is not correct, please use a valid email address</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" [class.has-error]="isControlValidAsRequired(form.controls.emailSection.controls.emailConfirm) || form.controls.emailSection.controls.emailConfirm.errors?.pattern || form.controls.emailSection.controls.emailConfirm.errors?.fieldsHaveTheSameValue" [(ngModel)]="model.emailSection.emailConfirm"
+                                formControlName="emailConfirm" placeholder="Confirm email" class="form-control">
+                            <p class="text-danger" *ngIf="isControlValidAsRequired(form.controls.emailSection.controls.emailConfirm)">Email confirmation is required</p>
+                            <p class="text-danger" *ngIf="form.controls.emailSection.controls.emailConfirm.errors?.pattern">Email is not correct, please use a valid email address</p>
+                            <p class="text-danger" *ngIf="form.controls.emailSection.controls.emailConfirm.errors?.fieldsHaveTheSameValue">{{form.controls.emailSection.controls.emailConfirm.errors?.fieldsHaveTheSameValue}}</p>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <button type="button" [disabled]="form.invalid" class="btn btn-primary">Save</button>
+                        <button type="button" [disabled]="form.pristine" class="btn btn-warning">Reset</button>
+                        <p class="help-block">Save and Reset button don't have functionality, they are just here to demonstrate form status usage on buttons</p>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h4>Form results in <code>JSON</code></h4>
+                <div *ngIf="form.valid" class="alert alert-success">Form is valid, you can save it!</div>
+                <div *ngIf="form.invalid" class="alert alert-danger">Form is not valid, please fill it with correct values</div>
+                <pre>{{model | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
