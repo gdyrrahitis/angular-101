@@ -38,4 +38,10 @@ export class PromisesComponent implements OnInit {
 
         return "tomorrow";
     }
+
+    public getIsOrWillBe(date: string) {
+        let day = this.getTodayOrTomorrow(date);
+
+        return day === "today" ? "is" : "will be";
+    }
 }

@@ -22,7 +22,7 @@
         <div class="row" *ngIf="totalPopulationRanks">
             <div class="col-md-6" *ngFor="let rank of totalPopulationRanks" >
                 <div class="well well-lg">
-                    <p class="lead">Population {{getTodayOrTomorrow(rank.date)}} <small>({{rank.date | date:'dd/MM/yyyy'}})</small> is <strong>{{rank.population | number}}</strong></p>
+                    <p class="lead">Population {{getTodayOrTomorrow(rank.date)}} <small>({{rank.date | date:'dd/MM/yyyy'}})</small> {{getIsOrWillBe(rank.date)}} <strong>{{rank.population | number}}</strong></p>
                 </div>
             </div>
         </div>
