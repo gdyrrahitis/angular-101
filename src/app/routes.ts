@@ -14,7 +14,8 @@ import {
     FormsReactiveSecretComponent, FormsTemplateAuthorizationPassRouterActivator,
     FormsTemplateAuthorizationRouterActivator, FormsTemplateCalculatorComponent,
     FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
-    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
+    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent,
+    FormsValidationComponent, FormsValidationFormComponent, FormsValidationSettingsComponent
 } from "../samples/Forms/index";
 import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
 import {
@@ -148,6 +149,7 @@ export const ROUTES: Route[] = [
         component: FormsTemplateSecretComponent,
         canActivate: [FormsTemplateAuthorizationRouterActivator],
         canActivateChild: [FormsTemplateAuthorizationRouterActivator],
+        // redirectTo: "forms/template/secret/robo-images",
         children: [
             {
                 path: "robo-images",
@@ -173,6 +175,7 @@ export const ROUTES: Route[] = [
         component: FormsReactiveSecretComponent,
         canActivate: [FormsReactiveAuthorizationRouterActivator],
         canActivateChild: [FormsReactiveAuthorizationRouterActivator],
+        // redirectTo: "forms/reactive/secret/genderize-name",
         children: [
             {
                 path: "genderize-name",
@@ -185,6 +188,20 @@ export const ROUTES: Route[] = [
             {
                 path: "edit-account",
                 component: FormsReactiveEditAccountComponent
+            }
+        ]
+    },
+    {
+        path: "forms/validation",
+        component: FormsValidationComponent,
+        children: [
+            {
+                path: "form",
+                component: FormsValidationFormComponent
+            },
+            {
+                path: "settings",
+                component: FormsValidationSettingsComponent
             }
         ]
     }

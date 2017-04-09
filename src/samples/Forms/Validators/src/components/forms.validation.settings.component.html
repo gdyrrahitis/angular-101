@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">
+        <form novalidate [formGroup]="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>Names to restrict</legend>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="text" name="newName" placeholder="Add new name" formControlName="newName" class="form-control">
+                                    <p class="text-danger" *ngIf="nameExistsError">Name already exists, choose a different one</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" [disabled]="form.controls.newName.errors?.required" (click)="addName()" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Add</button>
+                            </div>
+                        </div>
+                        <div formArrayName="names">
+                            <div style="margin-top:15px;" *ngFor="let name of names.controls; let i=index" [formGroupName]="i">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="firstName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" (click)="removeName(i)" class="btn btn-danger"><i class="fa fa-remove"></i>&nbsp;Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="well" *ngIf="names.controls.length === 0">
+                                No names added. Please add new name in restricted list.
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>Countries to restrict</legend>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select formControlName="newCountry" name="country" class="form-control">
+                                        <option *ngFor="let country of countriesList" [ngValue]="country" [disabled]="countryInListOfSelected(country)">{{country}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" [disabled]="form.controls.newCountry.errors?.required" (click)="addCountry()" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Add</button>
+                            </div>
+                        </div>
+                        <div formArrayName="countries">
+                            <div style="margin-top:15px;" *ngFor="let country of countries.controls; let i=index" [formGroupName]="i">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="countryName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" (click)="removeCountry(i)" class="btn btn-danger"><i class="fa fa-remove"></i>&nbsp;Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="well" *ngIf="countries.controls.length === 0">
+                                No countries added. Please add new country in restricted list.
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

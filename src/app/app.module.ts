@@ -21,10 +21,12 @@ import {
     FormsReactiveAuthorizationService, FormsReactiveCountriesService, FormsReactiveDrivenComponent,
     FormsReactiveEditAccountComponent, FormsReactiveEditProfileComponent,
     FormsReactiveGenderizeComponent, FormsReactiveNamesService,
-    FormsReactiveSecretComponent, FormsTemplateAuthorizationPassRouterActivator,
-    FormsTemplateAuthorizationRouterActivator, FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent,
-    FormsTemplateCountriesService, FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent,
-    FormsTemplateEditProfileComponent, FormsTemplateSecretComponent
+    FormsReactiveSecretComponent, FormsSettingsService,
+    FormsTemplateAuthorizationPassRouterActivator, FormsTemplateAuthorizationRouterActivator,
+    FormsTemplateAuthorizationService, FormsTemplateCalculatorComponent, FormsTemplateCountriesService,
+    FormsTemplateDrivenComponent, FormsTemplateEditAccountComponent, FormsTemplateEditProfileComponent,
+    FormsTemplateSecretComponent, FormsValidationComponent, FormsValidationCountriesService,
+    FormsValidationFormComponent, FormsValidationSettingsComponent
 } from "../samples/Forms/index";
 import {
     AsyncPipeComponent, HttpComponent, PopulationService,
@@ -102,6 +104,9 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsReactiveSecretComponent,
         FormsReactiveEditAccountComponent,
         FormsReactiveEditProfileComponent,
+        FormsValidationComponent,
+        FormsValidationFormComponent,
+        FormsValidationSettingsComponent,
 
         SafePipe,
         KeysPipe,
@@ -125,7 +130,9 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsReactiveAuthorizationRouterActivator,
         FormsReactiveAuthorizationService,
         FormsReactiveCountriesService,
-        FormsReactiveNamesService
+        FormsReactiveNamesService,
+        FormsSettingsService,
+        FormsValidationCountriesService
     ],
     bootstrap: [AppComponent]
 })
