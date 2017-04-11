@@ -11,10 +11,11 @@ import { ROUTES } from "./routes";
 // TODO: Add to individual modules
 import { EventComponent, PropertyComponent, TwoWayComponent } from "../samples/Bindings/index";
 import {
-    ChildCountryComponent, CountriesListComponent,
-    FlagSrcPipe, InteractionAddNewCountryComponent, InteractionCountryDetailsComponent, InteractionCountryListComponent,
+    ChildCountryComponent, ComponentsDirectivesRestCountriesService,
+    CountriesListComponent, DirectivesComponent, FlagSrcPipe, InteractionAddNewCountryComponent,
+    InteractionCountryDetailsComponent, InteractionCountryListComponent, NgNotDirective,
     PeoplePipe, PipesComponent, ProjectionCountryListComponent,
-    ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService,
+    ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService
 } from "../samples/Components/index";
 import {
     FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
@@ -43,6 +44,7 @@ import {
 } from "../samples/Services/index";
 import { InterpolationComponent, NgForComponent, NgIfComponent } from "../samples/Templates/index";
 import { AppComponent, FooterComponent, HeaderComponent, SamplesListComponent } from "./components/index";
+
 
 import { KeysPipe, SafePipe } from "./pipes/index";
 
@@ -93,6 +95,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         ProjectionCountryMultipleSlotComponent,
         ProjectionCountrySingleSlotComponent,
         PipesComponent,
+        DirectivesComponent,
+        NgNotDirective,
 
         FormsTemplateDrivenComponent,
         FormsTemplateSecretComponent,
@@ -132,7 +136,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsReactiveCountriesService,
         FormsReactiveNamesService,
         FormsSettingsService,
-        FormsValidationCountriesService
+        FormsValidationCountriesService,
+        ComponentsDirectivesRestCountriesService
     ],
     bootstrap: [AppComponent]
 })

@@ -3,9 +3,10 @@ import { Route } from "@angular/router";
 // TODO: Add to individual modules
 import { EventComponent, PropertyComponent, TwoWayComponent } from "../samples/Bindings/index";
 import {
-    CountriesListComponent, InteractionCountryListComponent,
+    CountriesListComponent, DirectivesComponent,
+    InteractionCountryListComponent,
     PipesComponent,
-    ProjectionCountryListComponent,
+    ProjectionCountryListComponent
 } from "../samples/Components/index";
 import {
     FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
@@ -130,6 +131,10 @@ export const ROUTES: Route[] = [
     {
         path: "component/pipes",
         component: PipesComponent
+    },
+    {
+        path: "component/directives",
+        component: DirectivesComponent
     },
     {
         path: "remote/async",

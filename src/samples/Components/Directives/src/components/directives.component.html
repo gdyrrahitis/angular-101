@@ -1,32 +1,56 @@
 <div class="row">
     <div class="col-md-12">
-        <hgroup>
-            <h3>Directives</h3>
-            <h4>Attribute and Structural</h4>
-        </hgroup>
+        <h3>Directives</h3>
+        <h4>Attribute and Structural</h4>
         <hr />
         <div class="row">
             <div class="col-md-6">
                 <h4>Attribute Directives</h4>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Click pokemon 5 times in a row go to next level!  <span *ngIf="clicks">Clicked {{clicks}} {{clicks == 1 ? 'time': 'times'}}</span></h5>
-                    </div>
-                    <div class="panel-body text-center">
-                        <img pokeRender [initial]="pokemonName" [evolutions]="[pokemonNextEvolutionName]" width="300" height="300" class="img-thumbnail"
-                            (myOnClick)="myOnClickHandler($event)" />
-                    </div>
-                </div>
+                <!--TODO: -->
             </div>
             <div class="col-md-6">
                 <h4>Structural Directives</h4>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Click button to see al Bulbasaur evolutions! <button class="btn btn-success" (click)="initializeEvolutions($event)">Evolutions</button></h5>
-                        <small>Uses a custom structural directive. Unfortunately there isn't much documentation on subject currently</small>
+                <h5>Choose which region to <strong>NOT</strong> show</h5>
+                <h6>
+                    Currently selected
+                    <span *ngIf="regionToHide">&quot;{{regionToHide}}&quot;</span>
+                    <em *ngNot="regionToHide">nothing...</em>
+                </h6>
+                <div class="btn-toolbar" role="toolbar" *ngIf="regions && regions.length > 0">
+                    <div class="btn-group" role="group">
+                        <button type="button" (click)="resetRegions()" class="btn btn-warning">Restore</button>
                     </div>
-                    <div class="panel-body text-center" *ngIf="bulbasaurAllEvolutions">
-                        <img *pokeEvolutions="bulbasaurAllEvolutions" />
+                    <div class="btn-group" role="group">
+                        <button *ngFor="let region of regions" [class.active]="region === regionToHide" (click)="hideSelectedRegion(region)" type="button" class="btn btn-default">{{region}}</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px;" *ngIf="regions && regions.length > 0">
+                    <div class="col-md-3">
+                        <div class="btn-group-vertical" role="group">
+                            <ng-container *ngFor="let region of regions">
+                                <button *ngNot="regionToHide === region" [class.active]="region === selectedRegion" (click)="setCountries(region)" type="button" class="btn btn-success">{{region}}</button>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <form novalidate *ngIf="countries && countries.length > 0">
+                            <div class="form-group">
+                                <select #countryElement name="country" class="form-control" (change)="setCountry(countryElement.value)">
+                                    <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div *ngIf="selectedCountry">
+                            <dl class="dl-horizontal">
+                                <dt>Capital</dt>
+                                <dd>{{selectedCountry.capital}}</dd>
+                                <dt>Population</dt>
+                                <dd>{{selectedCountry.population | number}}</dd>
+                            </dl>
+                        </div>
+                        <div class="well" *ngNot="countries && countries.length > 0">
+                            Nothing is selected. Select a region.
+                        </div>
                     </div>
                 </div>
             </div>
