@@ -4,15 +4,15 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from "@angular/core";
     selector: "[ngNot]"
 })
 export class NgNotDirective {
-    private hasViewBeenCreatedBefore: boolean = false;
+    private viewHasBeenCreatedBefore: boolean = false;
 
     @Input() public set ngNot(condition: boolean) {
-        if (!condition && !this.hasViewBeenCreatedBefore) {
+        if (!condition && !this.viewHasBeenCreatedBefore) {
             this.viewContainerRef.createEmbeddedView(this.templateRef);
-            this.hasViewBeenCreatedBefore = true;
-        } else if (condition && this.hasViewBeenCreatedBefore) {
+            this.viewHasBeenCreatedBefore = true;
+        } else if (condition && this.viewHasBeenCreatedBefore) {
             this.viewContainerRef.clear();
-            this.hasViewBeenCreatedBefore = false;
+            this.viewHasBeenCreatedBefore = false;
         }
     };
 
