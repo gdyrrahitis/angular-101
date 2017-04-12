@@ -4,7 +4,7 @@ import * as topojson from "topojson";
 
 import { AfterViewInit, Component, ElementRef, Inject, Injector, OnInit, Renderer, ViewChild } from "@angular/core";
 
-import { MAP_CONFIG, WorldMapConfig } from "../configuration/configuration";
+import { IWorldMapConfig, MAP_CONFIG } from "../configuration/configuration";
 import { Color } from "../models/Color";
 import { Continent } from "../models/Continent";
 import { ColorService } from "../services/color.service";
@@ -26,7 +26,7 @@ export class DiComponent implements OnInit, AfterViewInit {
 
     constructor(
         @Inject(ContinentService) private continentService: ContinentService,
-        @Inject(MAP_CONFIG) private mapConfig: WorldMapConfig,
+        @Inject(MAP_CONFIG) private mapConfig: IWorldMapConfig,
         private renderer: Renderer,
         private injector: Injector) {
         this.height = this.mapConfig.height;
