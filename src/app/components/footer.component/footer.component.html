@@ -14,11 +14,10 @@
         <div class="col-md-6">
             <ul class="list list-unstyled pull-right">
                 <li class="list-item">
-                    <a [href]="twitterHandle" class="twitter-follow-button" data-show-count="true">Follow @giorgosdyrra</a>
+                    <a target="_blank" [href]="twitterHandle" class="twitter-follow-button" data-show-count="true">Follow @giorgosdyrra</a>
                     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </li>
                 <li class="list-item">
-                    <!--TODO: Add sanitizer through pipes-->
                     <iframe [src]="githubUrl | safe" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
                 </li>
             </ul>
