@@ -60,10 +60,11 @@ export class HttpComponent {
     public onChange(input) {
         let countryName: string = input.value;
 
-        if (countryName.length > 1) {
-            this.countries = this.countries.filter((country) => country.name.indexOf(input.value) !== -1);
-        } else {
-            this.reset();
+        let countries = this.tempCountries
+            .filter((country) => country.name.toLowerCase().includes(countryName.toLowerCase()));
+
+        if (countries.length > 0) {
+            this.countries = countries;
         }
     }
 
@@ -71,11 +72,11 @@ export class HttpComponent {
         this.countries = this.tempCountries;
     }
 
-    public isRegionValidAndPristine (region) {
+    public isRegionValidAndPristine(region) {
         return region.valid || region.pristine;
     }
 
-    get isCountriesArrayValid () {
+    get isCountriesArrayValid() {
         return this.countries && this.countries.length > 0;
     }
 

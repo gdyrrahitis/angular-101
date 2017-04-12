@@ -6,11 +6,10 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>Get all countries by region</h4>
-                <form>
+                <form #form="ngForm" novalidate>
                     <div class="row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <!--<input  />-->
                                 <select id="region" type="text" name="region" class="form-control" ngModel #region="ngModel" required>
                                     <optgroup label="Regions">
                                         <option value="americas">America</option>
@@ -24,7 +23,7 @@
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <button type="button" class="btn btn-primary" (click)="getRegions(region)">Submit</button>
+                            <button type="button" [disabled]="form.invalid" class="btn btn-primary" (click)="getRegions(region)">Submit</button>
                             <button type="button" class="btn btn-warning" (click)="clear()">Clear</button>
                         </div>
                     </div>
