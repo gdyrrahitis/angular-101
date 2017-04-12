@@ -1,0 +1,18 @@
+<div #modal class="modal-close">
+    <div class="modal fade in">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" (click)="triggerClose()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Random GIF</h4>
+                </div>
+                <div class="modal-body text-center" *ngIf="gif && gif.fixed_width_downsampled_url">
+                    <img class="img-rounded" [src]="gif.fixed_width_downsampled_url" [width]="gif.fixed_width_downsampled_width" height="gif.fixed_width_downsampled_height" alt="Giphy random GIF" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="triggerClose()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

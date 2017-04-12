@@ -11,10 +11,11 @@ import { ROUTES } from "./routes";
 // TODO: Add to individual modules
 import { EventComponent, PropertyComponent, TwoWayComponent } from "../samples/Bindings/index";
 import {
-    ChildCountryComponent, ComponentsDirectivesRestCountriesService,
-    CountriesListComponent, DirectivesComponent, FlagSrcPipe, InteractionAddNewCountryComponent,
-    InteractionCountryDetailsComponent, InteractionCountryListComponent, NgNotDirective,
-    PeoplePipe, PipesComponent, ProjectionCountryListComponent,
+    ChildCountryComponent, ComponentsDirectivesGifService,
+    ComponentsDirectivesModalDirective, ComponentsDirectivesRestCountriesService,
+    CountriesListComponent, DirectivesComponent, DirectivesModalComponent, FlagSrcPipe,
+    InteractionAddNewCountryComponent, InteractionCountryDetailsComponent,
+    InteractionCountryListComponent, NgNotDirective, PeoplePipe, PipesComponent, ProjectionCountryListComponent,
     ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService
 } from "../samples/Components/index";
 import {
@@ -97,6 +98,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         PipesComponent,
         DirectivesComponent,
         NgNotDirective,
+        ComponentsDirectivesModalDirective,
+        DirectivesModalComponent,
 
         FormsTemplateDrivenComponent,
         FormsTemplateSecretComponent,
@@ -137,7 +140,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsReactiveNamesService,
         FormsSettingsService,
         FormsValidationCountriesService,
-        ComponentsDirectivesRestCountriesService
+        ComponentsDirectivesRestCountriesService,
+        ComponentsDirectivesGifService
     ],
     bootstrap: [AppComponent]
 })

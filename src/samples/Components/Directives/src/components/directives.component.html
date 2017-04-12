@@ -6,7 +6,11 @@
         <div class="row">
             <div class="col-md-6">
                 <h4>Attribute Directives</h4>
-                <!--TODO: -->
+                <h5>Click on button to open modal with a random GIF from Giphy</h5>
+                <div class="button-group">
+                    <button [disabled]="!gif" #trigger type="button" modal-open [modalElement]="modalElement" class="btn btn-primary">Open modal</button>
+                    <button [disabled]="!gif || !haveSeenGif" (click)="requestNewGif()" type="button" class="btn btn-success"><i class="fa fa-refresh"></i> New GIF</button>
+                </div>
             </div>
             <div class="col-md-6">
                 <h4>Structural Directives</h4>
@@ -21,14 +25,16 @@
                         <button type="button" (click)="resetRegions()" class="btn btn-warning">Restore</button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button *ngFor="let region of regions" [class.active]="region === regionToHide" (click)="hideSelectedRegion(region)" type="button" class="btn btn-default">{{region}}</button>
+                        <button *ngFor="let region of regions" [class.active]="region === regionToHide" (click)="hideSelectedRegion(region)" type="button"
+                            class="btn btn-default">{{region}}</button>
                     </div>
                 </div>
                 <div class="row" style="margin-top:15px;" *ngIf="regions && regions.length > 0">
                     <div class="col-md-3">
                         <div class="btn-group-vertical" role="group">
                             <ng-container *ngFor="let region of regions">
-                                <button *ngNot="regionToHide === region" [class.active]="region === selectedRegion" (click)="setCountries(region)" type="button" class="btn btn-success">{{region}}</button>
+                                <button *ngNot="regionToHide === region" [class.active]="region === selectedRegion" (click)="setCountries(region)" type="button"
+                                    class="btn btn-success">{{region}}</button>
                             </ng-container>
                         </div>
                     </div>
@@ -57,3 +63,4 @@
         </div>
     </div>
 </div>
+<app-directives-modal #modalElement [gif]="gif" (close)="triggerClose()"></app-directives-modal>
