@@ -16,7 +16,6 @@
     "typings/main",
     "typings/main.d.ts",
     
-    "src/samples/Components/LifecycleHooks",
-    "src/samples/Components/ViewChild"
+    "src/samples/Components/LifecycleHooks"
   ]
 }
