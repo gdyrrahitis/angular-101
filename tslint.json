@@ -8,6 +8,9 @@
         ],
         "member-ordering": [
             false
+        ],
+        "whitespace": [
+            false
         ]
     }
 }

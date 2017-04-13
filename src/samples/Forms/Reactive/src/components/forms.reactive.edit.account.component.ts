@@ -39,7 +39,7 @@ export class FormsReactiveEditAccountComponent {
         });
         this.form.addControl("confirmPassword",
             new FormControl(this.loginDetails.confirmPassword,
-                [Validators.required, this.passwordMatch(this.form.controls.password)]));
+                [Validators.required, this.passwordMatch((<any>this.form.controls).password)]));
     }
 
     public isRequiredValid(element): boolean {
@@ -47,7 +47,7 @@ export class FormsReactiveEditAccountComponent {
     }
 
     private passwordMatch(password: AbstractControl): any {
-        return (confirmPassword: FormControl): { [key: string]: any } => {
+        return (confirmPassword: FormControl): any => {
             return (password.valid && !password.pristine) &&
                 (confirmPassword.valid && !confirmPassword.pristine) &&
                 (confirmPassword.value !== password.value) ?
@@ -56,15 +56,16 @@ export class FormsReactiveEditAccountComponent {
     }
 
     private havePasswordFieldsBeenVisited() {
-        return !this.form.controls.confirmPassword.pristine && !this.form.controls.password.pristine;
+        return !(<any>this.form.controls).confirmPassword.pristine && !(<any>this.form.controls).password.pristine;
     }
 
     private passwordsMatch(): boolean {
-        return this.form.controls.confirmPassword.value === this.form.controls.password.value;
+        return (<any>this.form.controls).confirmPassword.value === (<any>this.form.controls).password.value;
     }
 
     private isRequiredValidForPasswordConfirmation() {
-        return !this.form.controls.confirmPassword.pristine && this.form.controls.confirmPassword.value === "";
+        return !(<any>this.form.controls).confirmPassword.pristine &&
+            (<any>this.form.controls).confirmPassword.value === "";
     }
 
     public save() {

@@ -9,6 +9,7 @@
   "removeComments": false,
   "noImplicitAny": false,
   "allowSyntheticDefaultImports": true,
+  "suppressExcessPropertyErrors": true,
   "types": ["node"]
  },
   "exclude": [

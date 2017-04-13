@@ -48,13 +48,13 @@ export class FormsValidationSettingsComponent implements OnInit {
     }
 
     public addName(name: string) {
-        let value = this.form.controls.newName.value || name;
+        let value = (<any>this.form.controls).newName.value || name;
         let nameExists = this.settingsService.nameExists(value);
 
         if (!nameExists) {
             this.nameExistsError = false;
             this.names.push(this.formBuilder.group({ firstName: [{ value, disabled: true }] }));
-            this.form.controls.newName.reset();
+            (<any>this.form.controls).newName.reset();
 
             this.settingsService.addName(value);
         }else {
@@ -65,7 +65,7 @@ export class FormsValidationSettingsComponent implements OnInit {
     public removeName(index: number) {
         let control = this.names.at(index);
         this.names.removeAt(index);
-        this.form.controls.newName.reset();
+        (<any>this.form.controls).newName.reset();
 
         this.settingsService.removeName(control.value);
     }
@@ -75,10 +75,10 @@ export class FormsValidationSettingsComponent implements OnInit {
     }
 
     public addCountry(country: string) {
-        let value = this.form.controls.newCountry.value || name;
+        let value = (<any>this.form.controls).newCountry.value || country;
 
         this.countries.push(this.formBuilder.group({ countryName: [{ value, disabled: true }] }));
-        this.form.controls.newCountry.reset();
+        (<any>this.form.controls).newCountry.reset();
 
         this.settingsService.addCountry(value);
     }
@@ -86,7 +86,7 @@ export class FormsValidationSettingsComponent implements OnInit {
     public removeCountry(index: number) {
         let control = this.countries.at(index);
         this.countries.removeAt(index);
-        this.form.controls.newCountry.reset();
+        (<any>this.form.controls).newCountry.reset();
 
         this.settingsService.removeCountry(control.value);
     }

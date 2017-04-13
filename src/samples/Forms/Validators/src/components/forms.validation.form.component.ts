@@ -70,11 +70,11 @@ export class FormsValidationFormComponent implements OnInit {
     }
 
     public isControlValidAsRequired(control: AbstractControl): boolean {
-        return !control.pristine && control.errors && control.errors.required;
+        return !control.pristine && control.errors && (<any>control.errors).required;
     }
 
     private restrictNames(names: string[]): any {
-        return (control: FormControl): { [key: string]: any } => {
+        return (control: FormControl): any => {
             if (!names) { return null; }
             if (names.length === 0) { return null; }
 
@@ -84,7 +84,7 @@ export class FormsValidationFormComponent implements OnInit {
     }
 
     private restrictCountries(countries: string[]): any {
-        return (control: FormControl): { [key: string]: any } => {
+        return (control: FormControl): any => {
             if (!countries) { return null; }
             if (countries.length === 0) { return null; }
 

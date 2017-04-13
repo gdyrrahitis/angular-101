@@ -26,7 +26,7 @@ export class FormsReactiveGenderizeComponent implements OnInit {
     public errorResponse: { param: string, message: string };
 
     public get nameHasNoValue() {
-        return !this.form.controls.name.value;
+        return !(<any>this.form.controls).name.value;
     }
 
     constructor(
@@ -63,12 +63,12 @@ export class FormsReactiveGenderizeComponent implements OnInit {
 
     public selectFirstNameButton() {
         this.isFirstNameButtonSelected = true;
-        this.form.controls.name.reset();
+        (<any>this.form.controls).name.reset();
         this.genderizeName(this.currentUser.firstName);
     }
 
     public search() {
         this.isFirstNameButtonSelected = false;
-        this.genderizeName(this.form.controls.name.value);
+        this.genderizeName((<any>this.form.controls).name.value);
     }
 }

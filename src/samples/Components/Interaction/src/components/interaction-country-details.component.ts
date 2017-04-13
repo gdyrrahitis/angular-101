@@ -34,7 +34,7 @@ export class InteractionCountryDetailsComponent implements OnChanges {
     }
 
     public ngOnChanges(changes: SimpleChanges) {
-        let anchorColor = changes.color;
+        let anchorColor = (<any> changes).color;
         if (anchorColor) {
             this.previousColor = anchorColor.previousValue ? anchorColor.previousValue : "";
             this.color = anchorColor.currentValue;

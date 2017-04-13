@@ -6,7 +6,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
-    "test": "concurrently \"npm run tsc:w\" \"karma start\" "
+    "test": "npm run tsc && karma start"
   },
   "license": "ISC",
   "dependencies": {
@@ -47,6 +47,9 @@
     "@types/jasmine": "^2.5.46",
     "@types/node": "^7.0.8",
     "concurrently": "^3.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "lite-server": "^2.2.2",
     "tslint": "^4.5.1",
     "typescript": "^2.1.4"
