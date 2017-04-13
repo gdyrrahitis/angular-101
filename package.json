@@ -5,7 +5,8 @@
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "lite": "lite-server"
+    "lite": "lite-server",
+    "test": "npm run tsc && karma start"
   },
   "license": "ISC",
   "dependencies": {
