@@ -4,7 +4,7 @@
 [![Inline docs](http://inch-ci.org/github/gdyrrahitis/angular-101.svg?branch=master)](http://inch-ci.org/github/gdyrrahitis/angular-101)
 [![Build Status](https://circleci.com/gh/gdyrrahitis/angular-101/tree/master.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/gdyrrahitis/angular-101/tree/master)
 [![Node version](https://img.shields.io/badge/node-4.5.0-brightgreen.svg?style=flat)](http://nodejs.org/download/)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/gdyrrahitis/angular-101)
 
 ## Installation
 **To run the samples, first install all dependencies.**
