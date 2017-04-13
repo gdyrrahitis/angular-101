@@ -70,7 +70,7 @@ module.exports = function (config) {
         logLevel: config.LOG_DEBUG,
         autoWatch: true,
         browsers: ['Chrome'],
-        singleRun: false,
+        singleRun: true,
         concurrency: Infinity
     });
 }
