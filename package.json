@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start-container": "npm run tsc && npm run lite-container",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
+    "lite-container": "lite-server -c docker-bs-config.json",
     "test": "npm run tsc && karma start"
   },
   "license": "ISC",

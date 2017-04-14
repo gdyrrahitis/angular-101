@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
-import "rxjs/add/Observable/throw";
+import "rxjs/add/observable/throw";
 import { Observable } from "rxjs/Observable";
 
 import { ProjectionCountryMultipleSlotComponent } from "./projection-country-multiple-slot.component";
