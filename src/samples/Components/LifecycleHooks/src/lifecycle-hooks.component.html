@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Component lifecycle hooks</h3>
+        <h4>All sorts of lifecycle hooks for a component</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <h4>All lifecycle hooks available</h4>
+                <ul>
+                    <li>ngOnChanges</li>
+                    <li>ngOnInit</li>
+                    <li>ngDoCheck</li>
+                    <li>ngAfterContentInit</li>
+                    <li>ngAfterContentChecked</li>
+                    <li>ngAfterViewInit</li>
+                    <li>ngAfterViewChecked</li>
+                    <li>ngOnDestroy</li>
+                </ul>
+                <small><strong>Constructor</strong> is not an Angular lifecycle hook, it is more language concept</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Component and directive lifecycle hooks</h4>
+                <p>The following are directive and component lifecycle hooks</p>
+                <ul>
+                    <li>ngOnChanges</li>
+                    <li>ngOnInit</li>
+                    <li>ngDoCheck</li>
+                    <li>ngOnDestroy</li>
+                </ul>
+
+                <h4>Component <strong>only</strong> lifecycle hooks</h4>
+                <p>The following are <strong>only</strong> available to components</p>
+                <ul>
+                    <li>ngAfterContentInit</li>
+                    <li>ngAfterContentChecked</li>
+                    <li>ngAfterViewInit</li>
+                    <li>ngAfterViewChecked</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form novalidate class="form-inline">
+                    <div class="form-group">
+                        <select class="form-control" name="country" [(ngModel)]="country.name" (change)="onCountryChange(country.name)">
+                            <option *ngFor="let c of countries" [value]="c.name">{{c.name}}</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-warning" (click)="reset()">Reset</button>
+                </form>
+            </div>
+        </div>
+        <app-lifecycle-hooks-child *ngIf="show" (destroy)="onDestroy()" [timezones]="country.timezones" [country]="country.name"></app-lifecycle-hooks-child>
+        <div class="row" *ngIf="!show">
+            <div class="col-md-12">
+                <div class="alert alert-danger">Component destroyed (called ngOnDestroy). Resetting in 2s...</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,8 +15,6 @@
   "exclude": [
     "node_modules",
     "typings/main",
-    "typings/main.d.ts",
-    
-    "src/samples/Components/LifecycleHooks"
+    "typings/main.d.ts"
   ]
 }

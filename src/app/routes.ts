@@ -5,6 +5,7 @@ import { EventComponent, PropertyComponent, TwoWayComponent } from "../samples/B
 import {
     CountriesListComponent, DirectivesComponent,
     InteractionCountryListComponent,
+    LifecycleHooksComponent,
     PipesComponent,
     ProjectionCountryListComponent
 } from "../samples/Components/index";
@@ -135,6 +136,10 @@ export const ROUTES: Route[] = [
     {
         path: "component/directives",
         component: DirectivesComponent
+    },
+    {
+        path: "component/lifecycle-hooks",
+        component: LifecycleHooksComponent
     },
     {
         path: "remote/async",

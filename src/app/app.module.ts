@@ -15,8 +15,9 @@ import {
     ComponentsDirectivesModalDirective, ComponentsDirectivesRestCountriesService,
     CountriesListComponent, DirectivesComponent, DirectivesModalComponent, FlagSrcPipe,
     InteractionAddNewCountryComponent, InteractionCountryDetailsComponent,
-    InteractionCountryListComponent, NgNotDirective, PeoplePipe, PipesComponent, ProjectionCountryListComponent,
-    ProjectionCountryMultipleSlotComponent, ProjectionCountrySingleSlotComponent, PubSubService
+    InteractionCountryListComponent, LifecycleHooksChildComponent, LifecycleHooksComponent, NgNotDirective, PeoplePipe,
+    PipesComponent, ProjectionCountryListComponent, ProjectionCountryMultipleSlotComponent,
+    ProjectionCountrySingleSlotComponent, PubSubService
 } from "../samples/Components/index";
 import {
     FormsReactiveAuthorizationPassRouterActivator, FormsReactiveAuthorizationRouterActivator,
@@ -114,6 +115,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         FormsValidationComponent,
         FormsValidationFormComponent,
         FormsValidationSettingsComponent,
+        LifecycleHooksComponent,
+        LifecycleHooksChildComponent,
 
         SafePipe,
         KeysPipe,

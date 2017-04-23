@@ -11,6 +11,7 @@
         ],
         "whitespace": [
             false
-        ]
+        ],
+        "no-string-literal": false
     }
 }
