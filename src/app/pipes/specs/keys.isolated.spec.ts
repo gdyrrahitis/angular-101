@@ -20,5 +20,16 @@ describe("Pipes", () => {
             expect(result.some((value) => value === "surname")).toBeTruthy();
             expect(result.some((value) => value === "age")).toBeTruthy();
         });
+
+        it("should return no key from empty object", () => {
+            // Arrange
+            const obj = {};
+
+            // Act
+            let result = keysPipe.transform(obj, []);
+
+            // Assert
+            expect(result.length).toBe(0);
+        });
     });
 });
