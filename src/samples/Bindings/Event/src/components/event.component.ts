@@ -9,14 +9,12 @@ import { ICountry } from "../models/Country";
     styleUrls: ["./event.component.css"],
 })
 export class EventComponent {
-
     public changedElement: any;
     public clickedElement: any;
     public countries: ICountry[];
     public imagesPath: string;
     public continent: IContinent;
     public continents: IContinent[] = [];
-
     public selectedContinent: IContinent;
     public continentToSwap: IContinent;
 
@@ -38,6 +36,10 @@ export class EventComponent {
         this.selectedContinent = this.continents[0];
     }
 
+    private getCurrentTime() {
+        return (new Date()).toLocaleString();
+    }
+
     public setSelectedContinent($event, continent: IContinent) {
         this.clickedElement = $event.target;
         this.continent = continent;
@@ -48,31 +50,45 @@ export class EventComponent {
     }
 
     public getCountriesByContinent(continent: IContinent): ICountry[] {
-        return this.countries.filter((c) => c.continent.name === continent.name);
+        return continent ? this.countries.filter((c) => c.continent.name === continent.name) : [];
     }
 
     public getSrcForCountry(country: ICountry): string {
+        if (!country) {
+            throw new Error("Parameter country should not be null");
+        }
+
+        if (!country.name || (country.name && !country.name.trim())) {
+            throw new Error("Property country.name should not be null or whitespace");
+        }
+
         return this.imagesPath.replace("$P0", country.code);
     }
 
     public clear($event) {
+        if (!$event) {
+            throw new Error("Parameter $event should not be null");
+        }
+
         this.continent = null;
         this.clickedElement = $event.target;
     }
 
-    public getCurrentTime() {
-        return (new Date()).toLocaleString();
-    }
-
-    public changeShowingList($event) {
-        this.continentToSwap = this.continents.filter((c) => c.name === $event.target.value)[0];
-        this.changedElement = $event.target;
-    }
-
-    public getContinentsExceptFromSelected() {
+    public getContinentsExceptFromSelected(): IContinent[] {
         if (typeof this.selectedContinent !== "undefined") {
             return this.continents.filter((c) => c.name !== this.selectedContinent.name);
         }
+
+        return [];
+    }
+
+    public changeShowingList($event) {
+        if (!$event) {
+            throw new Error("Parameter $event should not be null");
+        }
+
+        this.continentToSwap = this.continents.filter((c) => c.name === $event.target.value)[0];
+        this.changedElement = $event.target;
     }
 
     public swap() {
