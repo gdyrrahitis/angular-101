@@ -10,5 +10,14 @@
         "**/.DS_Store": true
     },
     "typescript.check.workspaceVersion": false,
-    "vsicons.presets.angular": true
+    "vsicons.presets.angular": true,
+    "line-counter.excludes": [
+        "**/.vscode/**",
+        "**/vendor/**",
+        "**/node_modules/**",
+        "**/README.md"
+    ],
+    "line-counter.includes": [
+        "**/*"
+    ]
 }
