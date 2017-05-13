@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   override:
-    - npm install --dev
+    - npm install tsc
     - docker info
     - docker build --rm=false -t gdyrra/angular-101 .
 
