@@ -20,17 +20,3 @@ let json = JSON.stringify(config);
 fs.writeFileSync("env-config.json", json, { encoding: "utf8" });
 
 let server = http.createServer(<any>app);
-
-if (env !== "production") {
-    server.listen(port, () => {
-        // tslint:disable-next-line:no-console
-        console.log(`Server is up and running, listening on port ${port}`);
-    });
-}
-
-function errorLog(error) {
-    if (error) {
-        // tslint:disable-next-line:no-console
-        console.log(error);
-    }
-}
