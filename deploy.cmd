@@ -101,7 +101,7 @@ call :SelectNodeVersion
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! install
-  call :ExecuteCmd !NPM_CMD! npm run tsc
+  call :ExecuteCmd !NPM_CMD! run tsc
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
