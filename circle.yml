@@ -4,8 +4,13 @@ machine:
 
 dependencies:
   override:
+    - npm install
     - docker info
     - docker build --rm=false -t gdyrra/angular-101 .
+
+test:
+  override:
+    - npm test
 
 deployment:
   hub:
