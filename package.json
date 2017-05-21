@@ -2,13 +2,14 @@
   "name": "angular2-samples",
   "version": "1.0.0",
   "scripts": {
-    "start-prod": "npm run tsc && SET NODE_ENV=production && node server.js",
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "start-container": "npm run tsc && npm run lite-container",
+    "start:prod": "npm run tsc && SET NODE_ENV=production && node server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start:container": "npm run tsc && npm run lite:container",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
-    "lite-container": "lite-server -c docker-bs-config.json",
+    "lite:container": "lite-server -c docker-bs-config.json",
     "test": "npm run tsc && karma start"
   },
   "license": "ISC",
@@ -50,15 +51,16 @@
     "@types/jasmine": "^2.5.46",
     "@types/node": "^7.0.8",
     "concurrently": "^3.1.0",
+    "express": "^4.15.3",
+    "fs": "^0.0.1-security",
+    "if-env": "^1.0.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "lite-server": "^2.2.2",
-    "tslint": "^4.5.1",
-    "typescript": "^2.1.4",
-    "express": "^4.15.3",
     "path": "^0.12.7",
-    "fs": "^0.0.1-security"
+    "tslint": "^4.5.1",
+    "typescript": "^2.1.4"
   },
   "repository": {
     "url": "https://github.com/gdyrrahitis/Angular-101"
