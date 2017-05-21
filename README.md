@@ -7,7 +7,7 @@
 
 Samples are hosted under Azure Web App, link to application:
 
-[http://angular-101.azurewebsites.net/](http://angular-101.azurewebsites.net/)
+[https://angular-101.azurewebsites.net/](http://angular-101.azurewebsites.net/)
 
 ## Installation
 **To run the samples, first install all dependencies.**
