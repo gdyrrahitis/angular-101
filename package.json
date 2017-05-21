@@ -2,6 +2,7 @@
   "name": "angular2-samples",
   "version": "1.0.0",
   "scripts": {
+    "start-prod": "npm run tsc && SET NODE_ENV=production && node server.js",
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "start-container": "npm run tsc && npm run lite-container",
     "tsc": "tsc",
@@ -12,15 +13,15 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@angular/common": "^2.4.5",
-    "@angular/compiler": "^2.4.5",
-    "@angular/core": "^2.4.5",
-    "@angular/forms": "^2.4.5",
-    "@angular/http": "^2.4.5",
-    "@angular/platform-browser": "^2.4.5",
-    "@angular/platform-browser-dynamic": "^2.4.5",
-    "@angular/router": "^3.4.5",
-    "@angular/upgrade": "^2.4.5",
+    "@angular/common": "^4.1.3",
+    "@angular/compiler": "^4.1.3",
+    "@angular/core": "^4.1.3",
+    "@angular/forms": "^4.1.3",
+    "@angular/http": "^4.1.3",
+    "@angular/platform-browser": "^4.1.3",
+    "@angular/platform-browser-dynamic": "^4.1.3",
+    "@angular/router": "^4.1.3",
+    "@angular/upgrade": "^4.1.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "d3": "^3.5.17",
@@ -31,14 +32,14 @@
     "es6-shim": "^0.35.3",
     "font-awesome": "^4.7.0",
     "i18n-iso-countries": "^1.10.0",
-    "ng2-bootstrap": "^1.6.1",
+    "ng2-bootstrap": "^1.6.3",
     "pad": "^1.0.2",
-    "reflect-metadata": "^0.1.9",
-    "rxjs": "^5.0.3",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.0",
     "systemjs": "^0.20.2",
     "systemjs-plugin-json": "^0.2.3",
     "topojson": "~2.2.0",
-    "zone.js": "^0.7.6"
+    "zone.js": "^0.8.11"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
@@ -54,7 +55,10 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "lite-server": "^2.2.2",
     "tslint": "^4.5.1",
-    "typescript": "^2.1.4"
+    "typescript": "^2.1.4",
+    "express": "^4.15.3",
+    "path": "^0.12.7",
+    "fs": "^0.0.1-security"
   },
   "repository": {
     "url": "https://github.com/gdyrrahitis/Angular-101"

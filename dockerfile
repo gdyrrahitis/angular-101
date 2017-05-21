@@ -12,8 +12,8 @@ RUN npm install
 # Bundle application inside docker image
 COPY . /usr/src/angular101
 
-# Run application on 8000 port
-EXPOSE 8000
+# Run application on 80 port
+EXPOSE 80
 
 # Run node commands
-CMD ["npm", "run", "start-container"]
+CMD ["npm", "run", "start-prod"]
