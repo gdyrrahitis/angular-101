@@ -10,7 +10,7 @@ dependencies:
 test:
   override:
     - npm install
-    - docker run gdyrra/angular-101 npm test
+    - npm test
 
 deployment:
   hub:
