@@ -10,7 +10,8 @@
     "tsc:w": "tsc -w",
     "lite": "lite-server",
     "lite:container": "lite-server -c docker-bs-config.json",
-    "test": "npm run tsc && karma start"
+    "test:dev": "karma start",
+    "test:circleci": "npm run tsc && karma start karma.conf.circleci.js"
   },
   "license": "ISC",
   "dependencies": {
@@ -54,8 +55,12 @@
     "express": "^4.15.3",
     "fs": "^0.0.1-security",
     "if-env": "^1.0.0",
-    "karma-chrome-launcher": "^2.0.0",
+    "jasmine": "^2.7.0",
+    "jasmine-core": "^2.7.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
     "lite-server": "^2.2.2",
     "path": "^0.12.7",
