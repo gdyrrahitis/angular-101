@@ -3,12 +3,12 @@
 Example shows event binding in Angular.
 In event binding you use the parenthesis in HTML element on template, `(EVENT_NAME)`, to send events from the template to the underlying component.
 
-Syntax goes like:
+#### Syntax goes like
 `(target)="statement()"`
 
 Use the standard browser/vanilla JS event names, like `onclick`, `onchange`, `onsubmit` etc. but remember to omit the `on` prefix, so it should be like `(click)` or `(change)` or `(submit)` and many more.
 
-In the example, look at the `event.component.html` source code. You will find snippets like:
+Look at the `event.component.html` and `event.component.ts` source code. You will find snippets like:
 
 ```
 <div class="panel-heading">
@@ -34,7 +34,7 @@ For example, this one calls the `setSelectedContinent` method when the button is
 
 The `$event` object is an object that contains a message about the event. It is the event message and we can pass to the calling method.
 
-Example:
+#### Example
 `<button (click)="save($event)">`
 
 The type of the `$event` object is `any`, so it can take different forms, based on the event that is fired. Of course, you can cast it to any event.
@@ -42,7 +42,7 @@ It can
 
 This object contains useful properties like `$event.target` which returns the target element, the target from where the event was fired, thus you can fetch it's value, state, CSS, whatever.
 
-Example:
+#### Example
 ```
 public changeShowingList($event: Event) { // Passing it as an Event
     if (!$event) {
