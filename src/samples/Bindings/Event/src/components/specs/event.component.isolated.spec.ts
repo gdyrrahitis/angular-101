@@ -8,7 +8,7 @@ describe("Components", () => {
             // Arrange
             let htmlElement: HTMLElement = document.createElement("div");
             htmlElement.className = "myClassName";
-            let $event = { target: htmlElement };
+            let $event: any = { target: htmlElement };
             let continent: IContinent = new Continent("Europe");
             let component = new EventComponent();
 
@@ -23,7 +23,7 @@ describe("Components", () => {
 
         it("should return countries by selected continent", () => {
             // Arrange
-            let $event = { target: {} };
+            let $event: any = { target: {} };
             let continent: IContinent = new Continent("Europe");
             let component = new EventComponent();
             component.setSelectedContinent($event, continent);
@@ -43,7 +43,7 @@ describe("Components", () => {
 
         it("should return empty array if continent is not listed", () => {
             // Arrange
-            let $event = { target: {} };
+            let $event: any = { target: {} };
             let continent: IContinent = new Continent("Oceania");
             let component = new EventComponent();
             component.setSelectedContinent($event, continent);
@@ -170,7 +170,7 @@ describe("Components", () => {
             // Arrange
             let htmlElement: HTMLElement = document.createElement("div");
             htmlElement.className = "myClassName";
-            let $event = { target: htmlElement };
+            let $event: any = { target: htmlElement };
             let continent: IContinent = new Continent("Europe");
             let component = new EventComponent();
             component.setSelectedContinent($event, continent);
@@ -234,9 +234,9 @@ describe("Components", () => {
         it("should set continentToSwap to undefined for non existent continent", () => {
             // Arrange
             let component = new EventComponent();
-
+            let $event: any = { target: { value: "Oceania" } };
             // Act
-            component.changeShowingList({ target: { value: "Oceania" } });
+            component.changeShowingList($event);
 
             // Assert
             expect(component.continentToSwap).toBeUndefined();
@@ -246,7 +246,7 @@ describe("Components", () => {
             // Arrange
             let input: HTMLInputElement = document.createElement("input");
             input.value = "America";
-            let $event = { target: input };
+            let $event: any = { target: input };
             let component = new EventComponent();
 
             // Act
@@ -261,7 +261,7 @@ describe("Components", () => {
             // Arrange
             let input: HTMLInputElement = document.createElement("input");
             input.value = "America";
-            let $event = { target: input };
+            let $event: any = { target: input };
             let component = new EventComponent();
             component.changeShowingList($event);
 

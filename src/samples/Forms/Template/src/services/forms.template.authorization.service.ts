@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 
-import { LoginDetails } from "../models/LoginDetails";
-import { User } from "../models/User";
+import { LoginDetails } from "../models/loginDetails";
+import { User } from "../models/user";
 
 const UserCredentials = {
     username: "angular",

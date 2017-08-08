@@ -40,8 +40,9 @@ export class EventComponent {
         return (new Date()).toLocaleString();
     }
 
-    public setSelectedContinent($event, continent: IContinent) {
-        this.clickedElement = $event.target;
+    public setSelectedContinent($event: MouseEvent, continent: IContinent) {
+        let target = $event.target as HTMLElement;
+        this.clickedElement = target;
         this.continent = continent;
     }
 
@@ -65,13 +66,14 @@ export class EventComponent {
         return this.imagesPath.replace("$P0", country.code);
     }
 
-    public clear($event) {
+    public clear($event: MouseEvent) {
         if (!$event) {
             throw new Error("Parameter $event should not be null");
         }
 
+        let target = $event.target as HTMLElement;
         this.continent = null;
-        this.clickedElement = $event.target;
+        this.clickedElement = target;
     }
 
     public getContinentsExceptFromSelected(): IContinent[] {
@@ -82,13 +84,14 @@ export class EventComponent {
         return [];
     }
 
-    public changeShowingList($event) {
+    public changeShowingList($event: Event) {
         if (!$event) {
             throw new Error("Parameter $event should not be null");
         }
 
-        this.continentToSwap = this.continents.filter((c) => c.name === $event.target.value)[0];
-        this.changedElement = $event.target;
+        let target = $event.target as HTMLSelectElement;
+        this.continentToSwap = this.continents.filter((c) => c.name === target.value)[0];
+        this.changedElement = target;
     }
 
     public swap() {

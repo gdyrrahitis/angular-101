@@ -11,22 +11,22 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/component', 'interaction']" class="list-group-item">
+                            <a [routerLink]="['/component', 'interaction']" class="list-group-item component-interaction">
                                 <div class="truncate pull-left">Component interaction</div>
                             </a>
-                            <a [routerLink]="['/component', 'child']" class="list-group-item">
+                            <a [routerLink]="['/component', 'child']" class="list-group-item component-child">
                                 <div class="truncate pull-left">Child components</div>
                             </a>
-                            <a [routerLink]="['/component', 'lifecycle-hooks']" class="list-group-item">
+                            <a [routerLink]="['/component', 'lifecycle-hooks']" class="list-group-item component-lifecycle-hooks">
                                 <div class="truncate pull-left">Lifecycle hooks</div>
                             </a>
-                            <a [routerLink]="['/component', 'projection']" class="list-group-item">
+                            <a [routerLink]="['/component', 'projection']" class="list-group-item component-projection">
                                 <div class="truncate pull-left">Content projection</div>
                             </a>
-                            <a [routerLink]="['/component', 'directives']" class="list-group-item">
+                            <a [routerLink]="['/component', 'directives']" class="list-group-item component-directives">
                                 <div class="truncate pull-left">Directives</div>
                             </a>
-                            <a [routerLink]="['/component', 'pipes']" class="list-group-item">
+                            <a [routerLink]="['/component', 'pipes']" class="list-group-item component-pipes">
                                 <div class="truncate pull-left">Pipes</div>
                             </a>
                         </div>
@@ -37,13 +37,13 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/templates', 'interpolation']" class="list-group-item">
+                            <a [routerLink]="['/templates', 'interpolation']" class="list-group-item templates-interpolation">
                                 <div class="truncate pull-left">Interpolation</div>
                             </a>
-                            <a [routerLink]="['/templates', 'ngif']" class="list-group-item">
+                            <a [routerLink]="['/templates', 'ngif']" class="list-group-item templates-ngif">
                                 <div class="truncate pull-left">NgIf</div>
                             </a>
-                            <a [routerLink]="['/templates', 'ngfor']" class="list-group-item">
+                            <a [routerLink]="['/templates', 'ngfor']" class="list-group-item templates-ngfor">
                                 <div class="truncate pull-left">NgFor</div>
                             </a>
                         </div>
@@ -54,13 +54,13 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/binding', 'property']" class="list-group-item">
+                            <a [routerLink]="['/binding', 'property']" class="list-group-item binding-property">
                                 <div class="truncate pull-left">Property binding</div>
                             </a>
-                            <a [routerLink]="['/binding', 'event']" class="list-group-item">
+                            <a [routerLink]="['/binding', 'event']" class="list-group-item binding-event">
                                 <div class="truncate pull-left">Event Binding</div>
                             </a>
-                            <a [routerLink]="['/binding' ,'two-way']" class="list-group-item">
+                            <a [routerLink]="['/binding' ,'two-way']" class="list-group-item binding-two-way">
                                 <div class="truncate pull-left">Two way binding</div>
                             </a>
                         </div>
@@ -71,10 +71,10 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/services', 'services']" class="list-group-item">
+                            <a [routerLink]="['/services', 'services']" class="list-group-item services-services">
                                 <div class="truncate pull-left">Services</div>
                             </a>
-                            <a [routerLink]="['/services', 'di']" class="list-group-item">
+                            <a [routerLink]="['/services', 'di']" class="list-group-item services-di">
                                 <div class="truncate pull-left">Dependency injection</div>
                             </a>
                         </div>
@@ -85,13 +85,13 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/forms', 'template']" class="list-group-item">
+                            <a [routerLink]="['/forms', 'template']" class="list-group-item forms-template">
                                 <div class="truncate pull-left">Template driven</div>
                             </a>
-                            <a [routerLink]="['/forms', 'reactive']" class="list-group-item">
+                            <a [routerLink]="['/forms', 'reactive']" class="list-group-item forms-reactive">
                                 <div class="truncate pull-left">Reactive</div>
                             </a>
-                            <a [routerLink]="['/forms', 'validation', 'form']" class="list-group-item">
+                            <a [routerLink]="['/forms', 'validation', 'form']" class="list-group-item forms-validation-form">
                                 <div class="truncate pull-left">Validators</div>
                             </a>
                         </div>
@@ -102,13 +102,13 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/remote' ,'http']" class="list-group-item">
+                            <a [routerLink]="['/remote' ,'http']" class="list-group-item remote-http">
                                 <div class="truncate pull-left">Http</div>
                             </a>
-                            <a [routerLink]="['/remote', 'promises']" class="list-group-item">
+                            <a [routerLink]="['/remote', 'promises']" class="list-group-item remote-promises">
                                 <div class="truncate pull-left">Promises</div>
                             </a>
-                            <a [routerLink]="['/remote', 'async']" class="list-group-item">
+                            <a [routerLink]="['/remote', 'async']" class="list-group-item remote-async">
                                 <div class="truncate pull-left">Async pipe</div>
                             </a>
                         </div>
@@ -119,10 +119,10 @@
                 <div class="row">
                     <div class="col-md-12 list-category text-primary">
                         <div class="list-group">
-                            <a [routerLink]="['/routing', 'dynamic']" class="list-group-item">
+                            <a [routerLink]="['/routing', 'dynamic']" class="list-group-item routing-dynamic">
                                 <div class="truncate pull-left">Dynamic routes</div>
                             </a>
-                            <a [routerLink]="['/routing', 'child', 'country']" class="list-group-item">
+                            <a [routerLink]="['/routing', 'child', 'country']" class="list-group-item routing-child-country">
                                 <div class="truncate pull-left">Child routes</div>
                             </a>
                         </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { User } from "../models/User";
+import { User } from "../models/user";
 import { FormsTemplateAuthorizationService } from "../services/forms.template.authorization.service";
 import { FormsTemplateCountriesService } from "../services/forms.template.countries.service";
 
