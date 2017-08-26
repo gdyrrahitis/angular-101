@@ -43,9 +43,17 @@
         <button type="button" class="btn btn-large btn-primary" (click)="showProgress()">Show progress</button>
 
         <hr/>
-        <p *ngIf="_complete">Request sent!</p>
-        <p *ngIf="_uploaded">Uploaded request</p>
-        <p *ngIf="_downloaded">Downloaded body</p>
-        <p *ngIf="_response">Received response</p>
+        <p *ngIf="_sent" class="lead">Request sent!</p>
+        <p *ngIf="_downloading && !error" class="lead">Downloading image...</p>
+        <div *ngIf="_downloading && !error">
+            <progressbar class="progress-striped active" [animate]="true" [value]="progress" type="success"><b>{{progress}}%</b></progressbar>
+        </div>
+        <p *ngIf="_response" class="text-success lead">Received response
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </p>
+
+        
+        <div *ngIf="error" class="alert alert-danger">An error occured {{error.message}}</div>
+        
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpEventType, HttpParams, HttpRequest } from "@angular/common/http";
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams, HttpRequest } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/shareReplay";
@@ -20,6 +20,8 @@ export class HttpClientComponent implements OnInit {
     public todo: Todo;
     public error: any;
     private url: string = "https://jsonplaceholder.typicode.com";
+    private img: string = "https://media.giphy.com/media/wETt5IIeRluUg/giphy.gif";
+    private progress: number;
 
     private _todos: Todo[];
     public get todos(): Todo[] {
@@ -31,9 +33,9 @@ export class HttpClientComponent implements OnInit {
         return this._notCompletedTodos;
     }
 
-    private _downloaded: boolean;
-    public get downloaded(): boolean {
-        return this._downloaded;
+    private _downloading: boolean;
+    public get downloading(): boolean {
+        return this._downloading;
     }
 
     private _response: boolean;
@@ -41,9 +43,9 @@ export class HttpClientComponent implements OnInit {
         return this._response;
     }
 
-    private _complete: boolean;
-    public get complete(): boolean {
-        return this._complete;
+    private _send: boolean;
+    public get send(): boolean {
+        return this._send;
     }
 
     constructor(private http: HttpClient) { }
@@ -85,25 +87,27 @@ export class HttpClientComponent implements OnInit {
     }
 
     public showProgress(): void {
-        const request = new HttpRequest("GET", `${this.url}/todos`, { reportProgress: true });
+        this._downloading = this._response = this._send = false;
+        this.error = undefined;
+
+        const headers: HttpHeaders = new HttpHeaders()
+            .set("Cache-Control", "no-cache, no-store, must-revalidate")
+            .set("Pragma", "no-cache")
+            .set("Expires", "0");
+        const request = new HttpRequest("GET", this.img, { reportProgress: true, headers });
         this.http.request<Todo[]>(request)
             .shareReplay()
             .subscribe((event) => {
                 if (event.type === HttpEventType.DownloadProgress) {
-                    (() => {
-                        setTimeout(() => {
-                            this._downloaded = true;
-                        }, 2000);
-                    })();
+                    this._downloading = true;
+                    this.progress = Math.floor(Math.floor(100 * event.loaded) / event.total);
                 }
 
                 if (event.type === HttpEventType.Response) {
-                    setTimeout(() => {
-                        this._response = true;
-                    }, 4000);
+                    this._response = true;
                 }
             },
             (error) => this.error = error,
-            () => this._complete = true);
+            () => this._send = true);
     }
 }

@@ -5,8 +5,7 @@ import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 
-import { AccordionModule } from "ng2-bootstrap";
-import { DatepickerModule } from "ng2-bootstrap";
+import { AccordionModule, DatepickerModule, ProgressbarModule } from "ng2-bootstrap";
 
 import { ROUTES } from "./routes";
 
@@ -60,6 +59,7 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         HttpModule,
         AccordionModule.forRoot(),
         DatepickerModule.forRoot(),
+        ProgressbarModule.forRoot(),
         HttpClientModule
     ],
     declarations: [
