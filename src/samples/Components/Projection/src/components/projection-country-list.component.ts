@@ -52,7 +52,6 @@ export class ProjectionCountryListComponent implements OnInit {
     }
 
     private handleError(error) {
-        console.error(error);
         return Observable.throw(error);
     }
 

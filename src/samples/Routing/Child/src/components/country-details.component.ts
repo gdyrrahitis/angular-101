@@ -25,7 +25,6 @@ export class CountryDetailsComponent implements OnInit {
     }
 
     private handleError(error) {
-        console.error(error);
         return Observable.throw(error);
     }
 

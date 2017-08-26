@@ -34,7 +34,6 @@ export class HttpComponent {
     }
 
     private handleError(error) {
-        console.error(error);
         return Observable.throw(error);
     }
 
