@@ -1,14 +1,15 @@
 import { HttpClient, HttpEventType, HttpHeaders, HttpParams, HttpRequest } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { BsModalRef, BsModalService } from "ngx-bootstrap";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/shareReplay";
 import { Observable } from "rxjs/Observable";
 
 type Todo = {
-    userId: number,
-    id: number,
-    title: string,
-    completed: boolean
+    userId?: number,
+    id?: number,
+    title?: string,
+    completed?: boolean
 };
 
 @Component({
@@ -17,11 +18,13 @@ type Todo = {
     selector: "app-remote-httpclient"
 })
 export class HttpClientComponent implements OnInit {
-    public todo: Todo;
+    public todo: Todo = {};
     public error: any;
     private url: string = "https://jsonplaceholder.typicode.com";
     private img: string = "https://media.giphy.com/media/wETt5IIeRluUg/giphy.gif";
     private progress: number;
+    private editMode: boolean = false;
+    private modes: Array<{ id: number, hidden: boolean }> = [];
 
     private _todos: Todo[];
     public get todos(): Todo[] {
@@ -48,13 +51,40 @@ export class HttpClientComponent implements OnInit {
         return this._send;
     }
 
-    constructor(private http: HttpClient) { }
+    public modalRef: BsModalRef;
+    constructor(private http: HttpClient, private modalService: BsModalService) { }
 
     public ngOnInit(): void {
         this.http.get<Todo[]>(`${this.url}/todos`)
             .map((p) => p.slice(0, 5))
             .shareReplay()
-            .subscribe((data) => this._todos = data);
+            .subscribe((data) => {
+                this._todos = data;
+                for (let t of data) {
+                    this.modes.push({ id: t.id, hidden: true });
+                }
+            });
+    }
+
+    public openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+    }
+
+    public getStatusFor(id: number) {
+        const [record] = this.modes.filter((t) => t.id === id);
+        return record.hidden;
+    }
+
+    public changeStatusFor(id: number): void {
+        const [record] = this.modes.filter((t) => t.id === id);
+        const previousState = record.hidden;
+        record.hidden = !record.hidden;
+        this.editMode = previousState;
+
+        if (!previousState) {
+            let [todo] = this.todos.filter((t) => t.id === record.id);
+            this.updateTodo(record.id, todo);
+        }
     }
 
     public getTopTwoCompleted(): void {
@@ -71,17 +101,21 @@ export class HttpClientComponent implements OnInit {
             .subscribe(() => {
                 const filtered = this.todos.filter((t) => t.id !== parseInt(id, 10));
                 this._todos = filtered;
-            });
+            }, (error) => this._todos = this._todos.filter((t) => t.id !== parseInt(id, 10)));
     }
 
     public createTodo(): void {
-        this.http.post(`${this.url}/todos`, this.todo)
+        this.http.post<Todo>(`${this.url}/todos`, this.todo)
             .shareReplay()
-            .subscribe();
+            .subscribe((data) => {
+                this._todos.push(data);
+                this.modes.push({ id: data.id, hidden: true });
+                this.modalRef.hide();
+            });
     }
 
-    public updateTodo(): void {
-        this.http.put(`${this.url}/todos/${this.todo.id}`, this.todo)
+    public updateTodo(id: number, todo: Todo): void {
+        this.http.put(`${this.url}/todos/${id}`, todo)
             .shareReplay()
             .subscribe();
     }

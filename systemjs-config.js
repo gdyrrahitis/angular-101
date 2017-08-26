@@ -22,7 +22,8 @@
         "d3-geo": "//d3js.org/d3.geo.projection.v0.min.js",
         "topojson": "//d3js.org/topojson.v1.min.js",
         "moment": "node_modules/moment/moment.js",
-        "ng2-bootstrap": "node_modules/ng2-bootstrap/bundles/ngx-bootstrap.umd.js",
+        "ngx-bootstrap": "node_modules/ngx-bootstrap/bundles/ngx-bootstrap.umd.js",
+        "ngx-bootstrap/modal": "node_modules/ngx-bootstrap/bundles/ngx-bootstrap.umd.js",
     };
 
     // What to do when no filename and/or no extension exists

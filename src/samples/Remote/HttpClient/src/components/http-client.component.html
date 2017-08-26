@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-12">
-        <h2>Top 5 TODO's</h2>
+        <h2>Top TODO's</h2>
 
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" (click)="openModal(modalTemplate)">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Create new
         </button>
 
@@ -17,12 +17,23 @@
             </thead>
             <tbody>
                 <tr *ngFor="let todo of _todos">
-                    <td>{{todo.title}}</td>
                     <td>
-                        <span class="glyphicon" [ngClass]="{'glyphicon-ok text-success':todo.completed, 'glyphicon-remove text-danger':!todo.completed}"></span>
+                        <span *ngIf="getStatusFor(todo.id)">{{todo.title}}</span>
+                        <input *ngIf="!getStatusFor(todo.id)" class="form-control" type="text" name="title" [(ngModel)]="todo.title" />
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary">Edit</button>
+                        <span *ngIf="getStatusFor(todo.id)" class="glyphicon" [ngClass]="{'glyphicon-ok text-success':todo.completed, 'glyphicon-remove text-danger':!todo.completed}"></span>
+                        <div class="checkbox" *ngIf="!getStatusFor(todo.id)">
+                            <label>
+                                    <input type="checkbox" name="completed" [(ngModel)]="todo.completed" />
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn" [ngClass]="{'btn-primary':!editMode,'btn-success':editMode}" (click)="changeStatusFor(todo.id)">
+                            <span *ngIf="editMode">Update</span>
+                            <span *ngIf="!editMode">Edit</span>
+                        </button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button>
@@ -39,7 +50,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h2>Log progress on requesting 200 TODO items</h2>
+        <h2>Downloading image from giphy</h2>
         <button type="button" class="btn btn-large btn-primary" (click)="showProgress()">Show progress</button>
 
         <hr/>
@@ -52,8 +63,30 @@
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         </p>
 
-        
+
         <div *ngIf="error" class="alert alert-danger">An error occured {{error.message}}</div>
-        
+
     </div>
 </div>
+
+<ng-template #modalTemplate>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Create new</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+        <form novalidate #form="ngForm">
+            <div class="form-group">
+                <input class="form-control" placeholder="Title" type="text" name="title" [(ngModel)]="todo.title" />
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="completed" [(ngModel)]="todo.completed" /> Completed</label>
+                </div>
+            </div>
+            <button class="btn btn-primary" (click)="createTodo()">Create</button>
+        </form>
+    </div>
+</ng-template>
