@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Top 5 TODO's</h2>
+
+        <button type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Create new
+        </button>
+
+        <table class="table" *ngIf="_todos?.length > 0 else noTodos">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Completed</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let todo of _todos">
+                    <td>{{todo.title}}</td>
+                    <td>
+                        <span class="glyphicon" [ngClass]="{'glyphicon-ok text-success':todo.completed, 'glyphicon-remove text-danger':!todo.completed}"></span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #noTodos>
+            <hr/>
+            <div class="alert alert-danger">No TODO items to display!</div>
+        </ng-template>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Log progress on requesting 200 TODO items</h2>
+        <button type="button" class="btn btn-large btn-primary" (click)="showProgress()">Show progress</button>
+
+        <hr/>
+        <p *ngIf="_complete">Request sent!</p>
+        <p *ngIf="_uploaded">Uploaded request</p>
+        <p *ngIf="_downloaded">Downloaded body</p>
+        <p *ngIf="_response">Received response</p>
+    </div>
+</div>

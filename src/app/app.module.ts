@@ -1,8 +1,10 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+
 import { AccordionModule } from "ng2-bootstrap";
 import { DatepickerModule } from "ng2-bootstrap";
 
@@ -32,8 +34,8 @@ import {
     FormsValidationFormComponent, FormsValidationSettingsComponent
 } from "../samples/Forms/index";
 import {
-    AsyncPipeComponent, HttpComponent, PopulationService,
-    PromisesComponent, PromisesCountriesService
+    AsyncPipeComponent, HttpClientComponent, HttpComponent,
+    PopulationService, PromisesComponent, PromisesCountriesService
 } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
@@ -47,7 +49,6 @@ import {
 import { InterpolationComponent, NgForComponent, NgIfComponent } from "../samples/Templates/index";
 import { AppComponent, FooterComponent, HeaderComponent, SamplesListComponent } from "./components/index";
 
-
 import { KeysPipe, SafePipe } from "./pipes/index";
 
 @NgModule({
@@ -58,7 +59,8 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         ReactiveFormsModule,
         HttpModule,
         AccordionModule.forRoot(),
-        DatepickerModule.forRoot()
+        DatepickerModule.forRoot(),
+        HttpClientModule
     ],
     declarations: [
         AppComponent,
@@ -81,6 +83,7 @@ import { KeysPipe, SafePipe } from "./pipes/index";
         HttpComponent,
         AsyncPipeComponent,
         PromisesComponent,
+        HttpClientComponent,
 
         ChildComponent, CountryCurrencyEuroComponent, CountryLanguageGreekComponent, CountryDetailsComponent,
         ChildCountryComponent,

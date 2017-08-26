@@ -19,7 +19,7 @@ import {
     FormsTemplateEditProfileComponent, FormsTemplateSecretComponent,
     FormsValidationComponent, FormsValidationFormComponent, FormsValidationSettingsComponent
 } from "../samples/Forms/index";
-import { AsyncPipeComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
+import { AsyncPipeComponent, HttpClientComponent, HttpComponent, PromisesComponent } from "../samples/Remote/index";
 import {
     ChildComponent, CountryCurrencyEuroComponent, CountryDetailsComponent, CountryLanguageGreekComponent,
     DynamicComponent, DynamicContinentChildComponent, DynamicCountryChildComponent, DynamicFxRatesComponent
@@ -148,6 +148,10 @@ export const ROUTES: Route[] = [
     {
         path: "remote/promises",
         component: PromisesComponent
+    },
+    {
+        path: "remote/http-client",
+        component: HttpClientComponent
     },
     {
         path: "forms/template",

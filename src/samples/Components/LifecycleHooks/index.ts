@@ -1,2 +1,2 @@
-export * from "./src/lifecycle-hooks.component";
-export * from "./src/lifecycle-hooks-child.component";
+export * from "./src/components/lifecycle-hooks.component";
+export * from "./src/components/lifecycle-hooks-child.component";

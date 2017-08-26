@@ -12,6 +12,9 @@
         "whitespace": [
             false
         ],
-        "no-string-literal": false
+        "no-string-literal": false,
+        "variable-name": [
+            false
+        ]
     }
 }

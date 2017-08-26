@@ -1,15 +1,18 @@
 (function (global) {
     var paths = {
         // paths serve as alias
-        'npm:': 'node_modules/'
+        "npm:": "node_modules/"
     };
 
     // Where to look for packages
     var map = {
         "app": "src",
         "@angular": "npm:@angular",
-        '@angular/router/upgrade': 'npm:@angular/router/bundles/router-upgrade.umd.js',
-        '@angular/upgrade/static': 'npm:@angular/forms/bundles/upgrade-static.umd.js',
+        "@angular/router/upgrade": "npm:@angular/router/bundles/router-upgrade.umd.js",
+        "@angular/common/http": "npm:@angular/common/bundles/common-http.umd.js",
+        "@angular/common/http/testing": "npm:@angular/common/bundles/common-http-testing.umd.js",
+        "tslib": "npm:tslib/tslib.js",
+        "@angular/upgrade/static": "npm:@angular/forms/bundles/upgrade-static.umd.js",
         "rxjs": "npm:rxjs",
         "i18n-iso-countries": "npm:i18n-iso-countries",
         "json": "npm:systemjs-plugin-json",
@@ -18,8 +21,8 @@
         "d3-array": "npm:d3-array/build",
         "d3-geo": "//d3js.org/d3.geo.projection.v0.min.js",
         "topojson": "//d3js.org/topojson.v1.min.js",
-        'moment': 'node_modules/moment/moment.js',
-        'ng2-bootstrap': 'node_modules/ng2-bootstrap/bundles/ngx-bootstrap.umd.js',
+        "moment": "node_modules/moment/moment.js",
+        "ng2-bootstrap": "node_modules/ng2-bootstrap/bundles/ngx-bootstrap.umd.js",
     };
 
     // What to do when no filename and/or no extension exists

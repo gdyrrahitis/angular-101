@@ -193,6 +193,14 @@ describe("SamplesList", () => {
                     .nativeElement.getAttribute("href");
                 expect(href).toBe("/remote/async");
             });
+
+            it("should render httpclient route", () => {
+                fixture.detectChanges();
+                let href = fixture.debugElement
+                    .query(By.css("a.remote-http-client"))
+                    .nativeElement.getAttribute("href");
+                expect(href).toBe("/remote/http-client");
+            });
         });
 
         describe("Routing route", () => {
