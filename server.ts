@@ -13,10 +13,10 @@ app.all("/*", (request, response, next) => {
     response.sendFile("index.html", { root: __dirname });
 });
 
-let contents = fs.readFileSync("env-config.json", "utf8");
-let config = JSON.parse(contents);
-config.node_env = env;
-let json = JSON.stringify(config);
-fs.writeFileSync("env-config.json", json, { encoding: "utf8" });
+// let contents = fs.readFileSync("env-config.json", "utf8");
+// let config = JSON.parse(contents);
+// config.node_env = env;
+// let json = JSON.stringify(config);
+// fs.writeFileSync("env-config.json", json, { encoding: "utf8" });
 
 http.createServer(<any>app).listen(port);
