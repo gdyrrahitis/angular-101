@@ -38,6 +38,4 @@ Tests are found relative to each `.ts` file, in a folder named `specs`. There ar
 ## Contribute
 If you wish, you can contribute on the existing samples, or even introduce new, making this repo more rich, in order for other people to benefit from the code that lies here.
 
-As usual, create a new branch with the prefix `sample-` and then your name of the branch. After done, create a PR and I will review it as soon as I can.
-
 Please, try to follow the application structure, in which under `samples` folder are all samples located, under each category, like `Bindings`, `Components`, etc., inside each there is the sub-category which is going to be explored. Itself contains an `src` folder with all the code and a barrel (`index.ts`) to expose its items.
