@@ -2,7 +2,7 @@
     "name": "angular2-samples",
     "version": "1.0.0",
     "scripts": {
-        "start:prod": "npm run tsc && SET NODE_ENV=production && SET PORT=80 && node server.js",
+        "start:prod": "npm run tsc && SET NODE_ENV=production && node server.js",
         "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
         "start:dev": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
         "start:container": "npm run tsc && npm run lite:container",
