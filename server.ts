@@ -3,7 +3,7 @@ import * as path from "path";
 import http = require("http");
 import * as fs from "fs";
 
-const port = process.env.PORT || "8080";
+const port: number = process.env.PORT || 8080;
 const env: string = process.env.NODE_ENV || "development";
 let app: express.Application = express();
 app.use(express.static(__dirname));
@@ -19,4 +19,4 @@ config.node_env = env;
 let json = JSON.stringify(config);
 fs.writeFileSync("env-config.json", json, { encoding: "utf8" });
 
-http.createServer(<any>app).listen(parseInt(port));
+http.createServer(<any>app).listen(port);
