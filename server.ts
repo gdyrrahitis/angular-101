@@ -3,7 +3,7 @@ import * as path from "path";
 import http = require("http");
 import * as fs from "fs";
 
-const port: number = 80;//parseInt(process.env.PORT) || 8080;
+const port: number = 8484;//parseInt(process.env.PORT) || 8080;
 const env: string = process.env.NODE_ENV || "development";
 let app: express.Application = express();
 app.use(express.static(__dirname));
