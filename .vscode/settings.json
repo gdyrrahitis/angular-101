@@ -5,6 +5,7 @@
         "*/**/.map": true,
         "*/samples/**/*.js": true,
         "*/app/**/*.js": true,
+        "*/app/**/*.js.map": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,

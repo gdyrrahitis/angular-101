@@ -1,4 +1,4 @@
-(function (global) {
+(function(global) {
     var paths = {
         // paths serve as alias
         "npm:": "node_modules/"
@@ -19,8 +19,8 @@
         "pad": "npm:pad/lib",
         "d3": "npm:d3",
         "d3-array": "npm:d3-array/build",
-        "d3-geo": "//d3js.org/d3.geo.projection.v0.min.js",
-        "topojson": "//d3js.org/topojson.v1.min.js",
+        "d3-geo": "npm:d3-geo/dist/d3-geo.js",
+        "topojson": "npm:topojson/dist/topojson.js",
         "moment": "npm:moment/moment.js",
         "ngx-bootstrap": "npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.js"
     };
